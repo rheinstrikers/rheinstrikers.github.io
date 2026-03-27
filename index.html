@@ -3,846 +3,576 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Rhein Strikers Cricket Cup 2026 — 2nd Edition | Indo Spice Presents</title>
-<meta name="description" content="Indo Spice presents Rhein Strikers Cricket Cup 2026 - 2nd Annual Tournament in Ludwigshafen, Germany. 12 teams, epic cricket action!">
+<title>Rhein Strikers Cricket Cup 2026 | Indo Spice Presents</title>
+<meta name="description" content="Indo Spice presents Rhein Strikers Cricket Cup 2026 - 2nd Edition. 12 teams, Ludwigshafen, Germany.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-/* ===== RESET ===== */
+:root{
+  --bg:#0a0e1a;--surface:#111827;--surface2:#1a2035;
+  --gold:#d4a843;--gold-light:#e8c36a;--gold-dark:#a07c2e;
+  --white:#f0f0f0;--muted:#7a8194;--dim:#3a4050;
+  --radius:12px;
+}
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{
-  font-family:'Inter',system-ui,sans-serif;
-  background:#050a18;color:#e2e8f0;
-  min-height:100vh;overflow-x:hidden;
-  -webkit-font-smoothing:antialiased;
-}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--white);overflow-x:hidden;-webkit-font-smoothing:antialiased}
 img{display:block;max-width:100%}
 a{text-decoration:none;color:inherit}
 
-/* ===== ANIMATED BG ===== */
-.page-bg{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
-.page-bg .orb{position:absolute;border-radius:50%;filter:blur(150px);animation:orbDrift 25s ease-in-out infinite}
-.page-bg .o1{width:900px;height:900px;background:rgba(99,102,241,.15);top:-350px;left:-250px}
-.page-bg .o2{width:700px;height:700px;background:rgba(251,191,36,.10);top:35%;right:-250px;animation-delay:-8s}
-.page-bg .o3{width:800px;height:800px;background:rgba(236,72,153,.08);bottom:-300px;left:25%;animation-delay:-16s}
-.page-bg .o4{width:500px;height:500px;background:rgba(6,182,212,.08);top:55%;left:-200px;animation-delay:-4s}
-@keyframes orbDrift{
-  0%,100%{transform:translate(0,0) scale(1)}
-  33%{transform:translate(80px,-100px) scale(1.06)}
-  66%{transform:translate(-60px,80px) scale(.94)}
+/* ===== SUBTLE BG ===== */
+.bg-grain{
+  position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.018;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
-.noise{
-  position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.025;
-  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  background-size:200px;
+.bg-glow{
+  position:fixed;top:-40%;left:50%;transform:translateX(-50%);
+  width:1200px;height:800px;border-radius:50%;
+  background:radial-gradient(circle,rgba(212,168,67,.06),transparent 70%);
+  pointer-events:none;z-index:0;
 }
 
-/* ===== GLASS ===== */
-.glass{
-  background:rgba(255,255,255,.04);
-  backdrop-filter:blur(28px);-webkit-backdrop-filter:blur(28px);
-  border:1px solid rgba(255,255,255,.07);
-}
-
-/* ===== LAYOUT ===== */
-.container{max-width:1200px;margin:0 auto;padding:0 20px;position:relative;z-index:2}
+/* ===== UTILITIES ===== */
+.container{max-width:1100px;margin:0 auto;padding:0 24px;position:relative;z-index:2}
 section{padding:100px 0}
+.gold-text{color:var(--gold)}
+.divider{width:60px;height:2px;background:var(--gold);border-radius:2px;margin:0 auto}
 
-/* ===== KEYFRAMES ===== */
-@keyframes orbDrift{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(80px,-100px) scale(1.06)}66%{transform:translate(-60px,80px) scale(.94)}}
-@keyframes shimmer{0%{background-position:-200% center}100%{background-position:200% center}}
-@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.8)}}
-@keyframes rotateSlow{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
-@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
-@keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
-@keyframes glowPulse{0%,100%{box-shadow:0 0 20px rgba(251,191,36,.08)}50%{box-shadow:0 0 40px rgba(251,191,36,.2)}}
-@keyframes borderShine{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
-@keyframes slideInUp{from{opacity:0;transform:translateY(60px)}to{opacity:1;transform:translateY(0)}}
-@keyframes slideInLeft{from{opacity:0;transform:translateX(-40px)}to{opacity:1;transform:translateX(0)}}
-@keyframes slideInRight{from{opacity:0;transform:translateX(40px)}to{opacity:1;transform:translateX(0)}}
-@keyframes scaleUp{from{opacity:0;transform:scale(.85)}to{opacity:1;transform:scale(1)}}
+/* ===== ANIMATIONS ===== */
+@keyframes fadeUp{from{opacity:0;transform:translateY(32px)}to{opacity:1;transform:translateY(0)}}
 @keyframes fadeIn{from{opacity:0}to{opacity:1}}
-@keyframes tiltIn{from{opacity:0;transform:perspective(600px) rotateX(15deg) translateY(30px)}to{opacity:1;transform:perspective(600px) rotateX(0) translateY(0)}}
+@keyframes shine{0%{left:-100%}100%{left:200%}}
+@keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+@keyframes glow{0%,100%{opacity:.5}50%{opacity:1}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+@keyframes countPop{from{transform:scale(.8);opacity:0}to{transform:scale(1);opacity:1}}
 
-/* Scroll reveal */
-.reveal{opacity:0;transform:translateY(40px);transition:all .8s cubic-bezier(.22,1,.36,1)}
-.reveal.visible{opacity:1;transform:translateY(0)}
-.reveal-scale{opacity:0;transform:scale(.9);transition:all .8s cubic-bezier(.22,1,.36,1)}
-.reveal-scale.visible{opacity:1;transform:scale(1)}
-.reveal-left{opacity:0;transform:translateX(-50px);transition:all .8s cubic-bezier(.22,1,.36,1)}
-.reveal-left.visible{opacity:1;transform:translateX(0)}
-.reveal-right{opacity:0;transform:translateX(50px);transition:all .8s cubic-bezier(.22,1,.36,1)}
-.reveal-right.visible{opacity:1;transform:translateX(0)}
-.reveal-tilt{opacity:0;transform:perspective(600px) rotateX(12deg) translateY(30px);transition:all .9s cubic-bezier(.22,1,.36,1)}
-.reveal-tilt.visible{opacity:1;transform:perspective(600px) rotateX(0) translateY(0)}
-.s1{transition-delay:.05s}.s2{transition-delay:.1s}.s3{transition-delay:.15s}
-.s4{transition-delay:.2s}.s5{transition-delay:.25s}.s6{transition-delay:.3s}
-.s7{transition-delay:.35s}.s8{transition-delay:.4s}.s9{transition-delay:.45s}
+.anim{opacity:0;transform:translateY(32px);transition:all .7s cubic-bezier(.16,1,.3,1)}
+.anim.vis{opacity:1;transform:translateY(0)}
+.d1{transition-delay:.06s}.d2{transition-delay:.12s}.d3{transition-delay:.18s}
+.d4{transition-delay:.24s}.d5{transition-delay:.3s}.d6{transition-delay:.36s}
+.d7{transition-delay:.42s}.d8{transition-delay:.48s}.d9{transition-delay:.54s}
 
 /* ===== NAV ===== */
-.nav{
-  position:fixed;top:0;left:0;right:0;z-index:100;
-  padding:16px 0;transition:all .4s cubic-bezier(.22,1,.36,1);
-}
-.nav.scrolled{
-  padding:10px 0;
-  background:rgba(5,10,24,.92);
-  backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);
-  border-bottom:1px solid rgba(255,255,255,.05);
-  box-shadow:0 8px 32px rgba(0,0,0,.4);
-}
-.nav-inner{
-  max-width:1200px;margin:0 auto;padding:0 20px;
-  display:flex;align-items:center;justify-content:space-between;
-}
-.nav-logo{
-  font-family:'Outfit',sans-serif;font-weight:900;font-size:20px;
-  background:linear-gradient(135deg,#fbbf24,#f59e0b);
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
-  letter-spacing:1px;
-}
-.nav-links{display:flex;gap:4px;align-items:center}
-.nav-links a{
-  font-size:13px;font-weight:500;color:rgba(255,255,255,.55);
-  padding:8px 16px;border-radius:100px;transition:all .25s ease;
-}
-.nav-links a:hover{color:#fff;background:rgba(255,255,255,.06)}
-.nav-cta{
-  background:linear-gradient(135deg,#fbbf24,#f59e0b)!important;
-  color:#0f172a!important;font-weight:700!important;
-  box-shadow:0 4px 20px rgba(251,191,36,.15);
-}
-.nav-cta:hover{box-shadow:0 8px 30px rgba(251,191,36,.3);transform:translateY(-1px)}
-.mobile-toggle{display:none;background:none;border:none;color:#fff;font-size:22px;cursor:pointer;padding:8px}
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:14px 0;transition:all .35s ease}
+.nav.stuck{background:rgba(10,14,26,.95);backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,.04);padding:10px 0}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;max-width:1100px;margin:0 auto;padding:0 24px}
+.nav-brand{font-family:'Outfit',sans-serif;font-weight:800;font-size:18px;color:var(--gold);letter-spacing:.5px}
+.nav-menu{display:flex;gap:6px;align-items:center}
+.nav-menu a{font-size:13px;font-weight:500;color:var(--muted);padding:7px 14px;border-radius:8px;transition:all .2s}
+.nav-menu a:hover{color:var(--white);background:rgba(255,255,255,.05)}
+.nav-register{background:var(--gold)!important;color:var(--bg)!important;font-weight:700!important;border-radius:8px!important}
+.nav-register:hover{background:var(--gold-light)!important}
+.burger{display:none;background:none;border:none;color:var(--white);font-size:20px;cursor:pointer;padding:6px}
 
 /* ===== HERO ===== */
-.hero{
-  min-height:100vh;min-height:100svh;display:flex;align-items:center;justify-content:center;
-  text-align:center;padding:120px 20px 80px;position:relative;overflow:hidden;
-}
-.hero-particles{position:absolute;inset:0;overflow:hidden}
-.hero-particles .particle{
-  position:absolute;width:4px;height:4px;border-radius:50%;
-  background:rgba(251,191,36,.3);animation:float 6s ease-in-out infinite;
-}
-.hero-ring{
-  position:absolute;top:50%;left:50%;
-  width:600px;height:600px;margin:-300px 0 0 -300px;
-  border-radius:50%;border:1px solid rgba(251,191,36,.05);
-  animation:rotateSlow 40s linear infinite;
-}
-.hero-ring::after{
-  content:'';position:absolute;top:-4px;left:50%;
-  width:8px;height:8px;border-radius:50%;background:#fbbf24;
-  box-shadow:0 0 20px rgba(251,191,36,.5);
-}
-.hero-ring-2{
-  position:absolute;top:50%;left:50%;
-  width:450px;height:450px;margin:-225px 0 0 -225px;
-  border-radius:50%;border:1px solid rgba(139,92,246,.05);
-  animation:rotateSlow 30s linear infinite reverse;
-}
-.hero-ring-2::after{
-  content:'';position:absolute;top:50%;right:-3px;
-  width:6px;height:6px;border-radius:50%;background:#8b5cf6;
-  box-shadow:0 0 16px rgba(139,92,246,.5);
-}
-.hero-content{max-width:900px;position:relative;z-index:2}
-.hero-presents{
+.hero{min-height:100vh;min-height:100svh;display:flex;align-items:center;padding:100px 24px 60px;position:relative;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:linear-gradient(180deg,rgba(212,168,67,.03) 0%,transparent 40%)}
+.hero-line{position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(212,168,67,.15),transparent)}
+.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;max-width:1100px;margin:0 auto;width:100%}
+.hero-left{position:relative;z-index:2}
+.hero-sponsor{
   display:inline-flex;align-items:center;gap:12px;
-  padding:10px 28px;border-radius:100px;margin-bottom:24px;
-  background:rgba(251,191,36,.06);border:1px solid rgba(251,191,36,.12);
-  animation:slideInUp .8s ease both;
+  margin-bottom:28px;animation:fadeUp .7s ease both;
 }
-.hero-presents img{height:28px;width:auto;border-radius:4px}
-.hero-presents span{
-  font-size:12px;font-weight:600;color:rgba(255,255,255,.45);
-  letter-spacing:3px;text-transform:uppercase;
+.hero-sponsor-logo{
+  height:32px;width:auto;filter:brightness(1.1);
 }
-.hero-badge{
-  display:inline-flex;align-items:center;gap:10px;
-  padding:8px 24px;border-radius:100px;margin-bottom:32px;
-  background:rgba(139,92,246,.06);border:1px solid rgba(139,92,246,.1);
-  font-size:12px;font-weight:700;color:#a78bfa;letter-spacing:4px;text-transform:uppercase;
-  animation:slideInUp .8s ease .1s both;
-}
-.hero-badge .live-dot{width:6px;height:6px;border-radius:50%;background:#a78bfa;animation:pulse 2s ease-in-out infinite}
+.hero-sponsor-text{font-size:11px;font-weight:700;color:var(--muted);letter-spacing:4px;text-transform:uppercase}
 .hero h1{
   font-family:'Outfit',sans-serif;font-weight:900;
-  font-size:clamp(48px,9vw,110px);line-height:.92;letter-spacing:-3px;
-  margin-bottom:12px;animation:slideInUp .8s ease .2s both;
+  font-size:clamp(44px,6vw,72px);line-height:.95;letter-spacing:-2px;
+  margin-bottom:8px;animation:fadeUp .7s ease .1s both;
 }
-.hero h1 .gold{
-  background:linear-gradient(135deg,#fbbf24 0%,#f59e0b 30%,#fcd34d 60%,#f59e0b 100%);
-  background-size:200% auto;
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
-  animation:shimmer 4s linear infinite;
-  filter:drop-shadow(0 0 60px rgba(251,191,36,.15));
+.hero h1 .accent{color:var(--gold)}
+.hero-sub{
+  font-family:'Space Grotesk',sans-serif;font-size:18px;font-weight:500;
+  color:var(--muted);letter-spacing:4px;text-transform:uppercase;
+  margin-bottom:36px;animation:fadeUp .7s ease .2s both;
 }
-.hero h1 .white{
-  background:linear-gradient(180deg,#fff,#64748b);
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+.hero-stats-row{
+  display:flex;gap:32px;margin-bottom:40px;animation:fadeUp .7s ease .3s both;
 }
-.hero-edition{
-  font-family:'Space Grotesk',sans-serif;font-size:clamp(16px,2.5vw,24px);
-  font-weight:600;color:rgba(255,255,255,.4);letter-spacing:8px;
-  text-transform:uppercase;margin-bottom:44px;
-  animation:slideInUp .8s ease .3s both;
+.hero-stat{text-align:left}
+.hero-stat-num{
+  font-family:'Outfit',sans-serif;font-weight:900;font-size:36px;
+  color:var(--gold);line-height:1;
 }
-.hero-stats{
-  display:flex;align-items:center;justify-content:center;gap:40px;
-  margin-bottom:44px;animation:slideInUp .8s ease .4s both;flex-wrap:wrap;
-}
-.hero-stat{text-align:center}
-.hero-stat .num{
-  font-family:'Outfit',sans-serif;font-weight:900;font-size:clamp(36px,5vw,52px);
-  background:linear-gradient(135deg,#fbbf24,#f59e0b);
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1;
-}
-.hero-stat .label{font-size:11px;font-weight:600;color:rgba(255,255,255,.3);letter-spacing:3px;text-transform:uppercase;margin-top:4px}
-.hero-meta{
-  display:flex;align-items:center;justify-content:center;gap:16px;
-  flex-wrap:wrap;margin-bottom:44px;animation:slideInUp .8s ease .5s both;
-}
-.hero-meta-item{
-  display:flex;align-items:center;gap:8px;
-  padding:10px 18px;border-radius:100px;
-  background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.06);
-  font-size:13px;color:rgba(255,255,255,.6);font-weight:500;
-  transition:all .3s ease;
-}
-.hero-meta-item:hover{background:rgba(255,255,255,.08);transform:translateY(-2px)}
-.hero-meta-item .icon{font-size:16px}
-.hero-actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;animation:slideInUp .8s ease .6s both}
+.hero-stat-label{font-size:11px;font-weight:600;color:var(--dim);letter-spacing:2px;text-transform:uppercase;margin-top:4px}
+.hero-actions{display:flex;gap:12px;animation:fadeUp .7s ease .4s both}
 .btn{
   display:inline-flex;align-items:center;gap:8px;
-  padding:15px 34px;border-radius:100px;font-weight:700;
-  font-size:14px;letter-spacing:.5px;
-  transition:all .35s cubic-bezier(.22,1,.36,1);cursor:pointer;border:none;
-  position:relative;overflow:hidden;
+  padding:14px 28px;border-radius:10px;font-weight:700;font-size:14px;
+  transition:all .3s ease;cursor:pointer;border:none;position:relative;overflow:hidden;
 }
-.btn::after{
-  content:'';position:absolute;inset:0;
-  background:linear-gradient(135deg,transparent,rgba(255,255,255,.12),transparent);
-  transform:translateX(-100%);transition:transform .5s ease;
-}
-.btn:hover::after{transform:translateX(100%)}
-.btn-primary{
-  background:linear-gradient(135deg,#fbbf24,#f59e0b);
-  color:#0f172a;box-shadow:0 4px 24px rgba(251,191,36,.2);
-}
-.btn-primary:hover{transform:translateY(-3px);box-shadow:0 12px 40px rgba(251,191,36,.35)}
-.btn-glass{background:rgba(255,255,255,.06);color:#fff;border:1px solid rgba(255,255,255,.1)}
-.btn-glass:hover{background:rgba(255,255,255,.12);transform:translateY(-3px)}
-.scroll-hint{
-  position:absolute;bottom:28px;left:50%;transform:translateX(-50%);
-  display:flex;flex-direction:column;align-items:center;gap:8px;
-  color:rgba(255,255,255,.2);font-size:10px;letter-spacing:3px;font-weight:600;
-}
-.scroll-line{width:1px;height:36px;background:linear-gradient(180deg,rgba(251,191,36,.4),transparent);animation:pulse 2s ease-in-out infinite}
+.btn-gold{background:var(--gold);color:var(--bg)}
+.btn-gold:hover{background:var(--gold-light);transform:translateY(-2px);box-shadow:0 8px 24px rgba(212,168,67,.2)}
+.btn-outline{background:transparent;color:var(--white);border:1px solid var(--dim)}
+.btn-outline:hover{border-color:var(--muted);background:rgba(255,255,255,.03);transform:translateY(-2px)}
 
-/* ===== SECTION HEADERS ===== */
-.sh{text-align:center;margin-bottom:56px}
-.sh-label{
-  display:inline-flex;align-items:center;gap:10px;
-  font-size:11px;font-weight:700;color:#fbbf24;letter-spacing:5px;text-transform:uppercase;margin-bottom:14px;
+/* Hero right - feature card */
+.hero-right{position:relative;z-index:2;animation:fadeUp .7s ease .3s both}
+.hero-card{
+  background:var(--surface);border:1px solid rgba(255,255,255,.06);
+  border-radius:20px;padding:32px;position:relative;overflow:hidden;
 }
-.sh-label .bar{width:28px;height:2px;background:linear-gradient(90deg,#fbbf24,transparent);border-radius:2px}
-.sh-label .bar.right{background:linear-gradient(90deg,transparent,#fbbf24)}
-.sh-title{font-family:'Outfit',sans-serif;font-weight:800;font-size:clamp(30px,5vw,50px);letter-spacing:-1px;line-height:1.1}
-.sh-sub{font-size:14px;color:rgba(255,255,255,.35);margin-top:12px;max-width:500px;margin-left:auto;margin-right:auto;line-height:1.7}
+.hero-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold),var(--gold-light),var(--gold))}
+.hero-card-label{font-size:10px;font-weight:700;color:var(--gold);letter-spacing:4px;text-transform:uppercase;margin-bottom:20px}
+.hero-card-venue{display:flex;align-items:center;gap:12px;margin-bottom:20px;padding-bottom:20px;border-bottom:1px solid rgba(255,255,255,.05)}
+.hero-card-venue .v-icon{width:40px;height:40px;border-radius:10px;background:rgba(212,168,67,.08);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+.hero-card-venue .v-text{font-size:14px;color:var(--muted)}
+.hero-card-venue .v-text strong{color:var(--white);font-weight:600;display:block}
+.hero-card-prizes{display:flex;gap:16px}
+.hcp{flex:1;padding:16px;border-radius:12px;background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.04);text-align:center}
+.hcp-rank{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px}
+.hcp.first .hcp-rank{color:var(--gold)}
+.hcp.second .hcp-rank{color:var(--muted)}
+.hcp-amount{font-family:'Outfit',sans-serif;font-weight:800;font-size:28px}
+.hcp.first .hcp-amount{color:var(--gold)}
+.hcp.second .hcp-amount{color:var(--muted)}
+.hcp-extra{font-size:10px;color:var(--dim);letter-spacing:1px;margin-top:2px}
+
+/* Scroll indicator */
+.scroll-cue{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:6px}
+.scroll-cue span{font-size:9px;font-weight:700;letter-spacing:3px;color:var(--dim);text-transform:uppercase}
+.scroll-cue-line{width:1px;height:32px;background:linear-gradient(180deg,var(--gold),transparent);animation:glow 2s ease-in-out infinite}
 
 /* ===== MARQUEE ===== */
-.marquee-strip{
-  padding:14px 0;overflow:hidden;
-  border-top:1px solid rgba(255,255,255,.04);border-bottom:1px solid rgba(255,255,255,.04);
-  background:rgba(251,191,36,.015);position:relative;z-index:2;
-}
-.marquee-track{
-  display:flex;gap:48px;white-space:nowrap;
-  animation:marquee 35s linear infinite;width:max-content;
-}
-.marquee-item{
-  font-family:'Space Grotesk',sans-serif;font-size:13px;
-  font-weight:600;color:rgba(255,255,255,.12);letter-spacing:4px;
-  text-transform:uppercase;display:flex;align-items:center;gap:16px;
-}
-.marquee-item .sep{color:rgba(251,191,36,.3);font-size:8px}
+.ticker{padding:12px 0;border-bottom:1px solid rgba(255,255,255,.03);overflow:hidden;position:relative;z-index:2}
+.ticker-track{display:flex;gap:40px;white-space:nowrap;animation:marquee 40s linear infinite;width:max-content}
+.ticker-item{font-family:'Space Grotesk',sans-serif;font-size:12px;font-weight:600;color:var(--dim);letter-spacing:3px;text-transform:uppercase;display:flex;align-items:center;gap:12px}
+.ticker-dot{width:4px;height:4px;border-radius:50%;background:var(--gold);opacity:.4}
 
-/* ===== FIXTURES (EPL STYLE) ===== */
+/* ===== SECTION HEADER ===== */
+.sec-head{margin-bottom:48px}
+.sec-head.center{text-align:center}
+.sec-label{font-size:11px;font-weight:700;color:var(--gold);letter-spacing:5px;text-transform:uppercase;margin-bottom:10px}
+.sec-title{font-family:'Outfit',sans-serif;font-weight:800;font-size:clamp(28px,4vw,42px);letter-spacing:-.5px;line-height:1.1}
+.sec-sub{font-size:14px;color:var(--muted);margin-top:10px;line-height:1.6;max-width:480px}
+.sec-head.center .sec-sub{margin-left:auto;margin-right:auto}
+
+/* ===== TEAMS TABLE ===== */
 #fixtures{padding-top:100px}
-.bracket-tabs{display:flex;justify-content:center;gap:6px;margin-bottom:48px;flex-wrap:wrap}
-.bracket-tab{
-  padding:10px 22px;border-radius:100px;font-size:13px;font-weight:600;
-  color:rgba(255,255,255,.4);background:rgba(255,255,255,.03);
-  border:1px solid rgba(255,255,255,.05);cursor:pointer;transition:all .3s ease;
+.teams-table{width:100%;border-collapse:separate;border-spacing:0 4px}
+.teams-table th{
+  text-align:left;padding:8px 16px;font-size:10px;font-weight:700;
+  color:var(--dim);letter-spacing:2px;text-transform:uppercase;
 }
-.bracket-tab:hover{color:#fff;background:rgba(255,255,255,.06)}
-.bracket-tab.active{background:rgba(251,191,36,.1);color:#fbbf24;border-color:rgba(251,191,36,.2);box-shadow:0 0 20px rgba(251,191,36,.06)}
-.bracket-stage{display:none}
-.bracket-stage.active{display:block;animation:slideInUp .5s ease}
-
-/* EPL-style team table */
-.epl-table{width:100%;border-collapse:separate;border-spacing:0 6px}
-.epl-table thead th{
-  text-align:left;padding:10px 16px;font-size:10px;font-weight:700;
-  letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.25);
-  border-bottom:1px solid rgba(255,255,255,.06);
-}
-.epl-table thead th:first-child{width:50px;text-align:center}
-.epl-row{
-  transition:all .3s cubic-bezier(.22,1,.36,1);cursor:default;
-}
-.epl-row:hover{transform:translateX(4px)}
-.epl-row td{
-  padding:14px 16px;background:rgba(255,255,255,.03);
-  border-top:1px solid rgba(255,255,255,.04);
-  border-bottom:1px solid rgba(255,255,255,.04);
-}
-.epl-row td:first-child{border-radius:12px 0 0 12px;border-left:1px solid rgba(255,255,255,.04);text-align:center}
-.epl-row td:last-child{border-radius:0 12px 12px 0;border-right:1px solid rgba(255,255,255,.04)}
-.epl-row:hover td{background:rgba(255,255,255,.06)}
-.epl-pos{
-  font-family:'Outfit',sans-serif;font-weight:800;font-size:14px;color:rgba(255,255,255,.3);
-}
-.epl-team{display:flex;align-items:center;gap:14px}
-.epl-logo{
-  width:40px;height:40px;border-radius:10px;flex-shrink:0;overflow:hidden;
-  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);
+.teams-table th:first-child{width:44px;text-align:center}
+.t-row{transition:all .25s ease}
+.t-row:hover{transform:translateX(4px)}
+.t-row td{padding:12px 16px;background:var(--surface);border-top:1px solid rgba(255,255,255,.03);border-bottom:1px solid rgba(255,255,255,.03)}
+.t-row td:first-child{border-radius:var(--radius) 0 0 var(--radius);border-left:1px solid rgba(255,255,255,.03);text-align:center}
+.t-row td:last-child{border-radius:0 var(--radius) var(--radius) 0;border-right:1px solid rgba(255,255,255,.03)}
+.t-row:hover td{background:var(--surface2)}
+.t-pos{font-family:'Outfit',sans-serif;font-weight:800;font-size:14px;color:var(--dim)}
+.t-team{display:flex;align-items:center;gap:12px}
+.t-crest{
+  width:36px;height:36px;border-radius:50%;flex-shrink:0;
+  background:var(--surface2);border:2px solid rgba(255,255,255,.06);
   display:flex;align-items:center;justify-content:center;
-  font-size:16px;color:rgba(255,255,255,.3);
+  font-size:14px;color:var(--muted);transition:all .3s ease;
 }
-.epl-logo img{width:100%;height:100%;object-fit:contain;padding:4px}
-.epl-team-info .epl-name{font-weight:700;font-size:14px;letter-spacing:.3px}
-.epl-team-info .epl-captain{font-size:11px;color:rgba(255,255,255,.3);font-weight:500;margin-top:1px}
-.epl-row.tbd-row td{background:rgba(255,255,255,.015)}
-.epl-row.tbd-row .epl-name{color:rgba(255,255,255,.25)}
-.epl-row.tbd-row .epl-logo{background:rgba(255,255,255,.03);border-color:rgba(255,255,255,.04)}
+.t-row:hover .t-crest{border-color:var(--gold);background:rgba(212,168,67,.06)}
+.t-name{font-weight:700;font-size:14px}
+.t-cap{color:var(--muted);font-size:13px;font-weight:500}
+.t-row.tbd td{opacity:.35}
+.t-row.tbd:hover td{opacity:.5}
+
+/* Fixture tabs */
+.fix-tabs{display:flex;gap:4px;margin-bottom:32px;flex-wrap:wrap}
+.fix-tab{
+  padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;
+  color:var(--muted);background:var(--surface);border:1px solid rgba(255,255,255,.04);
+  cursor:pointer;transition:all .25s ease;
+}
+.fix-tab:hover{color:var(--white);background:var(--surface2)}
+.fix-tab.on{background:var(--gold);color:var(--bg);border-color:var(--gold)}
+.fix-stage{display:none}
+.fix-stage.on{display:block;animation:fadeUp .4s ease}
 
 /* Match cards */
-.matches-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:20px}
-.match-card{
-  padding:24px;border-radius:20px;position:relative;overflow:hidden;transition:all .35s cubic-bezier(.22,1,.36,1);
+.matches{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:16px}
+.mx{
+  padding:20px;border-radius:var(--radius);background:var(--surface);
+  border:1px solid rgba(255,255,255,.04);transition:all .3s ease;
+  position:relative;overflow:hidden;
 }
-.match-card::before{
-  content:'';position:absolute;top:0;left:0;right:0;height:2px;
-  background:linear-gradient(90deg,transparent,rgba(251,191,36,.3),transparent);
-  opacity:0;transition:opacity .3s ease;
-}
-.match-card:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(0,0,0,.25);background:rgba(255,255,255,.06)}
-.match-card:hover::before{opacity:1}
-.match-label{font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.25);margin-bottom:18px}
-.match-teams{display:flex;flex-direction:column;gap:10px}
-.match-team{
-  display:flex;align-items:center;justify-content:space-between;
-  padding:12px 16px;border-radius:12px;
-  background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.04);transition:all .25s ease;
-}
-.match-team:hover{background:rgba(255,255,255,.06)}
-.mt-name{font-weight:600;font-size:14px;display:flex;align-items:center;gap:10px}
-.mt-logo{
-  width:28px;height:28px;border-radius:7px;flex-shrink:0;
-  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.06);
-  display:flex;align-items:center;justify-content:center;
-  font-size:12px;color:rgba(255,255,255,.25);
-}
-.mt-score{font-family:'Outfit',sans-serif;font-weight:700;font-size:15px;color:rgba(255,255,255,.12)}
-.match-vs{text-align:center;font-size:11px;font-weight:700;color:rgba(251,191,36,.25);letter-spacing:4px}
-.match-footer{display:flex;justify-content:space-between;align-items:center;margin-top:16px;padding-top:12px;border-top:1px solid rgba(255,255,255,.04)}
-.match-time{font-size:11px;color:rgba(255,255,255,.2);font-weight:500}
-.match-status{font-size:10px;font-weight:700;letter-spacing:2px;padding:5px 14px;border-radius:100px;text-transform:uppercase}
-.st-upcoming{background:rgba(99,102,241,.08);color:#818cf8;border:1px solid rgba(99,102,241,.1)}
-.st-final{background:rgba(251,191,36,.08);color:#fbbf24;border:1px solid rgba(251,191,36,.12)}
-.fixtures-note{
-  text-align:center;margin-top:32px;padding:16px 24px;border-radius:100px;
-  background:rgba(251,191,36,.04);border:1px solid rgba(251,191,36,.08);
-  font-size:13px;color:rgba(255,255,255,.4);font-weight:500;
-  display:inline-flex;align-items:center;gap:8px;
-}
-.fixtures-note-wrap{text-align:center}
-
-/* Deals banner for sponsors */
-.deals-banner{
-  margin-bottom:40px;padding:20px 28px;border-radius:16px;
-  background:linear-gradient(135deg,rgba(251,191,36,.06),rgba(236,72,153,.04));
-  border:1px solid rgba(251,191,36,.1);
-  display:flex;align-items:center;gap:16px;flex-wrap:wrap;justify-content:center;
-  text-align:center;
-}
-.deals-banner .deals-icon{font-size:28px}
-.deals-banner .deals-text{font-size:14px;color:rgba(255,255,255,.7);font-weight:600;line-height:1.5}
-.deals-banner .deals-text strong{color:#fbbf24}
-
-/* Title sponsor highlight */
-.sponsor-card.title-sponsor{
-  background:rgba(251,191,36,.04);border-color:rgba(251,191,36,.1);
-  position:relative;
-}
-.sponsor-card.title-sponsor::after{
-  content:'PRESENTING SPONSOR';
-  position:absolute;top:16px;right:16px;
-  font-size:9px;font-weight:700;letter-spacing:2px;
-  padding:4px 12px;border-radius:100px;
-  background:rgba(251,191,36,.12);color:#fbbf24;border:1px solid rgba(251,191,36,.15);
-}
-.sponsor-card.title-sponsor .sp-logo{
-  width:72px;height:72px;background:rgba(251,191,36,.06);border-color:rgba(251,191,36,.1);
-}
-
-/* ===== GALLERY ===== */
-#gallery{overflow:hidden}
-.gallery-row{display:flex;gap:16px;overflow:hidden;margin-bottom:16px}
-.gallery-track{display:flex;gap:16px;animation:marquee 40s linear infinite;width:max-content}
-.gallery-row:nth-child(2) .gallery-track{animation-direction:reverse;animation-duration:50s}
-.gallery-slide{
-  width:380px;height:280px;border-radius:16px;overflow:hidden;
-  position:relative;flex-shrink:0;
-}
-.gallery-slide img{width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.22,1,.36,1)}
-.gallery-slide:hover img{transform:scale(1.08)}
-.slide-overlay{
-  position:absolute;inset:0;
-  background:linear-gradient(180deg,transparent 40%,rgba(0,0,0,.8));
-  display:flex;align-items:flex-end;padding:20px;opacity:0;transition:opacity .4s ease;
-}
-.gallery-slide:hover .slide-overlay{opacity:1}
-.slide-caption{font-weight:600;font-size:14px;color:#fff;letter-spacing:.5px}
-
-/* ===== SPONSORS ===== */
-#sponsors{padding:100px 0}
-.tier-label{
-  display:block;text-align:center;width:fit-content;
-  margin:0 auto 28px;padding:8px 28px;border-radius:100px;
-  font-size:11px;font-weight:700;letter-spacing:5px;text-transform:uppercase;
-}
-.tier-title{background:rgba(251,191,36,.06);color:#fbbf24;border:1px solid rgba(251,191,36,.1)}
-.tier-gold{background:rgba(251,191,36,.05);color:#fbbf24;border:1px solid rgba(251,191,36,.08)}
-.tier-silver{background:rgba(148,163,184,.05);color:#94a3b8;border:1px solid rgba(148,163,184,.08)}
-.sponsors-tier{margin-bottom:48px}
-.sponsors-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:20px}
-.sponsor-card{
-  padding:28px;border-radius:20px;position:relative;overflow:hidden;
-  transition:all .35s cubic-bezier(.22,1,.36,1);
-}
-.sponsor-card::before{
-  content:'';position:absolute;inset:-1px;border-radius:20px;padding:1px;
-  background:linear-gradient(135deg,rgba(251,191,36,.12),transparent 50%,rgba(139,92,246,.08));
-  -webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);
-  -webkit-mask-composite:xor;mask-composite:exclude;opacity:0;transition:opacity .3s ease;
-}
-.sponsor-card:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(0,0,0,.2)}
-.sponsor-card:hover::before{opacity:1}
-.sp-header{display:flex;align-items:center;gap:16px;margin-bottom:14px}
-.sp-logo{
-  width:56px;height:56px;border-radius:14px;overflow:hidden;
-  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.07);
-  display:flex;align-items:center;justify-content:center;flex-shrink:0;
-}
-.sp-logo img{width:100%;height:100%;object-fit:contain;padding:4px}
-.sp-name{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:17px;letter-spacing:.3px}
-.sp-type{font-size:11px;color:rgba(255,255,255,.3);font-weight:600;letter-spacing:1px;text-transform:uppercase;margin-top:2px}
-.sp-desc{font-size:13px;color:rgba(255,255,255,.4);line-height:1.7;margin-bottom:16px}
-.sp-location{
-  display:flex;align-items:flex-start;gap:6px;
-  font-size:12px;color:rgba(255,255,255,.3);margin-bottom:16px;font-weight:500;
-}
-.sp-location .pin{flex-shrink:0;margin-top:1px}
-.sp-offer{padding:16px;border-radius:14px;background:rgba(251,191,36,.03);border:1px solid rgba(251,191,36,.06)}
-.sp-offer-label{font-size:10px;font-weight:700;letter-spacing:3px;color:#fbbf24;text-transform:uppercase;margin-bottom:8px}
-.sp-offer-text{font-size:13px;color:rgba(255,255,255,.55);line-height:1.6;margin-bottom:12px}
-.coupon{
-  display:inline-flex;align-items:center;gap:8px;
-  padding:8px 18px;border-radius:8px;
-  background:rgba(251,191,36,.06);border:1px dashed rgba(251,191,36,.25);
-  font-family:'Space Grotesk',monospace;font-weight:700;
-  font-size:14px;color:#fbbf24;letter-spacing:2px;
-  cursor:pointer;transition:all .25s ease;user-select:all;
-}
-.coupon:hover{background:rgba(251,191,36,.12);border-color:rgba(251,191,36,.4);transform:scale(1.02)}
-.coupon .cp-icon{font-size:13px;opacity:.5}
-.open-slot .sp-offer{background:rgba(139,92,246,.03);border-color:rgba(139,92,246,.06)}
-.open-slot .sp-offer-label{color:#a78bfa}
+.mx::after{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--gold);transform:scaleX(0);transition:transform .3s ease;transform-origin:left}
+.mx:hover{transform:translateY(-3px);border-color:rgba(255,255,255,.08);box-shadow:0 12px 32px rgba(0,0,0,.3)}
+.mx:hover::after{transform:scaleX(1)}
+.mx-round{font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--dim);margin-bottom:14px}
+.mx-teams{display:flex;flex-direction:column;gap:8px}
+.mx-t{display:flex;align-items:center;justify-content:space-between;padding:10px 14px;border-radius:8px;background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.03)}
+.mx-t-left{display:flex;align-items:center;gap:10px;font-weight:600;font-size:13px}
+.mx-t-crest{width:24px;height:24px;border-radius:50%;background:var(--surface2);border:1px solid rgba(255,255,255,.06);display:flex;align-items:center;justify-content:center;font-size:10px;color:var(--dim)}
+.mx-score{font-family:'Outfit',sans-serif;font-weight:700;font-size:14px;color:var(--dim)}
+.mx-vs{text-align:center;font-size:10px;font-weight:700;color:var(--dim);letter-spacing:3px;padding:2px 0}
+.mx-foot{display:flex;justify-content:space-between;align-items:center;margin-top:14px;padding-top:12px;border-top:1px solid rgba(255,255,255,.04)}
+.mx-time{font-size:11px;color:var(--dim);font-weight:500}
+.mx-badge{font-size:9px;font-weight:700;letter-spacing:2px;padding:4px 12px;border-radius:6px;text-transform:uppercase;background:rgba(99,102,241,.08);color:#818cf8;border:1px solid rgba(99,102,241,.08)}
+.mx-badge.final-badge{background:rgba(212,168,67,.08);color:var(--gold);border-color:rgba(212,168,67,.12)}
+.fix-note{margin-top:24px;padding:14px 20px;border-radius:8px;background:var(--surface);border:1px solid rgba(212,168,67,.08);font-size:13px;color:var(--muted);text-align:center}
 
 /* ===== PRIZES ===== */
-#prizes{padding:100px 0}
-.prizes-row{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:40px}
-.prize-card{
-  border-radius:24px;padding:2px;position:relative;overflow:hidden;
-  transition:all .4s cubic-bezier(.22,1,.36,1);
+.prizes-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:32px}
+.prize{
+  border-radius:16px;padding:2px;position:relative;overflow:hidden;
+  transition:all .4s cubic-bezier(.16,1,.3,1);
 }
-.prize-card:hover{transform:translateY(-6px)}
-.prize-card::before{
-  content:'';position:absolute;inset:0;border-radius:24px;
-  background:linear-gradient(135deg,#fbbf24,#ec4899,#8b5cf6,#06b6d4,#fbbf24);
-  background-size:300% 300%;animation:borderShine 5s ease infinite;
-  -webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);
-  -webkit-mask-composite:xor;mask-composite:exclude;padding:2px;
-}
-.prize-card.gold::before{background:linear-gradient(135deg,#fbbf24,#f59e0b,#fcd34d,#fbbf24);background-size:300% 300%;animation:borderShine 4s ease infinite}
-.prize-card.silver::before{background:linear-gradient(135deg,#94a3b8,#e2e8f0,#cbd5e1,#94a3b8);background-size:300% 300%;animation:borderShine 4s ease infinite}
-.prize-inner{
-  background:rgba(10,15,30,.85);backdrop-filter:blur(40px);
-  border-radius:22px;padding:36px 28px;text-align:center;
-  height:100%;position:relative;overflow:hidden;
-}
-.prize-inner::before{
-  content:'';position:absolute;top:0;left:0;right:0;height:120px;
-  background:linear-gradient(180deg,rgba(251,191,36,.05),transparent);
-}
-.prize-card.silver .prize-inner::before{background:linear-gradient(180deg,rgba(148,163,184,.05),transparent)}
-.prize-rank{
-  display:inline-flex;align-items:center;gap:6px;
-  padding:6px 18px;border-radius:100px;
-  font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:13px;
-  letter-spacing:3px;margin-bottom:14px;position:relative;
-}
-.prize-card.gold .prize-rank{background:rgba(251,191,36,.1);color:#fbbf24;border:1px solid rgba(251,191,36,.15)}
-.prize-card.silver .prize-rank{background:rgba(148,163,184,.1);color:#94a3b8;border:1px solid rgba(148,163,184,.15)}
-.prize-amount{
-  font-family:'Outfit',sans-serif;font-weight:800;font-size:clamp(40px,6vw,60px);
-  line-height:1.1;letter-spacing:-1px;position:relative;
-}
-.prize-card.gold .prize-amount{
-  background:linear-gradient(135deg,#fbbf24,#f59e0b);
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
-}
-.prize-card.silver .prize-amount{
-  background:linear-gradient(135deg,#e2e8f0,#94a3b8);
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
-}
-.prize-includes{font-size:12px;font-weight:700;color:rgba(255,255,255,.35);letter-spacing:4px;text-transform:uppercase;margin-top:4px}
-.prize-sponsor{
-  display:inline-flex;align-items:center;gap:10px;
-  margin-top:20px;padding:10px 18px;border-radius:12px;
-  background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.05);
-  font-size:12px;color:rgba(255,255,255,.5);font-weight:500;
-}
-.prize-sponsor img{height:24px;width:auto;border-radius:4px}
-.prize-sponsor strong{color:rgba(255,255,255,.7);font-weight:600}
+.prize:hover{transform:translateY(-4px)}
+.prize.g::before{content:'';position:absolute;inset:0;border-radius:16px;background:linear-gradient(135deg,var(--gold),var(--gold-dark));-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;padding:2px}
+.prize.s::before{content:'';position:absolute;inset:0;border-radius:16px;background:linear-gradient(135deg,#94a3b8,#64748b);-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;padding:2px}
+.prize-in{background:var(--surface);border-radius:14px;padding:32px 24px;text-align:center;height:100%;position:relative}
+.prize-tag{font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;margin-bottom:10px}
+.prize.g .prize-tag{color:var(--gold)}
+.prize.s .prize-tag{color:#94a3b8}
+.prize-val{font-family:'Outfit',sans-serif;font-weight:900;font-size:clamp(36px,5vw,52px);line-height:1}
+.prize.g .prize-val{color:var(--gold)}
+.prize.s .prize-val{color:#94a3b8}
+.prize-sub{font-size:11px;color:var(--dim);letter-spacing:2px;text-transform:uppercase;margin-top:4px}
+.prize-by{display:flex;align-items:center;justify-content:center;gap:8px;margin-top:16px;font-size:12px;color:var(--muted)}
+.prize-by img{height:20px;width:auto;border-radius:4px;opacity:.8}
 
-/* Awards row */
-.awards-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.award-card{
-  padding:28px 20px;border-radius:20px;text-align:center;
-  transition:all .35s cubic-bezier(.22,1,.36,1);position:relative;overflow:hidden;
+.awards-row{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.award{padding:24px 16px;border-radius:var(--radius);background:var(--surface);border:1px solid rgba(255,255,255,.04);text-align:center;transition:all .3s ease}
+.award:hover{transform:translateY(-3px);border-color:rgba(255,255,255,.08)}
+.award-icon{font-size:28px;margin-bottom:12px;display:block}
+.award-name{font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:700;letter-spacing:2px;margin-bottom:8px}
+.award:nth-child(1) .award-name{color:var(--gold)}
+.award:nth-child(2) .award-name{color:#818cf8}
+.award:nth-child(3) .award-name{color:#f472b6}
+.award-info{font-size:11px;color:var(--muted);line-height:1.6}
+.award-logo{height:24px;width:auto;margin:8px auto 0;opacity:.6}
+
+/* ===== GALLERY ===== */
+#gallery{overflow:hidden;padding-bottom:60px}
+.gal-row{display:flex;gap:12px;overflow:hidden;margin-bottom:12px}
+.gal-track{display:flex;gap:12px;animation:marquee 45s linear infinite;width:max-content}
+.gal-row.rev .gal-track{animation-direction:reverse;animation-duration:55s}
+.gal-img{
+  width:340px;height:240px;border-radius:var(--radius);overflow:hidden;
+  flex-shrink:0;position:relative;
 }
-.award-card:hover{transform:translateY(-4px);background:rgba(255,255,255,.06)}
-.award-icon{
-  width:52px;height:52px;border-radius:14px;
+.gal-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+.gal-img:hover img{transform:scale(1.06)}
+.gal-cap{
+  position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(0,0,0,.75));
+  display:flex;align-items:flex-end;padding:16px;opacity:0;transition:opacity .3s ease;
+}
+.gal-img:hover .gal-cap{opacity:1}
+.gal-cap span{font-size:13px;font-weight:600;color:#fff}
+
+/* ===== SPONSORS ===== */
+#sponsors{background:linear-gradient(180deg,transparent,rgba(212,168,67,.015),transparent)}
+
+.sp-deals{
+  margin-bottom:48px;padding:24px 32px;border-radius:14px;
+  background:linear-gradient(135deg,rgba(212,168,67,.06),rgba(212,168,67,.02));
+  border:1px solid rgba(212,168,67,.1);text-align:center;
+}
+.sp-deals p{font-size:14px;color:var(--muted);line-height:1.6}
+.sp-deals strong{color:var(--gold)}
+
+/* Title sponsor feature */
+.sp-title{
+  margin-bottom:48px;border-radius:16px;overflow:hidden;
+  background:var(--surface);border:1px solid rgba(212,168,67,.1);
+  display:grid;grid-template-columns:auto 1fr;
+  transition:all .3s ease;
+}
+.sp-title:hover{border-color:rgba(212,168,67,.2);box-shadow:0 12px 32px rgba(0,0,0,.2)}
+.sp-title-badge{
+  background:linear-gradient(135deg,rgba(212,168,67,.1),rgba(212,168,67,.04));
+  padding:32px;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:12px;min-width:180px;border-right:1px solid rgba(212,168,67,.08);
+}
+.sp-title-badge img{height:48px;width:auto}
+.sp-title-badge span{font-size:9px;font-weight:700;letter-spacing:3px;color:var(--gold);text-transform:uppercase}
+.sp-title-body{padding:28px 32px}
+.sp-title-name{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:22px;margin-bottom:4px}
+.sp-title-type{font-size:11px;color:var(--dim);font-weight:600;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:12px}
+.sp-title-desc{font-size:13px;color:var(--muted);line-height:1.7;margin-bottom:12px}
+.sp-title-loc{font-size:12px;color:var(--dim);margin-bottom:16px}
+.sp-offer-box{padding:14px 18px;border-radius:10px;background:rgba(212,168,67,.04);border:1px solid rgba(212,168,67,.06)}
+.sp-offer-tag{font-size:9px;font-weight:700;letter-spacing:3px;color:var(--gold);text-transform:uppercase;margin-bottom:6px}
+.sp-offer-txt{font-size:13px;color:var(--muted);margin-bottom:10px}
+.coupon{
+  display:inline-flex;align-items:center;gap:6px;
+  padding:6px 14px;border-radius:6px;background:rgba(212,168,67,.08);
+  border:1px dashed rgba(212,168,67,.25);
+  font-family:'Space Grotesk',monospace;font-weight:700;font-size:13px;
+  color:var(--gold);letter-spacing:2px;cursor:pointer;
+  transition:all .2s ease;user-select:all;
+}
+.coupon:hover{background:rgba(212,168,67,.14)}
+.coupon .cp{font-size:11px;opacity:.4}
+
+/* Sponsor tier */
+.sp-tier{margin-bottom:40px}
+.sp-tier-label{font-size:10px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--dim);margin-bottom:16px;padding-left:4px}
+.sp-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:16px}
+.sp-card{
+  padding:24px;border-radius:var(--radius);background:var(--surface);
+  border:1px solid rgba(255,255,255,.04);transition:all .3s ease;
+}
+.sp-card:hover{transform:translateY(-3px);border-color:rgba(255,255,255,.08);box-shadow:0 12px 28px rgba(0,0,0,.2)}
+.sp-top{display:flex;align-items:center;gap:14px;margin-bottom:12px}
+.sp-icon{
+  width:48px;height:48px;border-radius:12px;flex-shrink:0;overflow:hidden;
+  background:var(--surface2);border:1px solid rgba(255,255,255,.06);
+  display:flex;align-items:center;justify-content:center;
+}
+.sp-icon img{width:100%;height:100%;object-fit:contain;padding:5px}
+.sp-card-name{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:15px}
+.sp-card-type{font-size:10px;color:var(--dim);font-weight:600;letter-spacing:1px;text-transform:uppercase;margin-top:2px}
+.sp-card-desc{font-size:12px;color:var(--muted);line-height:1.6;margin-bottom:12px}
+.sp-card-loc{font-size:11px;color:var(--dim);margin-bottom:12px}
+.sp-card .sp-offer-box{padding:12px 14px}
+.sp-card.open-slot{border-style:dashed;border-color:rgba(255,255,255,.06)}
+.sp-card.open-slot .sp-offer-box{background:rgba(99,102,241,.04);border-color:rgba(99,102,241,.08)}
+.sp-card.open-slot .sp-offer-tag{color:#818cf8}
+
+/* ===== CTA ===== */
+#contact{padding:40px 0}
+.cta{
+  padding:56px 40px;border-radius:20px;text-align:center;position:relative;overflow:hidden;
+  background:var(--surface);border:1px solid rgba(212,168,67,.08);
+}
+.cta::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold-dark),var(--gold),var(--gold-dark))}
+.cta-coord{font-size:10px;font-weight:700;letter-spacing:4px;color:var(--dim);text-transform:uppercase;margin-bottom:10px}
+.cta h2{font-family:'Outfit',sans-serif;font-weight:800;font-size:clamp(24px,4vw,38px);letter-spacing:-.5px;margin-bottom:10px}
+.cta p{font-size:14px;color:var(--muted);margin-bottom:32px;max-width:400px;margin-left:auto;margin-right:auto;line-height:1.6}
+.cta-row{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-bottom:28px}
+.cta-pill{
+  display:flex;align-items:center;gap:8px;padding:10px 20px;border-radius:8px;
+  background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.05);
+  font-size:13px;color:var(--muted);font-weight:500;transition:all .2s ease;
+}
+.cta-pill:hover{background:rgba(255,255,255,.06);transform:translateY(-1px)}
+.cta-pill .ic{font-size:15px}
+
+/* ===== FOOTER ===== */
+.foot{padding:32px 0;border-top:1px solid rgba(255,255,255,.04);position:relative;z-index:2}
+.foot-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px}
+.foot-brand{font-family:'Outfit',sans-serif;font-weight:800;font-size:15px;color:var(--gold)}
+.foot-links{display:flex;gap:16px}
+.foot-links a{font-size:11px;color:var(--dim);font-weight:500;transition:color .2s}
+.foot-links a:hover{color:var(--gold)}
+.foot-ig a{
   display:inline-flex;align-items:center;justify-content:center;
-  font-size:24px;margin-bottom:14px;
+  width:32px;height:32px;border-radius:8px;background:var(--surface);
+  border:1px solid rgba(255,255,255,.05);color:var(--muted);transition:all .2s;
 }
-.award-card:nth-child(1) .award-icon{background:rgba(251,191,36,.08);border:1px solid rgba(251,191,36,.12)}
-.award-card:nth-child(2) .award-icon{background:rgba(99,102,241,.08);border:1px solid rgba(99,102,241,.12)}
-.award-card:nth-child(3) .award-icon{background:rgba(236,72,153,.08);border:1px solid rgba(236,72,153,.12)}
-.award-title{
-  font-family:'Space Grotesk',sans-serif;font-size:14px;font-weight:700;
-  letter-spacing:2px;margin-bottom:8px;
-}
-.award-card:nth-child(1) .award-title{color:#fbbf24}
-.award-card:nth-child(2) .award-title{color:#818cf8}
-.award-card:nth-child(3) .award-title{color:#f472b6}
-.award-detail{font-size:12px;color:rgba(255,255,255,.4);line-height:1.7;font-weight:500}
-.award-detail strong{color:rgba(255,255,255,.6);font-weight:600}
-.award-sponsor-logo{height:28px;width:auto;margin:10px auto 0;border-radius:6px;opacity:.7}
-@media(max-width:768px){
-  .prizes-row{grid-template-columns:1fr}
-  .awards-grid{grid-template-columns:1fr}
-}
+.foot-ig a:hover{background:rgba(212,168,67,.1);color:var(--gold);border-color:rgba(212,168,67,.1)}
+.foot-copy{margin-top:16px;font-size:10px;color:var(--dim);text-align:center;width:100%}
 
 /* Toast */
 .toast{
-  position:fixed;bottom:40px;left:50%;transform:translateX(-50%) translateY(100px);
-  padding:14px 32px;border-radius:100px;font-size:14px;font-weight:600;
-  background:rgba(5,10,24,.92);color:#fbbf24;
-  border:1px solid rgba(251,191,36,.2);
-  backdrop-filter:blur(20px);z-index:999;
-  transition:transform .4s cubic-bezier(.22,1,.36,1);
+  position:fixed;bottom:32px;left:50%;transform:translateX(-50%) translateY(80px);
+  padding:12px 28px;border-radius:8px;font-size:13px;font-weight:600;
+  background:var(--surface);color:var(--gold);border:1px solid rgba(212,168,67,.15);
+  z-index:999;transition:transform .35s cubic-bezier(.16,1,.3,1);
 }
 .toast.show{transform:translateX(-50%) translateY(0)}
-
-/* ===== CTA ===== */
-#contact{padding:60px 0 40px}
-.cta-box{
-  padding:64px 40px;text-align:center;border-radius:28px;
-  position:relative;overflow:hidden;
-  background:linear-gradient(135deg,rgba(251,191,36,.04),rgba(139,92,246,.03));
-  border:1px solid rgba(251,191,36,.08);
-}
-.cta-box::before{
-  content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;
-  background:conic-gradient(from 0deg,transparent,rgba(251,191,36,.02),transparent,rgba(139,92,246,.02),transparent);
-  animation:rotateSlow 20s linear infinite;
-}
-.cta-box>*{position:relative;z-index:1}
-.cta-box h2{font-family:'Outfit',sans-serif;font-weight:800;font-size:clamp(28px,4vw,44px);letter-spacing:-1px;margin-bottom:12px}
-.cta-box p{font-size:15px;color:rgba(255,255,255,.4);margin-bottom:36px;max-width:480px;margin-left:auto;margin-right:auto;line-height:1.7}
-.cta-contacts{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-bottom:36px}
-.cta-chip{
-  display:flex;align-items:center;gap:10px;
-  padding:12px 24px;border-radius:100px;
-  background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.06);
-  font-size:13px;color:rgba(255,255,255,.6);font-weight:500;transition:all .3s ease;
-}
-.cta-chip:hover{background:rgba(255,255,255,.08);transform:translateY(-2px)}
-.cta-chip .icon{font-size:16px}
-
-/* ===== FOOTER ===== */
-.footer{padding:36px 0;border-top:1px solid rgba(255,255,255,.04);position:relative;z-index:2}
-.footer-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
-.footer-brand{
-  font-family:'Outfit',sans-serif;font-weight:800;font-size:16px;
-  background:linear-gradient(135deg,#fbbf24,#f59e0b);
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
-}
-.footer-links{display:flex;gap:20px}
-.footer-links a{font-size:12px;color:rgba(255,255,255,.3);transition:color .2s;font-weight:500}
-.footer-links a:hover{color:#fbbf24}
-.footer-social a{
-  display:inline-flex;align-items:center;justify-content:center;
-  width:34px;height:34px;border-radius:10px;
-  background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.06);
-  color:rgba(255,255,255,.35);font-size:14px;transition:all .25s ease;
-}
-.footer-social a:hover{background:rgba(251,191,36,.1);color:#fbbf24;border-color:rgba(251,191,36,.12)}
-.footer-copy{margin-top:20px;font-size:11px;color:rgba(255,255,255,.15);text-align:center;width:100%}
 
 /* ===== RESPONSIVE ===== */
 @media(max-width:768px){
   section{padding:70px 0}
-  .nav-links{
-    position:fixed;top:0;right:-100%;width:280px;height:100vh;
-    flex-direction:column;padding:80px 20px 20px;gap:4px;
-    background:rgba(5,10,24,.98);backdrop-filter:blur(24px);
-    border-left:1px solid rgba(255,255,255,.05);
-    transition:right .35s cubic-bezier(.22,1,.36,1);z-index:200;
+  .hero-grid{grid-template-columns:1fr;gap:32px}
+  .hero-right{order:-1}
+  .hero-card{padding:24px}
+  .hero{padding:90px 20px 50px}
+  .nav-menu{
+    position:fixed;top:0;right:-100%;width:260px;height:100vh;
+    flex-direction:column;padding:72px 20px 20px;gap:4px;
+    background:rgba(10,14,26,.98);backdrop-filter:blur(16px);
+    border-left:1px solid rgba(255,255,255,.04);transition:right .3s ease;z-index:200;
   }
-  .nav-links.open{right:0}
-  .nav-links a{font-size:15px;padding:14px 20px;width:100%;border-radius:12px}
-  .mobile-toggle{display:block;z-index:201}
-  .hero{padding:100px 16px 60px}
-  .hero h1{letter-spacing:-2px}
-  .hero-stats{gap:20px}
-  .hero-meta{gap:8px}
-  .hero-meta-item{padding:8px 12px;font-size:12px}
-  .hero-ring,.hero-ring-2{display:none}
-  .gallery-slide{width:280px;height:210px}
-  .matches-grid{grid-template-columns:1fr}
-  .epl-table{font-size:13px}
-  .epl-logo{width:32px;height:32px}
-  .epl-table thead th:last-child,.epl-row td:last-child{display:none}
-  .sponsors-grid{grid-template-columns:1fr}
-  .cta-box{padding:48px 20px}
-  .cta-contacts{flex-direction:column;align-items:center}
-  .footer-inner{flex-direction:column;text-align:center}
-  .footer-links{flex-wrap:wrap;justify-content:center}
+  .nav-menu.open{right:0}
+  .nav-menu a{font-size:15px;padding:12px 16px;width:100%;border-radius:8px}
+  .burger{display:block;z-index:201}
+  .prizes-grid{grid-template-columns:1fr}
+  .awards-row{grid-template-columns:1fr}
+  .matches{grid-template-columns:1fr}
+  .sp-grid{grid-template-columns:1fr}
+  .sp-title{grid-template-columns:1fr}
+  .sp-title-badge{border-right:none;border-bottom:1px solid rgba(212,168,67,.08);padding:20px;flex-direction:row}
+  .gal-img{width:260px;height:190px}
+  .cta{padding:40px 20px}
+  .cta-row{flex-direction:column;align-items:center}
+  .foot-inner{flex-direction:column;text-align:center}
+  .foot-links{flex-wrap:wrap;justify-content:center}
+  .hero-stats-row{gap:20px}
+  .teams-table th:last-child,.t-row td:last-child{display:none}
 }
 @media(max-width:380px){
-  .teams-grid{grid-template-columns:1fr}
-  .hero h1{font-size:44px}
-  .hero-stat .num{font-size:32px}
-  .gallery-slide{width:240px;height:180px}
+  .hero h1{font-size:38px}
+  .hero-stat-num{font-size:28px}
+  .gal-img{width:220px;height:160px}
 }
 </style>
 </head>
 <body>
 
-<div class="page-bg"><div class="orb o1"></div><div class="orb o2"></div><div class="orb o3"></div><div class="orb o4"></div></div>
-<div class="noise"></div>
+<div class="bg-grain"></div>
+<div class="bg-glow"></div>
 
 <!-- NAV -->
 <nav class="nav" id="nav">
   <div class="nav-inner">
-    <a href="#" class="nav-logo">RHEIN STRIKERS</a>
-    <div class="nav-links" id="navLinks">
+    <a href="#" class="nav-brand">RHEIN STRIKERS</a>
+    <div class="nav-menu" id="navMenu">
       <a href="#fixtures">Fixtures</a>
       <a href="#prizes">Prizes</a>
       <a href="#gallery">Gallery</a>
       <a href="#sponsors">Sponsors</a>
-      <a href="#contact" class="nav-cta">Register</a>
+      <a href="#contact" class="nav-register">Register</a>
     </div>
-    <button class="mobile-toggle" id="mobileToggle" aria-label="Menu">&#9776;</button>
+    <button class="burger" id="burger" aria-label="Menu">&#9776;</button>
   </div>
 </nav>
 
 <!-- HERO -->
-<section class="hero" id="hero">
-  <div class="hero-particles" id="heroParticles"></div>
-  <div class="hero-ring"></div>
-  <div class="hero-ring-2"></div>
-  <div class="hero-content">
-    <div class="hero-presents">
-      <img src="logos/indo.png" alt="Indo Spice">
-      <span>Indo Spice Presents</span>
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-line"></div>
+  <div class="hero-grid">
+    <div class="hero-left">
+      <div class="hero-sponsor">
+        <img src="logos/indo.png" alt="Indo Spice" class="hero-sponsor-logo">
+        <span class="hero-sponsor-text">Presents</span>
+      </div>
+      <h1>RHEIN<br>STRIKERS<br><span class="accent">CRICKET CUP</span></h1>
+      <p class="hero-sub">2nd Edition &bull; 2026</p>
+      <div class="hero-stats-row">
+        <div class="hero-stat"><div class="hero-stat-num" data-count="12">0</div><div class="hero-stat-label">Teams</div></div>
+        <div class="hero-stat"><div class="hero-stat-num" data-count="450">0</div><div class="hero-stat-label">Prize &euro;</div></div>
+        <div class="hero-stat"><div class="hero-stat-num" data-count="9">0</div><div class="hero-stat-label">Confirmed</div></div>
+      </div>
+      <div class="hero-actions">
+        <a href="#fixtures" class="btn btn-gold">View Fixtures</a>
+        <a href="#contact" class="btn btn-outline">Register Team</a>
+      </div>
     </div>
-    <div class="hero-badge"><span class="live-dot"></span> 2nd Edition &bull; 2026</div>
-    <h1><span class="gold">RHEIN STRIKERS</span><br><span class="white">CRICKET CUP</span></h1>
-    <p class="hero-edition">2nd Annual Tournament</p>
-    <div class="hero-stats">
-      <div class="hero-stat"><div class="num" data-count="12">0</div><div class="label">Teams</div></div>
-      <div class="hero-stat"><div class="num" data-count="7">0</div><div class="label">Match Days</div></div>
-      <div class="hero-stat"><div class="num" data-count="450">0</div><div class="label">Prize Pool &euro;</div></div>
-    </div>
-    <div class="hero-meta">
-      <div class="hero-meta-item"><span class="icon">&#128197;</span> Summer 2026</div>
-      <div class="hero-meta-item"><span class="icon">&#128205;</span> Ludwigshafen</div>
-      <div class="hero-meta-item"><span class="icon">&#127942;</span> Cash + Trophies</div>
-    </div>
-    <div class="hero-actions">
-      <a href="#fixtures" class="btn btn-primary">View Fixtures &#8595;</a>
-      <a href="#contact" class="btn btn-glass">Register Team</a>
+    <div class="hero-right">
+      <div class="hero-card">
+        <div class="hero-card-label">Tournament Info</div>
+        <div class="hero-card-venue">
+          <div class="v-icon">&#128205;</div>
+          <div class="v-text"><strong>Ludwigshafen, Germany</strong>Summer 2026</div>
+        </div>
+        <div class="hero-card-venue">
+          <div class="v-icon">&#127942;</div>
+          <div class="v-text"><strong>Quarter &rarr; Semi &rarr; Final</strong>Knockout format</div>
+        </div>
+        <div class="hero-card-prizes">
+          <div class="hcp first"><div class="hcp-rank">1st Prize</div><div class="hcp-amount">300&euro;</div><div class="hcp-extra">Cash + Trophy</div></div>
+          <div class="hcp second"><div class="hcp-rank">2nd Prize</div><div class="hcp-amount">150&euro;</div><div class="hcp-extra">Cash + Trophy</div></div>
+        </div>
+      </div>
     </div>
   </div>
-  <div class="scroll-hint"><span>SCROLL</span><div class="scroll-line"></div></div>
+  <div class="scroll-cue"><span>Scroll</span><div class="scroll-cue-line"></div></div>
 </section>
 
-<!-- MARQUEE -->
-<div class="marquee-strip">
-  <div class="marquee-track">
-    <span class="marquee-item">Indo Spice Presents <span class="sep">&#9830;</span></span>
-    <span class="marquee-item">Cricket Cup 2026 <span class="sep">&#9830;</span></span>
-    <span class="marquee-item">12 Teams <span class="sep">&#9830;</span></span>
-    <span class="marquee-item">Ludwigshafen <span class="sep">&#9830;</span></span>
-    <span class="marquee-item">2nd Edition <span class="sep">&#9830;</span></span>
-    <span class="marquee-item">Quarter Finals <span class="sep">&#9830;</span></span>
-    <span class="marquee-item">Semi Finals <span class="sep">&#9830;</span></span>
-    <span class="marquee-item">Grand Final <span class="sep">&#9830;</span></span>
-    <span class="marquee-item">Cash Prizes <span class="sep">&#9830;</span></span>
-    <span class="marquee-item">Register Now <span class="sep">&#9830;</span></span>
-    <span class="marquee-item">Indo Spice Presents <span class="sep">&#9830;</span></span>
-    <span class="marquee-item">Cricket Cup 2026 <span class="sep">&#9830;</span></span>
-    <span class="marquee-item">12 Teams <span class="sep">&#9830;</span></span>
-    <span class="marquee-item">Ludwigshafen <span class="sep">&#9830;</span></span>
-    <span class="marquee-item">2nd Edition <span class="sep">&#9830;</span></span>
-    <span class="marquee-item">Quarter Finals <span class="sep">&#9830;</span></span>
-    <span class="marquee-item">Semi Finals <span class="sep">&#9830;</span></span>
-    <span class="marquee-item">Grand Final <span class="sep">&#9830;</span></span>
-    <span class="marquee-item">Cash Prizes <span class="sep">&#9830;</span></span>
-    <span class="marquee-item">Register Now <span class="sep">&#9830;</span></span>
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-track">
+    <span class="ticker-item"><span class="ticker-dot"></span>Indo Spice Presents</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Cricket Cup 2026</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>12 Teams</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Ludwigshafen</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>2nd Edition</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Cash Prizes</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Register Now</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Indo Spice Presents</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Cricket Cup 2026</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>12 Teams</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Ludwigshafen</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>2nd Edition</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Cash Prizes</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Register Now</span>
   </div>
 </div>
 
 <!-- FIXTURES -->
 <section id="fixtures">
   <div class="container">
-    <div class="sh reveal">
-      <div class="sh-label"><span class="bar"></span> TOURNAMENT <span class="bar right"></span></div>
-      <h2 class="sh-title">Fixtures &amp; Bracket</h2>
-      <p class="sh-sub">12 teams battle through quarters, semis, and the grand final</p>
+    <div class="sec-head anim">
+      <div class="sec-label">Tournament</div>
+      <h2 class="sec-title">Fixtures &amp; Teams</h2>
+      <p class="sec-sub">9 teams confirmed, 3 spots open. Fixtures announced after all teams register.</p>
     </div>
 
-    <div class="bracket-tabs reveal">
-      <button class="bracket-tab active" data-stage="teams">All Teams</button>
-      <button class="bracket-tab" data-stage="quarters">Quarter Finals</button>
-      <button class="bracket-tab" data-stage="semis">Semi Finals</button>
-      <button class="bracket-tab" data-stage="final">Final</button>
+    <div class="fix-tabs anim">
+      <button class="fix-tab on" data-tab="teams">All Teams</button>
+      <button class="fix-tab" data-tab="qf">Quarter Finals</button>
+      <button class="fix-tab" data-tab="sf">Semi Finals</button>
+      <button class="fix-tab" data-tab="gf">Final</button>
     </div>
 
-    <!-- ALL TEAMS (EPL STYLE) -->
-    <div class="bracket-stage active" id="stage-teams">
-      <table class="epl-table reveal">
-        <thead><tr><th>#</th><th>Team</th><th>Captain</th></tr></thead>
+    <div class="fix-stage on" id="tab-teams">
+      <table class="teams-table anim">
+        <thead><tr><th>#</th><th>Club</th><th>Captain</th></tr></thead>
         <tbody>
-          <tr class="epl-row"><td><span class="epl-pos">1</span></td><td><div class="epl-team"><div class="epl-logo">&#128309;</div><div class="epl-team-info"><div class="epl-name">Rhein Strikers Blue</div></div></div></td><td class="epl-captain" style="color:rgba(255,255,255,.5)">Jibin</td></tr>
-          <tr class="epl-row"><td><span class="epl-pos">2</span></td><td><div class="epl-team"><div class="epl-logo">&#128308;</div><div class="epl-team-info"><div class="epl-name">Rhein Strikers Red</div></div></div></td><td class="epl-captain" style="color:rgba(255,255,255,.5)">TBD</td></tr>
-          <tr class="epl-row"><td><span class="epl-pos">3</span></td><td><div class="epl-team"><div class="epl-logo">&#9876;&#65039;</div><div class="epl-team-info"><div class="epl-name">Karlsruhe Knights</div></div></div></td><td class="epl-captain" style="color:rgba(255,255,255,.5)">Atul Pradeep</td></tr>
-          <tr class="epl-row"><td><span class="epl-pos">4</span></td><td><div class="epl-team"><div class="epl-logo">&#9889;</div><div class="epl-team-info"><div class="epl-name">KK Challengers</div></div></div></td><td class="epl-captain" style="color:rgba(255,255,255,.5)">Prins</td></tr>
-          <tr class="epl-row"><td><span class="epl-pos">5</span></td><td><div class="epl-team"><div class="epl-logo">&#127944;</div><div class="epl-team-info"><div class="epl-name">TBG Neulusheim</div></div></div></td><td class="epl-captain" style="color:rgba(255,255,255,.5)">Supreeth</td></tr>
-          <tr class="epl-row"><td><span class="epl-pos">6</span></td><td><div class="epl-team"><div class="epl-logo">&#127951;</div><div class="epl-team-info"><div class="epl-name">Mainz Cricket Club</div></div></div></td><td class="epl-captain" style="color:rgba(255,255,255,.5)">Peter</td></tr>
-          <tr class="epl-row"><td><span class="epl-pos">7</span></td><td><div class="epl-team"><div class="epl-logo">&#127942;</div><div class="epl-team-info"><div class="epl-name">PSG Galli Cricket</div></div></div></td><td class="epl-captain" style="color:rgba(255,255,255,.5)">Chaitanya</td></tr>
-          <tr class="epl-row"><td><span class="epl-pos">8</span></td><td><div class="epl-team"><div class="epl-logo">&#128737;</div><div class="epl-team-info"><div class="epl-name">TSV Frankfurt Spartans</div></div></div></td><td class="epl-captain" style="color:rgba(255,255,255,.5)">Boney</td></tr>
-          <tr class="epl-row"><td><span class="epl-pos">9</span></td><td><div class="epl-team"><div class="epl-logo">&#128170;</div><div class="epl-team-info"><div class="epl-name">TGS United Challengers</div></div></div></td><td class="epl-captain" style="color:rgba(255,255,255,.5)">Gnana</td></tr>
-          <tr class="epl-row tbd-row"><td><span class="epl-pos">10</span></td><td><div class="epl-team"><div class="epl-logo">?</div><div class="epl-team-info"><div class="epl-name">TBD</div></div></div></td><td class="epl-captain" style="color:rgba(255,255,255,.2)">Slot Available</td></tr>
-          <tr class="epl-row tbd-row"><td><span class="epl-pos">11</span></td><td><div class="epl-team"><div class="epl-logo">?</div><div class="epl-team-info"><div class="epl-name">TBD</div></div></div></td><td class="epl-captain" style="color:rgba(255,255,255,.2)">Slot Available</td></tr>
-          <tr class="epl-row tbd-row"><td><span class="epl-pos">12</span></td><td><div class="epl-team"><div class="epl-logo">?</div><div class="epl-team-info"><div class="epl-name">TBD</div></div></div></td><td class="epl-captain" style="color:rgba(255,255,255,.2)">Slot Available</td></tr>
+          <tr class="t-row"><td><span class="t-pos">1</span></td><td><div class="t-team"><div class="t-crest" style="border-color:rgba(59,130,246,.3);color:#60a5fa">RS</div><div class="t-name">Rhein Strikers Blue</div></div></td><td class="t-cap">Jibin</td></tr>
+          <tr class="t-row"><td><span class="t-pos">2</span></td><td><div class="t-team"><div class="t-crest" style="border-color:rgba(239,68,68,.3);color:#f87171">RS</div><div class="t-name">Rhein Strikers Red</div></div></td><td class="t-cap">TBD</td></tr>
+          <tr class="t-row"><td><span class="t-pos">3</span></td><td><div class="t-team"><div class="t-crest">KK</div><div class="t-name">Karlsruhe Knights</div></div></td><td class="t-cap">Atul Pradeep</td></tr>
+          <tr class="t-row"><td><span class="t-pos">4</span></td><td><div class="t-team"><div class="t-crest">KC</div><div class="t-name">KK Challengers</div></div></td><td class="t-cap">Prins</td></tr>
+          <tr class="t-row"><td><span class="t-pos">5</span></td><td><div class="t-team"><div class="t-crest">TB</div><div class="t-name">TBG Neulusheim</div></div></td><td class="t-cap">Supreeth</td></tr>
+          <tr class="t-row"><td><span class="t-pos">6</span></td><td><div class="t-team"><div class="t-crest">MC</div><div class="t-name">Mainz Cricket Club</div></div></td><td class="t-cap">Peter</td></tr>
+          <tr class="t-row"><td><span class="t-pos">7</span></td><td><div class="t-team"><div class="t-crest">PG</div><div class="t-name">PSG Galli Cricket</div></div></td><td class="t-cap">Chaitanya</td></tr>
+          <tr class="t-row"><td><span class="t-pos">8</span></td><td><div class="t-team"><div class="t-crest">FS</div><div class="t-name">TSV Frankfurt Spartans</div></div></td><td class="t-cap">Boney</td></tr>
+          <tr class="t-row"><td><span class="t-pos">9</span></td><td><div class="t-team"><div class="t-crest">TU</div><div class="t-name">TGS United Challengers</div></div></td><td class="t-cap">Gnana</td></tr>
+          <tr class="t-row tbd"><td><span class="t-pos">10</span></td><td><div class="t-team"><div class="t-crest">?</div><div class="t-name">TBD</div></div></td><td class="t-cap">Open Slot</td></tr>
+          <tr class="t-row tbd"><td><span class="t-pos">11</span></td><td><div class="t-team"><div class="t-crest">?</div><div class="t-name">TBD</div></div></td><td class="t-cap">Open Slot</td></tr>
+          <tr class="t-row tbd"><td><span class="t-pos">12</span></td><td><div class="t-team"><div class="t-crest">?</div><div class="t-name">TBD</div></div></td><td class="t-cap">Open Slot</td></tr>
         </tbody>
       </table>
-      <div class="fixtures-note-wrap reveal">
-        <div class="fixtures-note">&#128197; Fixtures &amp; match schedule coming soon</div>
+      <div class="fix-note anim">Fixtures &amp; match schedule will be announced after all 12 teams are confirmed</div>
+    </div>
+
+    <div class="fix-stage" id="tab-qf">
+      <div class="matches">
+        <div class="mx anim d1"><div class="mx-round">Quarter Final 1</div><div class="mx-teams"><div class="mx-t"><span class="mx-t-left"><span class="mx-t-crest">?</span>TBD</span><span class="mx-score">-</span></div><div class="mx-vs">VS</div><div class="mx-t"><span class="mx-t-left"><span class="mx-t-crest">?</span>TBD</span><span class="mx-score">-</span></div></div><div class="mx-foot"><span class="mx-time">Coming Soon</span><span class="mx-badge">Upcoming</span></div></div>
+        <div class="mx anim d2"><div class="mx-round">Quarter Final 2</div><div class="mx-teams"><div class="mx-t"><span class="mx-t-left"><span class="mx-t-crest">?</span>TBD</span><span class="mx-score">-</span></div><div class="mx-vs">VS</div><div class="mx-t"><span class="mx-t-left"><span class="mx-t-crest">?</span>TBD</span><span class="mx-score">-</span></div></div><div class="mx-foot"><span class="mx-time">Coming Soon</span><span class="mx-badge">Upcoming</span></div></div>
+        <div class="mx anim d3"><div class="mx-round">Quarter Final 3</div><div class="mx-teams"><div class="mx-t"><span class="mx-t-left"><span class="mx-t-crest">?</span>TBD</span><span class="mx-score">-</span></div><div class="mx-vs">VS</div><div class="mx-t"><span class="mx-t-left"><span class="mx-t-crest">?</span>TBD</span><span class="mx-score">-</span></div></div><div class="mx-foot"><span class="mx-time">Coming Soon</span><span class="mx-badge">Upcoming</span></div></div>
+        <div class="mx anim d4"><div class="mx-round">Quarter Final 4</div><div class="mx-teams"><div class="mx-t"><span class="mx-t-left"><span class="mx-t-crest">?</span>TBD</span><span class="mx-score">-</span></div><div class="mx-vs">VS</div><div class="mx-t"><span class="mx-t-left"><span class="mx-t-crest">?</span>TBD</span><span class="mx-score">-</span></div></div><div class="mx-foot"><span class="mx-time">Coming Soon</span><span class="mx-badge">Upcoming</span></div></div>
+      </div>
+      <div class="fix-note anim">Fixtures announced after all 12 teams are confirmed</div>
+    </div>
+
+    <div class="fix-stage" id="tab-sf">
+      <div class="matches">
+        <div class="mx anim d1"><div class="mx-round">Semi Final 1</div><div class="mx-teams"><div class="mx-t"><span class="mx-t-left"><span class="mx-t-crest">&#9733;</span>Winner QF1</span><span class="mx-score">-</span></div><div class="mx-vs">VS</div><div class="mx-t"><span class="mx-t-left"><span class="mx-t-crest">&#9733;</span>Winner QF2</span><span class="mx-score">-</span></div></div><div class="mx-foot"><span class="mx-time">TBD</span><span class="mx-badge">Upcoming</span></div></div>
+        <div class="mx anim d2"><div class="mx-round">Semi Final 2</div><div class="mx-teams"><div class="mx-t"><span class="mx-t-left"><span class="mx-t-crest">&#9733;</span>Winner QF3</span><span class="mx-score">-</span></div><div class="mx-vs">VS</div><div class="mx-t"><span class="mx-t-left"><span class="mx-t-crest">&#9733;</span>Winner QF4</span><span class="mx-score">-</span></div></div><div class="mx-foot"><span class="mx-time">TBD</span><span class="mx-badge">Upcoming</span></div></div>
       </div>
     </div>
 
-    <!-- QUARTER FINALS -->
-    <div class="bracket-stage" id="stage-quarters">
-      <div class="matches-grid">
-        <div class="match-card glass reveal s1">
-          <div class="match-label">Quarter Final 1</div>
-          <div class="match-teams">
-            <div class="match-team"><span class="mt-name"><span class="mt-logo">?</span>TBD</span><span class="mt-score">--</span></div>
-            <div class="match-vs">VS</div>
-            <div class="match-team"><span class="mt-name"><span class="mt-logo">?</span>TBD</span><span class="mt-score">--</span></div>
-          </div>
-          <div class="match-footer"><span class="match-time">Coming Soon</span><span class="match-status st-upcoming">Upcoming</span></div>
-        </div>
-        <div class="match-card glass reveal s2">
-          <div class="match-label">Quarter Final 2</div>
-          <div class="match-teams">
-            <div class="match-team"><span class="mt-name"><span class="mt-logo">?</span>TBD</span><span class="mt-score">--</span></div>
-            <div class="match-vs">VS</div>
-            <div class="match-team"><span class="mt-name"><span class="mt-logo">?</span>TBD</span><span class="mt-score">--</span></div>
-          </div>
-          <div class="match-footer"><span class="match-time">Coming Soon</span><span class="match-status st-upcoming">Upcoming</span></div>
-        </div>
-        <div class="match-card glass reveal s3">
-          <div class="match-label">Quarter Final 3</div>
-          <div class="match-teams">
-            <div class="match-team"><span class="mt-name"><span class="mt-logo">?</span>TBD</span><span class="mt-score">--</span></div>
-            <div class="match-vs">VS</div>
-            <div class="match-team"><span class="mt-name"><span class="mt-logo">?</span>TBD</span><span class="mt-score">--</span></div>
-          </div>
-          <div class="match-footer"><span class="match-time">Coming Soon</span><span class="match-status st-upcoming">Upcoming</span></div>
-        </div>
-        <div class="match-card glass reveal s4">
-          <div class="match-label">Quarter Final 4</div>
-          <div class="match-teams">
-            <div class="match-team"><span class="mt-name"><span class="mt-logo">?</span>TBD</span><span class="mt-score">--</span></div>
-            <div class="match-vs">VS</div>
-            <div class="match-team"><span class="mt-name"><span class="mt-logo">?</span>TBD</span><span class="mt-score">--</span></div>
-          </div>
-          <div class="match-footer"><span class="match-time">Coming Soon</span><span class="match-status st-upcoming">Upcoming</span></div>
-        </div>
-      </div>
-      <div class="fixtures-note-wrap reveal"><div class="fixtures-note">&#128197; Fixtures will be announced after all 12 teams are confirmed</div></div>
-    </div>
-
-    <!-- SEMI FINALS -->
-    <div class="bracket-stage" id="stage-semis">
-      <div class="matches-grid">
-        <div class="match-card glass reveal s1">
-          <div class="match-label">Semi Final 1</div>
-          <div class="match-teams">
-            <div class="match-team"><span class="mt-name"><span class="mt-logo">&#9733;</span>Winner QF1</span><span class="mt-score">--</span></div>
-            <div class="match-vs">VS</div>
-            <div class="match-team"><span class="mt-name"><span class="mt-logo">&#9733;</span>Winner QF2</span><span class="mt-score">--</span></div>
-          </div>
-          <div class="match-footer"><span class="match-time">TBD</span><span class="match-status st-upcoming">Upcoming</span></div>
-        </div>
-        <div class="match-card glass reveal s2">
-          <div class="match-label">Semi Final 2</div>
-          <div class="match-teams">
-            <div class="match-team"><span class="mt-name"><span class="mt-logo">&#9733;</span>Winner QF3</span><span class="mt-score">--</span></div>
-            <div class="match-vs">VS</div>
-            <div class="match-team"><span class="mt-name"><span class="mt-logo">&#9733;</span>Winner QF4</span><span class="mt-score">--</span></div>
-          </div>
-          <div class="match-footer"><span class="match-time">TBD</span><span class="match-status st-upcoming">Upcoming</span></div>
-        </div>
+    <div class="fix-stage" id="tab-gf">
+      <div class="matches" style="max-width:440px;margin:0 auto">
+        <div class="mx anim" style="border-color:rgba(212,168,67,.12)"><div class="mx-round" style="color:var(--gold)">Grand Final</div><div class="mx-teams"><div class="mx-t"><span class="mx-t-left"><span class="mx-t-crest" style="border-color:var(--gold);color:var(--gold)">&#9733;</span>Winner SF1</span><span class="mx-score">-</span></div><div class="mx-vs" style="color:var(--gold)">VS</div><div class="mx-t"><span class="mx-t-left"><span class="mx-t-crest" style="border-color:var(--gold);color:var(--gold)">&#9733;</span>Winner SF2</span><span class="mx-score">-</span></div></div><div class="mx-foot"><span class="mx-time">TBD</span><span class="mx-badge final-badge">Grand Final</span></div></div>
       </div>
     </div>
+  </div>
+</section>
 
-    <!-- FINAL -->
-    <div class="bracket-stage" id="stage-final">
-      <div class="matches-grid" style="max-width:480px;margin:0 auto">
-        <div class="match-card glass reveal" style="border-color:rgba(251,191,36,.12);background:rgba(251,191,36,.02);animation:glowPulse 4s ease-in-out infinite">
-          <div class="match-label" style="color:#fbbf24">&#127942; Grand Final</div>
-          <div class="match-teams">
-            <div class="match-team"><span class="mt-name"><span class="mt-logo" style="background:rgba(251,191,36,.08);border-color:rgba(251,191,36,.12);color:#fbbf24">&#9733;</span>Winner SF1</span><span class="mt-score">--</span></div>
-            <div class="match-vs" style="color:#fbbf24">VS</div>
-            <div class="match-team"><span class="mt-name"><span class="mt-logo" style="background:rgba(251,191,36,.08);border-color:rgba(251,191,36,.12);color:#fbbf24">&#9733;</span>Winner SF2</span><span class="mt-score">--</span></div>
-          </div>
-          <div class="match-footer"><span class="match-time">TBD</span><span class="match-status st-final">Grand Final</span></div>
-        </div>
-      </div>
+<!-- PRIZES -->
+<section id="prizes">
+  <div class="container">
+    <div class="sec-head center anim">
+      <div class="sec-label">Prizes &amp; Awards</div>
+      <h2 class="sec-title">What's at Stake</h2>
+    </div>
+    <div class="prizes-grid">
+      <div class="prize g anim d1"><div class="prize-in"><div class="prize-tag">1st Prize</div><div class="prize-val">300&euro;</div><div class="prize-sub">Cash + Trophy</div><div class="prize-by"><img src="logos/indo.png" alt="Indo Spice"> Sponsored by Indo Spice</div></div></div>
+      <div class="prize s anim d2"><div class="prize-in"><div class="prize-tag">2nd Prize</div><div class="prize-val">150&euro;</div><div class="prize-sub">Cash + Trophy</div><div class="prize-by"><img src="logos/pepperhaus.jpeg" alt="Pepper Haus"> Sponsored by Pepper Haus</div></div></div>
+    </div>
+    <div class="awards-row">
+      <div class="award anim d1"><span class="award-icon">&#9733;</span><div class="award-name">MVP</div><div class="award-info">Gift Card &amp; Trophy<br>Sponsored by AVN Umzug</div><img src="logos/avn.png" alt="AVN" class="award-logo"></div>
+      <div class="award anim d2"><span class="award-icon">&#127936;</span><div class="award-name">Best Bowler</div><div class="award-info">Trophy<br>Awarded by Fly Dreams</div><img src="logos/fly.jpg" alt="Fly Dreams" class="award-logo"></div>
+      <div class="award anim d3"><span class="award-icon">&#127951;</span><div class="award-name">Best Batsman</div><div class="award-info">Trophy<br>Awarded by Fly Dreams</div><img src="logos/fly.jpg" alt="Fly Dreams" class="award-logo"></div>
     </div>
   </div>
 </section>
@@ -850,38 +580,38 @@ section{padding:100px 0}
 <!-- GALLERY -->
 <section id="gallery">
   <div class="container">
-    <div class="sh reveal">
-      <div class="sh-label"><span class="bar"></span> MEMORIES <span class="bar right"></span></div>
-      <h2 class="sh-title">2025 Cup Highlights</h2>
-      <p class="sh-sub">Moments from the inaugural Rhein Strikers Cricket Cup</p>
+    <div class="sec-head center anim">
+      <div class="sec-label">Memories</div>
+      <h2 class="sec-title">2025 Cup Highlights</h2>
+      <p class="sec-sub">Moments from the inaugural Rhein Strikers Cricket Cup</p>
     </div>
   </div>
-  <div class="gallery-row reveal">
-    <div class="gallery-track">
-      <div class="gallery-slide"><img src="images/cup2025-1.jpeg" alt="Champions 2025" loading="lazy"><div class="slide-overlay"><span class="slide-caption">Champions Celebration 2025</span></div></div>
-      <div class="gallery-slide"><img src="images/cup2025-2.jpeg" alt="Team with trophy" loading="lazy"><div class="slide-overlay"><span class="slide-caption">Team Photo with Trophy</span></div></div>
-      <div class="gallery-slide"><img src="images/cup2025-3.jpeg" alt="Group photo" loading="lazy"><div class="slide-overlay"><span class="slide-caption">Champions Group Shot</span></div></div>
-      <div class="gallery-slide"><img src="images/cup2025-4.jpeg" alt="Victory pose" loading="lazy"><div class="slide-overlay"><span class="slide-caption">Winning Moment</span></div></div>
-      <div class="gallery-slide"><img src="images/cup2025-5.jpeg" alt="Trophy presentation" loading="lazy"><div class="slide-overlay"><span class="slide-caption">Trophy Presentation</span></div></div>
-      <div class="gallery-slide"><img src="images/cup2025-1.jpeg" alt="Champions 2025" loading="lazy"><div class="slide-overlay"><span class="slide-caption">Champions Celebration 2025</span></div></div>
-      <div class="gallery-slide"><img src="images/cup2025-2.jpeg" alt="Team with trophy" loading="lazy"><div class="slide-overlay"><span class="slide-caption">Team Photo with Trophy</span></div></div>
-      <div class="gallery-slide"><img src="images/cup2025-3.jpeg" alt="Group photo" loading="lazy"><div class="slide-overlay"><span class="slide-caption">Champions Group Shot</span></div></div>
-      <div class="gallery-slide"><img src="images/cup2025-4.jpeg" alt="Victory pose" loading="lazy"><div class="slide-overlay"><span class="slide-caption">Winning Moment</span></div></div>
-      <div class="gallery-slide"><img src="images/cup2025-5.jpeg" alt="Trophy presentation" loading="lazy"><div class="slide-overlay"><span class="slide-caption">Trophy Presentation</span></div></div>
+  <div class="gal-row anim">
+    <div class="gal-track">
+      <div class="gal-img"><img src="images/cup2025-1.jpeg" alt="Champions" loading="lazy"><div class="gal-cap"><span>Champions Celebration 2025</span></div></div>
+      <div class="gal-img"><img src="images/cup2025-2.jpeg" alt="Team" loading="lazy"><div class="gal-cap"><span>Team Photo with Trophy</span></div></div>
+      <div class="gal-img"><img src="images/cup2025-3.jpeg" alt="Group" loading="lazy"><div class="gal-cap"><span>Champions Group Shot</span></div></div>
+      <div class="gal-img"><img src="images/cup2025-4.jpeg" alt="Victory" loading="lazy"><div class="gal-cap"><span>Winning Moment</span></div></div>
+      <div class="gal-img"><img src="images/cup2025-5.jpeg" alt="Trophy" loading="lazy"><div class="gal-cap"><span>Trophy Presentation</span></div></div>
+      <div class="gal-img"><img src="images/cup2025-1.jpeg" alt="Champions" loading="lazy"><div class="gal-cap"><span>Champions Celebration 2025</span></div></div>
+      <div class="gal-img"><img src="images/cup2025-2.jpeg" alt="Team" loading="lazy"><div class="gal-cap"><span>Team Photo with Trophy</span></div></div>
+      <div class="gal-img"><img src="images/cup2025-3.jpeg" alt="Group" loading="lazy"><div class="gal-cap"><span>Champions Group Shot</span></div></div>
+      <div class="gal-img"><img src="images/cup2025-4.jpeg" alt="Victory" loading="lazy"><div class="gal-cap"><span>Winning Moment</span></div></div>
+      <div class="gal-img"><img src="images/cup2025-5.jpeg" alt="Trophy" loading="lazy"><div class="gal-cap"><span>Trophy Presentation</span></div></div>
     </div>
   </div>
-  <div class="gallery-row reveal">
-    <div class="gallery-track">
-      <div class="gallery-slide"><img src="images/cup2025-5.jpeg" alt="Trophy presentation" loading="lazy"><div class="slide-overlay"><span class="slide-caption">Trophy Ceremony</span></div></div>
-      <div class="gallery-slide"><img src="images/cup2025-4.jpeg" alt="Winning team" loading="lazy"><div class="slide-overlay"><span class="slide-caption">Victory Pose</span></div></div>
-      <div class="gallery-slide"><img src="images/cup2025-3.jpeg" alt="Team celebration" loading="lazy"><div class="slide-overlay"><span class="slide-caption">Team Celebration</span></div></div>
-      <div class="gallery-slide"><img src="images/cup2025-2.jpeg" alt="Indo Spice Champions" loading="lazy"><div class="slide-overlay"><span class="slide-caption">Indo Spice Champions Banner</span></div></div>
-      <div class="gallery-slide"><img src="images/cup2025-1.jpeg" alt="Hands up" loading="lazy"><div class="slide-overlay"><span class="slide-caption">Hands Up! Champions!</span></div></div>
-      <div class="gallery-slide"><img src="images/cup2025-5.jpeg" alt="Trophy presentation" loading="lazy"><div class="slide-overlay"><span class="slide-caption">Trophy Ceremony</span></div></div>
-      <div class="gallery-slide"><img src="images/cup2025-4.jpeg" alt="Winning team" loading="lazy"><div class="slide-overlay"><span class="slide-caption">Victory Pose</span></div></div>
-      <div class="gallery-slide"><img src="images/cup2025-3.jpeg" alt="Team celebration" loading="lazy"><div class="slide-overlay"><span class="slide-caption">Team Celebration</span></div></div>
-      <div class="gallery-slide"><img src="images/cup2025-2.jpeg" alt="Indo Spice Champions" loading="lazy"><div class="slide-overlay"><span class="slide-caption">Indo Spice Champions Banner</span></div></div>
-      <div class="gallery-slide"><img src="images/cup2025-1.jpeg" alt="Hands up" loading="lazy"><div class="slide-overlay"><span class="slide-caption">Hands Up! Champions!</span></div></div>
+  <div class="gal-row rev anim">
+    <div class="gal-track">
+      <div class="gal-img"><img src="images/cup2025-5.jpeg" alt="Trophy" loading="lazy"><div class="gal-cap"><span>Trophy Ceremony</span></div></div>
+      <div class="gal-img"><img src="images/cup2025-4.jpeg" alt="Team" loading="lazy"><div class="gal-cap"><span>Victory Pose</span></div></div>
+      <div class="gal-img"><img src="images/cup2025-3.jpeg" alt="Celebration" loading="lazy"><div class="gal-cap"><span>Team Celebration</span></div></div>
+      <div class="gal-img"><img src="images/cup2025-2.jpeg" alt="Banner" loading="lazy"><div class="gal-cap"><span>Indo Spice Champions Banner</span></div></div>
+      <div class="gal-img"><img src="images/cup2025-1.jpeg" alt="Hands" loading="lazy"><div class="gal-cap"><span>Hands Up! Champions!</span></div></div>
+      <div class="gal-img"><img src="images/cup2025-5.jpeg" alt="Trophy" loading="lazy"><div class="gal-cap"><span>Trophy Ceremony</span></div></div>
+      <div class="gal-img"><img src="images/cup2025-4.jpeg" alt="Team" loading="lazy"><div class="gal-cap"><span>Victory Pose</span></div></div>
+      <div class="gal-img"><img src="images/cup2025-3.jpeg" alt="Celebration" loading="lazy"><div class="gal-cap"><span>Team Celebration</span></div></div>
+      <div class="gal-img"><img src="images/cup2025-2.jpeg" alt="Banner" loading="lazy"><div class="gal-cap"><span>Indo Spice Champions Banner</span></div></div>
+      <div class="gal-img"><img src="images/cup2025-1.jpeg" alt="Hands" loading="lazy"><div class="gal-cap"><span>Hands Up! Champions!</span></div></div>
     </div>
   </div>
 </section>
@@ -889,178 +619,73 @@ section{padding:100px 0}
 <!-- SPONSORS -->
 <section id="sponsors">
   <div class="container">
-    <div class="sh reveal">
-      <div class="sh-label"><span class="bar"></span> PARTNERS <span class="bar right"></span></div>
-      <h2 class="sh-title">Our Sponsors</h2>
-      <p class="sh-sub">Proudly supported by local businesses. Exclusive deals for tournament attendees!</p>
+    <div class="sec-head center anim">
+      <div class="sec-label">Partners</div>
+      <h2 class="sec-title">Our Sponsors</h2>
+      <p class="sec-sub">Proudly supported by local businesses</p>
     </div>
 
-    <div class="deals-banner reveal">
-      <span class="deals-icon">&#127381;</span>
-      <span class="deals-text">All sponsors are offering <strong>exclusive deals &amp; discounts</strong> for cricket players throughout the tournament. Show your player ID to redeem!</span>
+    <div class="sp-deals anim">
+      <p>All sponsors are offering <strong>exclusive deals &amp; discounts for cricket players</strong> throughout the tournament. Use the coupon codes below to redeem!</p>
     </div>
 
     <!-- TITLE SPONSOR -->
-    <div class="sponsors-tier">
-      <div class="tier-label tier-title reveal">&#9733; Title Sponsor</div>
-      <div class="sponsors-grid">
-        <div class="sponsor-card glass title-sponsor reveal-tilt">
-          <div class="sp-header">
-            <div class="sp-logo"><img src="logos/indo.png" alt="Indo Spice"></div>
-            <div><div class="sp-name">Indo Spice</div><div class="sp-type">Indo-African Supermarket</div></div>
-          </div>
-          <div class="sp-desc">The finest Indo-African supermarket with 30+ brands of grocery and frozen items. Most affordable prices with shipping across Germany. Franchise opportunities available.</div>
-          <div class="sp-location"><span class="pin">&#128205;</span> Frankenthaler Str. 73, 67059 Ludwigshafen am Rhein</div>
-          <div class="sp-offer">
-            <div class="sp-offer-label">Special Offer</div>
-            <div class="sp-offer-text">10% off on all orders above &euro;30 for tournament attendees</div>
-            <div class="coupon" onclick="copyCoupon(this)">RHEIN2026 <span class="cp-icon">&#128203;</span></div>
-          </div>
+    <div class="sp-title anim">
+      <div class="sp-title-badge">
+        <img src="logos/indo.png" alt="Indo Spice">
+        <span>Title Sponsor</span>
+      </div>
+      <div class="sp-title-body">
+        <div class="sp-title-name">Indo Spice</div>
+        <div class="sp-title-type">Indo-African Supermarket</div>
+        <div class="sp-title-desc">The finest Indo-African supermarket with 30+ brands of grocery and frozen items. Most affordable prices with shipping across Germany.</div>
+        <div class="sp-title-loc">&#128205; Frankenthaler Str. 73, 67059 Ludwigshafen am Rhein</div>
+        <div class="sp-offer-box">
+          <div class="sp-offer-tag">Player Deal</div>
+          <div class="sp-offer-txt">10% off on all orders above &euro;30 for tournament attendees</div>
+          <div class="coupon" onclick="copyCoupon(this)">RHEIN2026 <span class="cp">&#128203;</span></div>
         </div>
       </div>
     </div>
 
-    <!-- GOLD SPONSORS -->
-    <div class="sponsors-tier">
-      <div class="tier-label tier-gold reveal">Gold Sponsors</div>
-      <div class="sponsors-grid">
-        <div class="sponsor-card glass reveal-tilt s1">
-          <div class="sp-header">
-            <div class="sp-logo"><img src="logos/pepperhaus.jpeg" alt="Pepper Haus"></div>
-            <div><div class="sp-name">Pepper Haus</div><div class="sp-type">South &amp; North Indian Restaurant</div></div>
-          </div>
-          <div class="sp-desc">Your ultimate destination for vibrant South &amp; North Indian flavours in Mannheim! Dine-in, Takeaway, Catering &amp; Bar.</div>
-          <div class="sp-location"><span class="pin">&#128205;</span> Lange R&ouml;tterstra&szlig;e 53, Mannheim</div>
-          <div class="sp-offer">
-            <div class="sp-offer-label">Special Offer</div>
-            <div class="sp-offer-text">15% off dine-in for all registered players</div>
-            <div class="coupon" onclick="copyCoupon(this)">PHAUS15 <span class="cp-icon">&#128203;</span></div>
-          </div>
+    <!-- GOLD -->
+    <div class="sp-tier anim">
+      <div class="sp-tier-label">Gold Sponsors</div>
+      <div class="sp-grid">
+        <div class="sp-card anim d1">
+          <div class="sp-top"><div class="sp-icon"><img src="logos/pepperhaus.jpeg" alt="Pepper Haus"></div><div><div class="sp-card-name">Pepper Haus</div><div class="sp-card-type">South &amp; North Indian Restaurant</div></div></div>
+          <div class="sp-card-desc">Your ultimate destination for vibrant South &amp; North Indian flavours in Mannheim! Dine-in, Takeaway, Catering &amp; Bar.</div>
+          <div class="sp-card-loc">&#128205; Lange R&ouml;tterstra&szlig;e 53, Mannheim</div>
+          <div class="sp-offer-box"><div class="sp-offer-tag">Player Deal</div><div class="sp-offer-txt">15% off dine-in for all registered players</div><div class="coupon" onclick="copyCoupon(this)">PHAUS15 <span class="cp">&#128203;</span></div></div>
         </div>
-        <div class="sponsor-card glass reveal-tilt s2">
-          <div class="sp-header">
-            <div class="sp-logo"><img src="logos/saltpepper.png" alt="Salt &amp; Pepper"></div>
-            <div><div class="sp-name">Salt &amp; Pepper</div><div class="sp-type">Catering &amp; Events</div></div>
-          </div>
-          <div class="sp-desc">Premium catering and event management. Official event coordination partner for the Rhein Strikers Cricket Cup.</div>
-          <div class="sp-offer">
-            <div class="sp-offer-label">Special Offer</div>
-            <div class="sp-offer-text">Free dessert with any main course on match days</div>
-            <div class="coupon" onclick="copyCoupon(this)">SNPCRICKET <span class="cp-icon">&#128203;</span></div>
-          </div>
+        <div class="sp-card anim d2">
+          <div class="sp-top"><div class="sp-icon"><img src="logos/saltpepper.png" alt="Salt &amp; Pepper"></div><div><div class="sp-card-name">Salt &amp; Pepper</div><div class="sp-card-type">Catering &amp; Events</div></div></div>
+          <div class="sp-card-desc">Premium catering and event management. Official event coordination partner for the Rhein Strikers Cricket Cup.</div>
+          <div class="sp-offer-box"><div class="sp-offer-tag">Player Deal</div><div class="sp-offer-txt">Free dessert with any main course on match days</div><div class="coupon" onclick="copyCoupon(this)">SNPCRICKET <span class="cp">&#128203;</span></div></div>
         </div>
       </div>
     </div>
 
-    <!-- SILVER SPONSORS -->
-    <div class="sponsors-tier">
-      <div class="tier-label tier-silver reveal">Silver Sponsors</div>
-      <div class="sponsors-grid">
-        <div class="sponsor-card glass reveal-tilt s1">
-          <div class="sp-header">
-            <div class="sp-logo"><img src="logos/avn.png" alt="AVN Umzug"></div>
-            <div><div class="sp-name">AVN Umzug GmbH</div><div class="sp-type">Moving &amp; Relocation</div></div>
-          </div>
-          <div class="sp-desc">Complete relocation solutions for homes &amp; offices. Transportation, furniture assembly &amp; disassembly, deep cleaning, handyman services, and house clearance &amp; disposal. Zero stress moving.</div>
-          <div class="sp-offer">
-            <div class="sp-offer-label">Special Offer</div>
-            <div class="sp-offer-text">&euro;50 discount on local moves for Rhein Strikers members</div>
-            <div class="coupon" onclick="copyCoupon(this)">AVN50 <span class="cp-icon">&#128203;</span></div>
-          </div>
+    <!-- SILVER -->
+    <div class="sp-tier anim">
+      <div class="sp-tier-label">Silver Sponsors</div>
+      <div class="sp-grid">
+        <div class="sp-card anim d1">
+          <div class="sp-top"><div class="sp-icon"><img src="logos/avn.png" alt="AVN Umzug"></div><div><div class="sp-card-name">AVN Umzug GmbH</div><div class="sp-card-type">Moving &amp; Relocation</div></div></div>
+          <div class="sp-card-desc">Complete relocation solutions &mdash; transportation, furniture assembly, deep cleaning, handyman services, and house clearance. Zero stress moving.</div>
+          <div class="sp-offer-box"><div class="sp-offer-tag">Player Deal</div><div class="sp-offer-txt">&euro;50 discount on local moves for Rhein Strikers members</div><div class="coupon" onclick="copyCoupon(this)">AVN50 <span class="cp">&#128203;</span></div></div>
         </div>
-        <div class="sponsor-card glass reveal-tilt s2">
-          <div class="sp-header">
-            <div class="sp-logo"><img src="logos/fly.jpg" alt="Fly Dreams"></div>
-            <div><div class="sp-name">Fly Dreams</div><div class="sp-type">Travel Agency</div></div>
-          </div>
-          <div class="sp-desc">Premier travel agency in Mannheim offering exceptional travel services for corporate &amp; individual customers. Business trips, vacation packages, and exciting tours worldwide.</div>
-          <div class="sp-location"><span class="pin">&#128205;</span> Fischer Stra&szlig;e 16-18, Mannheim 68199</div>
-          <div class="sp-offer">
-            <div class="sp-offer-label">Special Offer</div>
-            <div class="sp-offer-text">Exclusive flight deals for tournament participants</div>
-            <div class="coupon" onclick="copyCoupon(this)">FLYDREAM26 <span class="cp-icon">&#128203;</span></div>
-          </div>
+        <div class="sp-card anim d2">
+          <div class="sp-top"><div class="sp-icon"><img src="logos/fly.jpg" alt="Fly Dreams"></div><div><div class="sp-card-name">Fly Dreams</div><div class="sp-card-type">Travel Agency</div></div></div>
+          <div class="sp-card-desc">Premier travel agency in Mannheim. Business trips, vacation packages, and exciting tours worldwide for corporate &amp; individual customers.</div>
+          <div class="sp-card-loc">&#128205; Fischer Stra&szlig;e 16-18, Mannheim 68199</div>
+          <div class="sp-offer-box"><div class="sp-offer-tag">Player Deal</div><div class="sp-offer-txt">Exclusive flight deals for tournament participants</div><div class="coupon" onclick="copyCoupon(this)">FLYDREAM26 <span class="cp">&#128203;</span></div></div>
         </div>
-        <div class="sponsor-card glass open-slot reveal-tilt s3">
-          <div class="sp-header">
-            <div class="sp-logo" style="background:rgba(139,92,246,.05);border-color:rgba(139,92,246,.08)">&#127919;</div>
-            <div><div class="sp-name">Your Brand Here</div><div class="sp-type">Become a Sponsor</div></div>
-          </div>
-          <div class="sp-desc">Get your brand in front of 500+ cricket fans in the Rhine-Neckar region. Multiple sponsorship tiers available.</div>
-          <div class="sp-offer">
-            <div class="sp-offer-label">Sponsor Slot Available</div>
-            <div class="sp-offer-text">Contact us to discuss partnership opportunities and reach a passionate cricket community!</div>
-          </div>
+        <div class="sp-card open-slot anim d3">
+          <div class="sp-top"><div class="sp-icon" style="font-size:20px;color:var(--dim)">+</div><div><div class="sp-card-name">Your Brand Here</div><div class="sp-card-type">Become a Sponsor</div></div></div>
+          <div class="sp-card-desc">Get your brand in front of 500+ cricket fans in the Rhine-Neckar region.</div>
+          <div class="sp-offer-box"><div class="sp-offer-tag">Sponsor Slot</div><div class="sp-offer-txt">Contact us to discuss partnership opportunities!</div></div>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- PRIZES & AWARDS -->
-<section id="prizes">
-  <div class="container">
-    <div class="sh reveal">
-      <div class="sh-label"><span class="bar"></span> PRIZES <span class="bar right"></span></div>
-      <h2 class="sh-title">What's at Stake</h2>
-      <p class="sh-sub">Cash prizes, trophies, and individual awards up for grabs</p>
-    </div>
-
-    <div class="prizes-row">
-      <div class="prize-card gold reveal-tilt s1">
-        <div class="prize-inner">
-          <div class="prize-rank">1ST PRIZE</div>
-          <div class="prize-amount">300 &euro;</div>
-          <div class="prize-includes">Cash + Trophy</div>
-          <div class="prize-sponsor">
-            <img src="logos/indo.png" alt="Indo Spice">
-            <span>Sponsored by <strong>Indo Spice</strong></span>
-          </div>
-        </div>
-      </div>
-      <div class="prize-card silver reveal-tilt s2">
-        <div class="prize-inner">
-          <div class="prize-rank">2ND PRIZE</div>
-          <div class="prize-amount">150 &euro;</div>
-          <div class="prize-includes">Cash + Trophy</div>
-          <div class="prize-sponsor">
-            <img src="logos/pepperhaus.jpeg" alt="Pepper Haus">
-            <span>Sponsored by <strong>Pepper Haus</strong></span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="awards-grid">
-      <div class="award-card glass reveal s1">
-        <div class="award-icon">&#9733;</div>
-        <div class="award-title">MOST VALUABLE PLAYER</div>
-        <div class="award-detail">
-          <strong>Gift Card &amp; Trophy</strong><br>
-          Sponsored by AVN Umzug<br>
-          +49 152 10771991
-        </div>
-        <img src="logos/avn.png" alt="AVN Umzug" class="award-sponsor-logo">
-      </div>
-      <div class="award-card glass reveal s2">
-        <div class="award-icon">&#127936;</div>
-        <div class="award-title">BEST BOWLER</div>
-        <div class="award-detail">
-          <strong>Trophy</strong><br>
-          Awarded by Fly Dreams<br>
-          +49 151 66849890
-        </div>
-        <img src="logos/fly.jpg" alt="Fly Dreams" class="award-sponsor-logo">
-      </div>
-      <div class="award-card glass reveal s3">
-        <div class="award-icon">&#127951;</div>
-        <div class="award-title">BEST BATSMAN</div>
-        <div class="award-detail">
-          <strong>Trophy</strong><br>
-          Awarded by Fly Dreams<br>
-          +49 151 66849890
-        </div>
-        <img src="logos/fly.jpg" alt="Fly Dreams" class="award-sponsor-logo">
       </div>
     </div>
   </div>
@@ -1069,129 +694,90 @@ section{padding:100px 0}
 <!-- CTA -->
 <section id="contact">
   <div class="container">
-    <div class="cta-box reveal-scale">
-      <p style="font-size:11px;font-weight:700;letter-spacing:4px;color:rgba(255,255,255,.25);text-transform:uppercase;margin-bottom:8px">Event Coordination by Salt &amp; Pepper</p>
+    <div class="cta anim">
+      <div class="cta-coord">Event Coordination by Salt &amp; Pepper</div>
       <h2>Ready to Play?</h2>
-      <p>Register your team for the Rhein Strikers Cricket Cup 2026. Limited to 12 teams &mdash; 3 spots remaining!</p>
-      <div class="cta-contacts">
-        <div class="cta-chip"><span class="icon">&#128222;</span> Pravin: +49 176 14694218</div>
-        <div class="cta-chip"><span class="icon">&#128247;</span> <a href="https://www.instagram.com/rheinstrikers" target="_blank" rel="noopener" style="color:inherit">@RHEINSTRIKERS</a></div>
+      <p>Limited to 12 teams &mdash; 3 spots remaining. Register now!</p>
+      <div class="cta-row">
+        <div class="cta-pill"><span class="ic">&#128222;</span> Pravin: +49 176 14694218</div>
+        <a href="https://www.instagram.com/rheinstrikers" target="_blank" rel="noopener" class="cta-pill"><span class="ic">&#128247;</span> @RHEINSTRIKERS</a>
       </div>
-      <a href="https://www.instagram.com/rheinstrikers" target="_blank" rel="noopener" class="btn btn-primary">Register on Instagram</a>
+      <a href="https://www.instagram.com/rheinstrikers" target="_blank" rel="noopener" class="btn btn-gold">Register on Instagram</a>
     </div>
   </div>
 </section>
 
 <!-- FOOTER -->
-<footer class="footer">
+<footer class="foot">
   <div class="container">
-    <div class="footer-inner">
-      <div class="footer-brand">RHEIN STRIKERS</div>
-      <div class="footer-links">
+    <div class="foot-inner">
+      <div class="foot-brand">RHEIN STRIKERS</div>
+      <div class="foot-links">
         <a href="#fixtures">Fixtures</a>
         <a href="#prizes">Prizes</a>
         <a href="#gallery">Gallery</a>
         <a href="#sponsors">Sponsors</a>
         <a href="#contact">Contact</a>
       </div>
-      <div class="footer-social">
+      <div class="foot-ig">
         <a href="https://www.instagram.com/rheinstrikers" target="_blank" rel="noopener" title="Instagram">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
         </a>
       </div>
     </div>
-    <div class="footer-copy">&copy; 2026 Rhein Strikers Cricket Club &bull; Ludwigshafen, Germany</div>
+    <div class="foot-copy">&copy; 2026 Rhein Strikers Cricket Club &bull; Ludwigshafen, Germany</div>
   </div>
 </footer>
 
 <div class="toast" id="toast">Coupon code copied!</div>
 
 <script>
-/* Nav scroll */
+/* Nav */
 const nav=document.getElementById('nav');
-window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',window.scrollY>60));
+window.addEventListener('scroll',()=>nav.classList.toggle('stuck',scrollY>50));
 
-/* Mobile menu */
-const toggle=document.getElementById('mobileToggle'),links=document.getElementById('navLinks');
-toggle.addEventListener('click',()=>{
-  links.classList.toggle('open');
-  toggle.innerHTML=links.classList.contains('open')?'&#10005;':'&#9776;';
-});
-links.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
-  links.classList.remove('open');toggle.innerHTML='&#9776;';
-}));
+/* Burger */
+const burger=document.getElementById('burger'),menu=document.getElementById('navMenu');
+burger.addEventListener('click',()=>{menu.classList.toggle('open');burger.innerHTML=menu.classList.contains('open')?'&#10005;':'&#9776;'});
+menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{menu.classList.remove('open');burger.innerHTML='&#9776;'}));
 
-/* Bracket tabs */
-document.querySelectorAll('.bracket-tab').forEach(tab=>{
-  tab.addEventListener('click',()=>{
-    document.querySelectorAll('.bracket-tab').forEach(t=>t.classList.remove('active'));
-    document.querySelectorAll('.bracket-stage').forEach(s=>s.classList.remove('active'));
-    tab.classList.add('active');
-    const stage=document.getElementById('stage-'+tab.dataset.stage);
-    stage.classList.add('active');
-    stage.querySelectorAll('.reveal,.reveal-left,.reveal-right,.reveal-scale,.reveal-tilt').forEach(el=>{
-      el.classList.remove('visible');
-      requestAnimationFrame(()=>requestAnimationFrame(()=>el.classList.add('visible')));
-    });
+/* Tabs */
+document.querySelectorAll('.fix-tab').forEach(t=>{
+  t.addEventListener('click',()=>{
+    document.querySelectorAll('.fix-tab').forEach(x=>x.classList.remove('on'));
+    document.querySelectorAll('.fix-stage').forEach(x=>x.classList.remove('on'));
+    t.classList.add('on');
+    const s=document.getElementById('tab-'+t.dataset.tab);
+    s.classList.add('on');
+    s.querySelectorAll('.anim').forEach(el=>{el.classList.remove('vis');requestAnimationFrame(()=>requestAnimationFrame(()=>el.classList.add('vis')))});
   });
 });
 
 /* Count up */
-function animateCountUp(){
+function countUp(){
   document.querySelectorAll('[data-count]').forEach(el=>{
-    const target=parseInt(el.dataset.count);
-    const dur=1500;const start=performance.now();
-    function update(now){
-      const p=Math.min((now-start)/dur,1);
-      const e=1-Math.pow(1-p,3);
-      el.textContent=Math.round(target*e);
-      if(p<1)requestAnimationFrame(update);
-    }
-    requestAnimationFrame(update);
+    const t=+el.dataset.count,d=1200,st=performance.now();
+    !function u(n){const p=Math.min((n-st)/d,1),e=1-Math.pow(1-p,3);el.textContent=Math.round(t*e);p<1&&requestAnimationFrame(u)}(st);
   });
 }
-
-/* Hero particles */
-(function(){
-  const c=document.getElementById('heroParticles');
-  for(let i=0;i<35;i++){
-    const p=document.createElement('div');
-    p.className='particle';
-    p.style.left=Math.random()*100+'%';
-    p.style.top=Math.random()*100+'%';
-    p.style.width=p.style.height=(Math.random()*3+2)+'px';
-    p.style.animationDelay=(-Math.random()*6)+'s';
-    p.style.animationDuration=(Math.random()*4+4)+'s';
-    p.style.opacity=Math.random()*.4+.1;
-    c.appendChild(p);
-  }
-})();
 
 /* Scroll reveal */
-let countDone=false;
-const obs=new IntersectionObserver((entries)=>{
-  entries.forEach(e=>{
-    if(e.isIntersecting){
-      e.target.classList.add('visible');
-      if(!countDone&&e.target.closest&&e.target.closest('.hero')){countDone=true;animateCountUp();}
-    }
-  });
-},{threshold:0.08,rootMargin:'0px 0px -40px 0px'});
-document.querySelectorAll('.reveal,.reveal-left,.reveal-right,.reveal-scale,.reveal-tilt').forEach(el=>obs.observe(el));
-setTimeout(()=>{if(!countDone){countDone=true;animateCountUp();}},800);
+let counted=false;
+const obs=new IntersectionObserver(es=>{
+  es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');if(!counted){counted=true;countUp()}}});
+},{threshold:.08,rootMargin:'0px 0px -30px 0px'});
+document.querySelectorAll('.anim').forEach(el=>obs.observe(el));
+setTimeout(()=>{if(!counted){counted=true;countUp()}},700);
 
-/* Coupon copy */
+/* Coupon */
 const toast=document.getElementById('toast');
 function copyCoupon(el){
-  const code=el.childNodes[0].textContent.trim();
-  navigator.clipboard.writeText(code).then(()=>{
-    toast.classList.add('show');
-    setTimeout(()=>toast.classList.remove('show'),2200);
-  });
+  const c=el.childNodes[0].textContent.trim();
+  navigator.clipboard.writeText(c).then(()=>{toast.classList.add('show');setTimeout(()=>toast.classList.remove('show'),2e3)});
 }
 
-/* Gallery pause on hover */
-document.querySelectorAll('.gallery-track').forEach(t=>{
+/* Gallery pause */
+document.querySelectorAll('.gal-track').forEach(t=>{
   t.addEventListener('mouseenter',()=>t.style.animationPlayState='paused');
   t.addEventListener('mouseleave',()=>t.style.animationPlayState='running');
 });
