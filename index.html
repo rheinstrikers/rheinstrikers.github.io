@@ -127,20 +127,26 @@ section { padding: 100px 0; }
   text-align: center; padding: 120px 24px 80px;
   position: relative; overflow: hidden;
 }
-.hero-content { max-width: 720px; position: relative; z-index: 2; }
+.hero-content { max-width: 760px; position: relative; z-index: 2; }
 .hero-presents {
-  display: inline-flex; align-items: center; gap: 10px;
-  margin-bottom: 24px; animation: fadeUp .8s ease both;
+  display: flex; flex-direction: column; align-items: center; gap: 6px;
+  margin-bottom: 36px; animation: fadeUp .8s ease both;
 }
-.hero-presents img { height: 24px; width: auto; }
-.hero-presents span {
-  font-size: 13px; font-weight: 600; color: var(--text2);
-  letter-spacing: .5px;
+.hero-presents-name {
+  font-family: 'Outfit', sans-serif; font-weight: 900;
+  font-size: clamp(28px, 5vw, 42px); letter-spacing: -1px;
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 30px rgba(212,168,67,.15));
+}
+.hero-presents-tag {
+  font-size: 12px; font-weight: 600; color: var(--text3);
+  letter-spacing: 4px; text-transform: uppercase;
 }
 .hero h1 {
   font-family: 'Outfit', sans-serif; font-weight: 800;
-  font-size: clamp(48px, 10vw, 80px); line-height: .95;
-  letter-spacing: -2px; margin-bottom: 4px;
+  font-size: clamp(52px, 11vw, 88px); line-height: .92;
+  letter-spacing: -3px; margin-bottom: 4px;
   animation: fadeUp .8s ease .1s both;
 }
 .hero h1 .shimmer {
@@ -303,7 +309,7 @@ section { padding: 100px 0; }
 .prize-card.silver .prize-val { color: #94a3b8; }
 .prize-extra { font-size: 12px; color: var(--text3); letter-spacing: 1px; text-transform: uppercase; margin-top: 4px; }
 .prize-sponsor { display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 14px; font-size: 12px; color: var(--text3); }
-.prize-sponsor img { height: 18px; width: auto; opacity: .7; }
+.prize-sponsor .logo-ph { opacity: .7; }
 
 .awards-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
 .award-card {
@@ -316,7 +322,7 @@ section { padding: 100px 0; }
 .award-card:nth-child(2) .award-name { color: var(--blue); }
 .award-card:nth-child(3) .award-name { color: #bf5af2; }
 .award-detail { font-size: 11px; color: var(--text3); line-height: 1.5; }
-.award-logo { height: 22px; width: auto; margin: 8px auto 0; opacity: .5; }
+.award-logo { height: 20px; margin: 8px auto 0; opacity: .5; }
 
 /* ===== GALLERY ===== */
 #gallery { overflow: hidden; padding-bottom: 60px; }
@@ -360,7 +366,7 @@ section { padding: 100px 0; }
   padding: 28px; border-right: .5px solid rgba(212,168,67,.08);
   background: rgba(212,168,67,.03);
 }
-.title-sp-left img { height: 44px; width: auto; }
+.title-sp-left .logo-ph { text-align:center; line-height:1.3; }
 .title-sp-left .tag {
   font-size: 9px; font-weight: 700; letter-spacing: 2px; color: var(--accent);
   text-transform: uppercase; padding: 4px 12px; border-radius: 980px;
@@ -397,7 +403,7 @@ section { padding: 100px 0; }
   background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.06);
   display: flex; align-items: center; justify-content: center;
 }
-.sp-card-icon img { width: 100%; height: 100%; object-fit: contain; padding: 4px; }
+.sp-card-icon .logo-ph { border-radius: 0; }
 .sp-card-name { font-weight: 600; font-size: 15px; }
 .sp-card-type { font-size: 10px; color: var(--text3); font-weight: 500; letter-spacing: .5px; text-transform: uppercase; margin-top: 1px; }
 .sp-card-desc { font-size: 12px; color: var(--text3); line-height: 1.6; margin-bottom: 10px; }
@@ -440,6 +446,15 @@ section { padding: 100px 0; }
 }
 .foot-ig a:hover { background: rgba(212,168,67,.08); color: var(--accent); }
 .foot-copy { margin-top: 14px; font-size: 10px; color: rgba(255,255,255,.15); text-align: center; width: 100%; }
+
+/* Logo placeholder */
+.logo-ph {
+  width: 100%; height: 100%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 10px; font-weight: 700; letter-spacing: 1px;
+  color: var(--text3); text-transform: uppercase;
+  background: linear-gradient(135deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+}
 
 /* Toast */
 .toast {
@@ -513,8 +528,8 @@ section { padding: 100px 0; }
 <section class="hero">
   <div class="hero-content">
     <div class="hero-presents">
-      <img src="logos/indo.png" alt="Indo Spice">
-      <span>Indo Spice Presents</span>
+      <div class="hero-presents-name">Indo Spice</div>
+      <div class="hero-presents-tag">Presents</div>
     </div>
     <h1><span class="shimmer">Rhein Strikers</span><br>Cricket Cup</h1>
     <p class="hero-sub">2nd Edition &bull; Summer 2026</p>
@@ -609,13 +624,13 @@ section { padding: 100px 0; }
   <div class="wrap">
     <div class="sh reveal"><div class="sh-eyebrow">Prizes &amp; Awards</div><h2 class="sh-title">What's at Stake</h2></div>
     <div class="prize-row">
-      <div class="prize-card gold glass reveal dl1"><div class="prize-label">1st Prize</div><div class="prize-val">300&euro;</div><div class="prize-extra">Cash + Trophy</div><div class="prize-sponsor"><img src="logos/indo.png" alt="Indo Spice">Indo Spice</div></div>
-      <div class="prize-card silver glass reveal dl2"><div class="prize-label">2nd Prize</div><div class="prize-val">150&euro;</div><div class="prize-extra">Cash + Trophy</div><div class="prize-sponsor"><img src="logos/pepperhaus.jpeg" alt="Pepper Haus">Pepper Haus</div></div>
+      <div class="prize-card gold glass reveal dl1"><div class="prize-label">1st Prize</div><div class="prize-val">300&euro;</div><div class="prize-extra">Cash + Trophy</div><div class="prize-sponsor"><div class="logo-ph" style="width:20px;height:20px;border-radius:4px;font-size:7px;flex-shrink:0">IS</div>Indo Spice</div></div>
+      <div class="prize-card silver glass reveal dl2"><div class="prize-label">2nd Prize</div><div class="prize-val">150&euro;</div><div class="prize-extra">Cash + Trophy</div><div class="prize-sponsor"><div class="logo-ph" style="width:20px;height:20px;border-radius:4px;font-size:7px;flex-shrink:0">PH</div>Pepper Haus</div></div>
     </div>
     <div class="awards-row">
-      <div class="award-card glass glass-sm reveal dl1"><span class="award-icon">&#9733;</span><div class="award-name">MVP</div><div class="award-detail">Gift Card &amp; Trophy<br>AVN Umzug</div><img src="logos/avn.png" alt="AVN" class="award-logo"></div>
-      <div class="award-card glass glass-sm reveal dl2"><span class="award-icon">&#127936;</span><div class="award-name">Best Bowler</div><div class="award-detail">Trophy<br>Fly Dreams</div><img src="logos/fly.jpg" alt="Fly Dreams" class="award-logo"></div>
-      <div class="award-card glass glass-sm reveal dl3"><span class="award-icon">&#127951;</span><div class="award-name">Best Batsman</div><div class="award-detail">Trophy<br>Fly Dreams</div><img src="logos/fly.jpg" alt="Fly Dreams" class="award-logo"></div>
+      <div class="award-card glass glass-sm reveal dl1"><span class="award-icon">&#9733;</span><div class="award-name">MVP</div><div class="award-detail">Gift Card &amp; Trophy<br>AVN Umzug</div><div class="logo-ph award-logo" style="width:40px;height:20px;border-radius:4px;font-size:7px">AVN</div></div>
+      <div class="award-card glass glass-sm reveal dl2"><span class="award-icon">&#127936;</span><div class="award-name">Best Bowler</div><div class="award-detail">Trophy<br>Fly Dreams</div><div class="logo-ph award-logo" style="width:40px;height:20px;border-radius:4px;font-size:6px">FLY</div></div>
+      <div class="award-card glass glass-sm reveal dl3"><span class="award-icon">&#127951;</span><div class="award-name">Best Batsman</div><div class="award-detail">Trophy<br>Fly Dreams</div><div class="logo-ph award-logo" style="width:40px;height:20px;border-radius:4px;font-size:6px">FLY</div></div>
     </div>
   </div>
 </section>
@@ -663,7 +678,7 @@ section { padding: 100px 0; }
     <!-- TITLE SPONSOR -->
     <div class="title-sp glass reveal">
       <div class="title-sp-left">
-        <img src="logos/indo.png" alt="Indo Spice">
+        <div class="logo-ph" style="width:56px;height:56px;border-radius:14px;font-size:11px">INDO<br>SPICE</div>
         <span class="tag">Title Sponsor</span>
       </div>
       <div class="title-sp-right">
@@ -680,13 +695,13 @@ section { padding: 100px 0; }
       <div class="sp-tier-label reveal">Gold Sponsors</div>
       <div class="sp-grid">
         <div class="sp-card glass glass-sm reveal dl1">
-          <div class="sp-card-top"><div class="sp-card-icon"><img src="logos/pepperhaus.jpeg" alt="Pepper Haus"></div><div><div class="sp-card-name">Pepper Haus</div><div class="sp-card-type">South &amp; North Indian Restaurant</div></div></div>
+          <div class="sp-card-top"><div class="sp-card-icon"><div class="logo-ph">PH</div></div><div><div class="sp-card-name">Pepper Haus</div><div class="sp-card-type">South &amp; North Indian Restaurant</div></div></div>
           <div class="sp-card-desc">Vibrant South &amp; North Indian flavours in Mannheim. Dine-in, Takeaway, Catering &amp; Bar.</div>
           <div class="sp-card-loc">&#128205; Lange R&ouml;tterstra&szlig;e 53, Mannheim</div>
           <div class="offer-box"><div class="offer-tag">Player Deal</div><div class="offer-txt">15% off dine-in for all registered players</div><div class="coupon" onclick="copyCoupon(this)">PHAUS15 <span class="cp">&#128203;</span></div></div>
         </div>
         <div class="sp-card glass glass-sm reveal dl2">
-          <div class="sp-card-top"><div class="sp-card-icon"><img src="logos/saltpepper.png" alt="Salt &amp; Pepper"></div><div><div class="sp-card-name">Salt &amp; Pepper</div><div class="sp-card-type">Catering &amp; Events</div></div></div>
+          <div class="sp-card-top"><div class="sp-card-icon"><div class="logo-ph">S&amp;P</div></div><div><div class="sp-card-name">Salt &amp; Pepper</div><div class="sp-card-type">Catering &amp; Events</div></div></div>
           <div class="sp-card-desc">Premium catering and events. Official event coordination partner for the Cricket Cup.</div>
           <div class="offer-box"><div class="offer-tag">Player Deal</div><div class="offer-txt">Free dessert with any main course on match days</div><div class="coupon" onclick="copyCoupon(this)">SNPCRICKET <span class="cp">&#128203;</span></div></div>
         </div>
@@ -698,12 +713,12 @@ section { padding: 100px 0; }
       <div class="sp-tier-label reveal">Silver Sponsors</div>
       <div class="sp-grid">
         <div class="sp-card glass glass-sm reveal dl1">
-          <div class="sp-card-top"><div class="sp-card-icon"><img src="logos/avn.png" alt="AVN Umzug"></div><div><div class="sp-card-name">AVN Umzug GmbH</div><div class="sp-card-type">Moving &amp; Relocation</div></div></div>
+          <div class="sp-card-top"><div class="sp-card-icon"><div class="logo-ph">AVN</div></div><div><div class="sp-card-name">AVN Umzug GmbH</div><div class="sp-card-type">Moving &amp; Relocation</div></div></div>
           <div class="sp-card-desc">Complete relocation solutions &mdash; transportation, furniture assembly, deep cleaning, handyman services. Zero stress.</div>
           <div class="offer-box"><div class="offer-tag">Player Deal</div><div class="offer-txt">&euro;50 discount on local moves for members</div><div class="coupon" onclick="copyCoupon(this)">AVN50 <span class="cp">&#128203;</span></div></div>
         </div>
         <div class="sp-card glass glass-sm reveal dl2">
-          <div class="sp-card-top"><div class="sp-card-icon"><img src="logos/fly.jpg" alt="Fly Dreams"></div><div><div class="sp-card-name">Fly Dreams</div><div class="sp-card-type">Travel Agency</div></div></div>
+          <div class="sp-card-top"><div class="sp-card-icon"><div class="logo-ph">FLY</div></div><div><div class="sp-card-name">Fly Dreams</div><div class="sp-card-type">Travel Agency</div></div></div>
           <div class="sp-card-desc">Premier travel agency in Mannheim. Business trips, vacations, and tours worldwide.</div>
           <div class="sp-card-loc">&#128205; Fischer Stra&szlig;e 16-18, Mannheim 68199</div>
           <div class="offer-box"><div class="offer-tag">Player Deal</div><div class="offer-txt">Exclusive flight deals for tournament participants</div><div class="coupon" onclick="copyCoupon(this)">FLYDREAM26 <span class="cp">&#128203;</span></div></div>
