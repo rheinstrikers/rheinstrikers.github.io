@@ -205,38 +205,93 @@ section{padding:90px 0}
 .sp-deals{margin-bottom:50px;padding:20px 28px;border-radius:50px;background:rgba(38,204,53,.04);border:1px solid rgba(38,204,53,.08);text-align:center}
 .sp-deals p{font-size:15px;color:var(--gray)}.sp-deals strong{color:var(--green);font-weight:600}
 
-/* Title sponsor — showcase */
-.sp-hero{margin-bottom:50px;border-radius:24px;overflow:hidden;position:relative;background:linear-gradient(135deg,rgba(38,204,53,.06),var(--dark3),rgba(31,29,71,.3));border:2px solid rgba(38,204,53,.12);padding:56px 40px;text-align:center;transition:all .4s}
-.sp-hero:hover{border-color:rgba(38,204,53,.25);box-shadow:0 0 60px rgba(38,204,53,.06)}
-.sp-hero::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--green),var(--gold),var(--green))}
-.sp-hero-tag{display:inline-block;font-family:var(--head);font-size:14px;font-weight:600;letter-spacing:3px;color:var(--green);text-transform:uppercase;padding:8px 24px;border-radius:50px;background:rgba(38,204,53,.08);border:1px solid rgba(38,204,53,.12);margin-bottom:20px}
-.sp-hero-name{font-family:var(--head);font-weight:700;font-size:clamp(36px,7vw,64px);color:var(--white);text-transform:uppercase;margin-bottom:4px;line-height:1}
-.sp-hero-type{font-size:14px;color:var(--gray);letter-spacing:2px;text-transform:uppercase;margin-bottom:20px}
-.sp-hero-desc{font-size:16px;color:var(--gray);line-height:1.7;max-width:520px;margin:0 auto 14px}
-.sp-hero-loc{font-size:13px;color:var(--dim);margin-bottom:24px}
-.sp-hero-offer{display:inline-block;padding:24px 36px;border-radius:20px;background:rgba(38,204,53,.04);border:1px solid rgba(38,204,53,.08)}
+/* ---- SPONSOR BADGE (creative floating badge) ---- */
+.sp-badge{
+  display:inline-flex;align-items:center;gap:6px;
+  padding:6px 16px;border-radius:50px;
+  font-family:var(--head);font-size:11px;font-weight:700;
+  letter-spacing:2px;text-transform:uppercase;
+  position:relative;animation:float 4s ease-in-out infinite;
+}
+.sp-badge i{font-size:10px}
+.badge-title{background:linear-gradient(135deg,rgba(38,204,53,.15),rgba(38,204,53,.06));color:var(--green);border:1px solid rgba(38,204,53,.2);font-size:13px;padding:8px 22px}
+.badge-gold{background:linear-gradient(135deg,rgba(212,168,67,.15),rgba(212,168,67,.06));color:var(--gold);border:1px solid rgba(212,168,67,.2)}
+.badge-silver{background:rgba(148,163,184,.08);color:#94a3b8;border:1px solid rgba(148,163,184,.15)}
+.badge-bronze{background:rgba(180,120,60,.08);color:#c4875a;border:1px solid rgba(180,120,60,.15)}
+.badge-partner{background:rgba(99,102,241,.08);color:#818cf8;border:1px solid rgba(99,102,241,.15)}
+
+/* ---- Title sponsor — BIGGEST showcase ---- */
+.sp-hero{margin-bottom:50px;border-radius:28px;overflow:hidden;position:relative;background:linear-gradient(135deg,rgba(38,204,53,.06),var(--dark3),rgba(31,29,71,.3));border:2px solid rgba(38,204,53,.12);padding:64px 48px;text-align:center;transition:all .4s}
+.sp-hero:hover{border-color:rgba(38,204,53,.25);box-shadow:0 0 80px rgba(38,204,53,.06)}
+.sp-hero::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--green),var(--gold),var(--green))}
+.sp-hero-rank{font-family:var(--head);font-size:80px;font-weight:700;color:rgba(38,204,53,.06);position:absolute;top:16px;right:28px;line-height:1}
+.sp-hero-name{font-family:var(--head);font-weight:700;font-size:clamp(40px,8vw,72px);color:var(--white);text-transform:uppercase;margin-bottom:4px;margin-top:16px;line-height:1}
+.sp-hero-type{font-size:15px;color:var(--gray);letter-spacing:2px;text-transform:uppercase;margin-bottom:24px}
+.sp-hero-desc{font-size:17px;color:var(--gray);line-height:1.7;max-width:540px;margin:0 auto 16px}
+.sp-hero-loc{font-size:14px;color:var(--dim);margin-bottom:28px}
+.sp-hero-offer{display:inline-block;padding:28px 40px;border-radius:20px;background:rgba(38,204,53,.04);border:1px solid rgba(38,204,53,.08)}
 .offer-tag{font-family:var(--head);font-size:13px;font-weight:600;letter-spacing:2px;color:var(--green);text-transform:uppercase;margin-bottom:8px}
 .offer-txt{font-size:15px;color:var(--gray);margin-bottom:12px;line-height:1.5}
 .coupon{display:inline-flex;align-items:center;gap:8px;padding:8px 20px;border-radius:50px;background:rgba(38,204,53,.08);border:2px dashed rgba(38,204,53,.2);font-family:'Courier New',monospace;font-weight:700;font-size:16px;color:var(--green);letter-spacing:2px;cursor:pointer;transition:all .3s;user-select:all}
 .coupon:hover{background:rgba(38,204,53,.15);transform:scale(1.04)}
 .coupon .cp{font-size:12px;opacity:.4}
 
-/* Sponsor cards */
-.sp-tier{margin-bottom:36px}
+/* ---- 2nd Sponsor — large card ---- */
+.sp-second{
+  margin-bottom:40px;border-radius:24px;overflow:hidden;position:relative;
+  background:linear-gradient(135deg,rgba(212,168,67,.04),var(--dark3));
+  border:2px solid rgba(212,168,67,.1);padding:44px 36px;
+  display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:center;
+  transition:all .4s;
+}
+.sp-second:hover{border-color:rgba(212,168,67,.2);transform:translateY(-3px);box-shadow:0 0 50px rgba(212,168,67,.04)}
+.sp-second::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold),var(--gold2),var(--gold))}
+.sp-second-rank{font-family:var(--head);font-size:60px;font-weight:700;color:rgba(212,168,67,.06);position:absolute;top:12px;right:24px;line-height:1}
+.sp-second-left{position:relative}
+.sp-second .spc-name{font-family:var(--head);font-weight:700;font-size:26px;color:var(--white);margin-bottom:4px;margin-top:12px}
+.sp-second .spc-type{font-size:12px;color:var(--dim);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:14px;font-weight:500}
+.sp-second .spc-desc{font-size:14px;color:var(--gray);line-height:1.7;margin-bottom:12px}
+.sp-second .spc-loc{font-size:13px;color:var(--dim);margin-bottom:0}
+.sp-second .offer-box{padding:20px;border-radius:16px;background:rgba(212,168,67,.03);border:1px solid rgba(212,168,67,.06)}
+.sp-second .offer-tag{font-size:12px;color:var(--gold)}.sp-second .offer-txt{font-size:14px}
+
+/* ---- 3rd/4th Sponsors — medium cards ---- */
+.sp-tier{margin-bottom:32px}
 .sp-tier-label{font-family:var(--head);font-size:16px;font-weight:600;color:var(--dim);letter-spacing:2px;text-transform:uppercase;margin-bottom:16px;padding-left:4px}
 .sp-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:14px}
-.spc{border-radius:var(--r);background:var(--dark3);border:1px solid rgba(255,255,255,.04);padding:28px;transition:all .4s;position:relative;overflow:hidden}
+
+.spc{border-radius:var(--r);background:var(--dark3);border:1px solid rgba(255,255,255,.04);padding:24px;transition:all .4s;position:relative;overflow:hidden}
 .spc::after{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--green);transform:scaleX(0);transition:transform .4s;transform-origin:left}
 .spc:hover{transform:translateY(-4px);border-color:rgba(38,204,53,.12)}.spc:hover::after{transform:scaleX(1)}
-.spc-name{font-family:var(--head);font-weight:700;font-size:20px;color:var(--white);margin-bottom:2px}
-.spc-type{font-size:11px;color:var(--dim);letter-spacing:1px;text-transform:uppercase;margin-bottom:12px;font-weight:500}
-.spc-desc{font-size:13px;color:var(--gray);line-height:1.6;margin-bottom:10px}
-.spc-loc{font-size:12px;color:var(--dim);margin-bottom:14px}
-.spc .offer-box{padding:16px;border-radius:12px;background:rgba(38,204,53,.03);border:1px solid rgba(38,204,53,.06)}
-.spc .offer-tag{font-size:11px}.spc .offer-txt{font-size:13px}
-.spc.open{border-style:dashed}.spc.open::after{display:none}
-.spc.open .offer-box{background:rgba(31,29,71,.3);border-color:rgba(31,29,71,.3)}
-.spc.open .offer-tag{color:var(--gold)}
+.spc-header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:10px}
+.spc-name{font-family:var(--head);font-weight:700;font-size:18px;color:var(--white);margin-bottom:2px}
+.spc-type{font-size:10px;color:var(--dim);letter-spacing:1px;text-transform:uppercase;margin-bottom:10px;font-weight:500}
+.spc-desc{font-size:12px;color:var(--gray);line-height:1.6;margin-bottom:8px}
+.spc-loc{font-size:11px;color:var(--dim);margin-bottom:12px}
+.spc .offer-box{padding:14px;border-radius:10px;background:rgba(38,204,53,.03);border:1px solid rgba(38,204,53,.06)}
+.spc .offer-tag{font-size:10px}.spc .offer-txt{font-size:12px}
+
+/* ---- Event Coordination — compact ---- */
+.sp-event-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px}
+.spc-sm{border-radius:12px;background:var(--dark3);border:1px solid rgba(255,255,255,.04);padding:20px;transition:all .3s;position:relative;overflow:hidden}
+.spc-sm::after{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--green);transform:scaleX(0);transition:transform .3s;transform-origin:left}
+.spc-sm:hover{transform:translateY(-3px);border-color:rgba(38,204,53,.1)}.spc-sm:hover::after{transform:scaleX(1)}
+.spc-sm .spc-name{font-size:16px;margin-bottom:2px}
+.spc-sm .spc-type{font-size:9px;margin-bottom:8px}
+.spc-sm .spc-desc{font-size:11px;margin-bottom:6px}
+.spc-sm .offer-box{padding:12px;border-radius:8px}
+.spc-sm .offer-tag{font-size:9px}.spc-sm .offer-txt{font-size:11px}
+.spc-sm .coupon{font-size:13px;padding:6px 14px}
+
+.spc.open,.spc-sm.open{border-style:dashed}
+.spc.open::after,.spc-sm.open::after{display:none}
+.spc.open .offer-box,.spc-sm.open .offer-box{background:rgba(31,29,71,.3);border-color:rgba(31,29,71,.3)}
+.spc.open .offer-tag,.spc-sm.open .offer-tag{color:var(--gold)}
+
+@media(max-width:768px){
+  .sp-second{grid-template-columns:1fr;padding:32px 20px}
+  .sp-hero{padding:40px 20px}.sp-hero-offer{padding:20px 16px}
+}
 
 /* ============ CTA / JOIN SECTION ============ */
 #contact{background:linear-gradient(135deg,var(--dark4),var(--dark));padding:80px 0}
@@ -282,8 +337,9 @@ section{padding:90px 0}
   .cta-card{padding:40px 20px}
   .cta-chips{flex-direction:column;align-items:center}
   .footer-contact{flex-direction:column;align-items:center}
-  .sp-hero{padding:36px 20px}
-  .sp-hero-offer{padding:20px}
+  .sp-hero{padding:36px 20px}.sp-hero-offer{padding:20px 16px}
+  .sp-second{grid-template-columns:1fr;padding:28px 20px}
+  .sp-event-grid{grid-template-columns:1fr}
   .roster-grid{grid-template-columns:1fr 1fr}
   .t-head{grid-template-columns:32px 1fr auto 28px}
   .t-cap{display:none}
@@ -430,25 +486,68 @@ section{padding:90px 0}
   <div class="container">
     <div class="titlepage rv"><h2>Our <span class="green">Sponsors</span></h2><p>Exclusive deals for every player throughout the tournament</p></div>
     <div class="sp-deals rv"><p>All sponsors offer <strong>exclusive deals &amp; coupon codes</strong> for registered cricket players!</p></div>
+    <!-- #1 TITLE SPONSOR — largest -->
     <div class="sp-hero rv">
-      <div class="sp-hero-tag"><i class="fa-solid fa-star"></i>&nbsp; Title Sponsor</div>
+      <div class="sp-hero-rank">#1</div>
+      <div class="sp-badge badge-title"><i class="fa-solid fa-crown"></i> Title Sponsor</div>
       <div class="sp-hero-name">Indo Spice</div>
       <div class="sp-hero-type">Indo-African Supermarket</div>
       <div class="sp-hero-desc">The finest Indo-African supermarket with 30+ brands of grocery and frozen items. Most affordable prices with shipping across Germany.</div>
       <div class="sp-hero-loc"><i class="fa-solid fa-location-dot"></i>&nbsp; Frankenthaler Str. 73, 67059 Ludwigshafen am Rhein</div>
-      <div class="sp-hero-offer"><div class="offer-tag">Player Deal</div><div class="offer-txt">10% off on all orders above &euro;30 for tournament attendees</div><div class="coupon" onclick="copyCoupon(this)">RHEIN2026 <span class="cp"><i class="fa-regular fa-copy"></i></span></div></div>
+      <div class="sp-hero-offer"><div class="offer-tag"><i class="fa-solid fa-tag"></i>&nbsp; Player Deal</div><div class="offer-txt">10% off on all orders above &euro;30 for tournament attendees</div><div class="coupon" onclick="copyCoupon(this)">RHEIN2026 <span class="cp"><i class="fa-regular fa-copy"></i></span></div></div>
     </div>
-    <div class="sp-tier"><div class="sp-tier-label rv">2nd Sponsor</div><div class="sp-grid">
-      <div class="spc rv d1"><div class="spc-name">Pepper Haus</div><div class="spc-type">South & North Indian Restaurant</div><div class="spc-desc">Vibrant South & North Indian flavours in Mannheim. Dine-in, Takeaway, Catering & Bar.</div><div class="spc-loc"><i class="fa-solid fa-location-dot"></i>&nbsp; Lange R&ouml;tterstra&szlig;e 53, Mannheim</div><div class="offer-box"><div class="offer-tag">Player Deal</div><div class="offer-txt">15% off dine-in for all registered players</div><div class="coupon" onclick="copyCoupon(this)">PHAUS15 <span class="cp"><i class="fa-regular fa-copy"></i></span></div></div></div>
-    </div></div>
-    <div class="sp-tier"><div class="sp-tier-label rv">Sponsors</div><div class="sp-grid">
-      <div class="spc rv d1"><div class="spc-name">AVN Umzug GmbH</div><div class="spc-type">Moving & Relocation</div><div class="spc-desc">Complete relocation solutions &mdash; transportation, furniture assembly, deep cleaning. Zero stress.</div><div class="offer-box"><div class="offer-tag">Player Deal</div><div class="offer-txt">&euro;50 off local moves for members</div><div class="coupon" onclick="copyCoupon(this)">AVN50 <span class="cp"><i class="fa-regular fa-copy"></i></span></div></div></div>
-      <div class="spc rv d2"><div class="spc-name">Fly Dreams</div><div class="spc-type">Travel Agency</div><div class="spc-desc">Premier travel agency in Mannheim. Business trips, vacations, tours worldwide.</div><div class="spc-loc"><i class="fa-solid fa-location-dot"></i>&nbsp; Fischer Stra&szlig;e 16-18, Mannheim 68199</div><div class="offer-box"><div class="offer-tag">Player Deal</div><div class="offer-txt">Exclusive flight deals for participants</div><div class="coupon" onclick="copyCoupon(this)">FLYDREAM26 <span class="cp"><i class="fa-regular fa-copy"></i></span></div></div></div>
-    </div></div>
-    <div class="sp-tier"><div class="sp-tier-label rv">Event Coordination</div><div class="sp-grid">
-      <div class="spc rv d1"><div class="spc-name">Salt & Pepper</div><div class="spc-type">Catering & Events</div><div class="spc-desc">Premium catering and events. Official event coordination partner for the Rhein Strikers Cricket Cup 2026.</div><div class="offer-box"><div class="offer-tag">Player Deal</div><div class="offer-txt">Free dessert with any main course on match days</div><div class="coupon" onclick="copyCoupon(this)">SNPCRICKET <span class="cp"><i class="fa-regular fa-copy"></i></span></div></div></div>
-      <div class="spc open rv d2"><div class="spc-name">Your Brand Here</div><div class="spc-type">Become a Sponsor</div><div class="spc-desc">500+ cricket fans in the Rhine-Neckar region.</div><div class="offer-box"><div class="offer-tag">Sponsor Slot</div><div class="offer-txt">Contact us for partnership opportunities!</div></div></div>
-    </div></div>
+
+    <!-- #2 PEPPER HAUS — large 2-col card -->
+    <div class="sp-second rv">
+      <div class="sp-second-rank">#2</div>
+      <div class="sp-second-left">
+        <div class="sp-badge badge-gold" style="animation-delay:-1s"><i class="fa-solid fa-medal"></i> Gold Sponsor</div>
+        <div class="spc-name">Pepper Haus</div>
+        <div class="spc-type">South &amp; North Indian Restaurant &bull; Bar</div>
+        <div class="spc-desc">Your ultimate destination for vibrant South &amp; North Indian flavours in Mannheim. Dine-in, Takeaway, Catering &amp; Bar.</div>
+        <div class="spc-loc"><i class="fa-solid fa-location-dot"></i>&nbsp; Lange R&ouml;tterstra&szlig;e 53, Mannheim</div>
+      </div>
+      <div class="offer-box">
+        <div class="offer-tag"><i class="fa-solid fa-tag"></i>&nbsp; Player Deal</div>
+        <div class="offer-txt">15% off dine-in for all registered players throughout the tournament</div>
+        <div class="coupon" onclick="copyCoupon(this)">PHAUS15 <span class="cp"><i class="fa-regular fa-copy"></i></span></div>
+      </div>
+    </div>
+
+    <!-- #3 & #4 AVN + FLY DREAMS — medium side-by-side -->
+    <div class="sp-tier">
+      <div class="sp-tier-label rv">Sponsors</div>
+      <div class="sp-grid">
+        <div class="spc rv d1">
+          <div class="spc-header"><div><div class="spc-name">AVN Umzug GmbH</div><div class="spc-type">Moving &amp; Relocation</div></div><div class="sp-badge badge-silver" style="animation-delay:-2s"><i class="fa-solid fa-truck-fast"></i> Official</div></div>
+          <div class="spc-desc">Complete relocation solutions &mdash; transportation, furniture assembly &amp; disassembly, deep cleaning, handyman services, and house clearance. Zero stress moving.</div>
+          <div class="offer-box"><div class="offer-tag"><i class="fa-solid fa-tag"></i>&nbsp; Player Deal</div><div class="offer-txt">&euro;50 discount on local moves for Rhein Strikers members</div><div class="coupon" onclick="copyCoupon(this)">AVN50 <span class="cp"><i class="fa-regular fa-copy"></i></span></div></div>
+        </div>
+        <div class="spc rv d2">
+          <div class="spc-header"><div><div class="spc-name">Fly Dreams</div><div class="spc-type">Travel Agency</div></div><div class="sp-badge badge-silver" style="animation-delay:-3s"><i class="fa-solid fa-plane"></i> Official</div></div>
+          <div class="spc-desc">Premier travel agency in Mannheim. Business trips, vacation packages, and exciting tours worldwide for corporate &amp; individual customers.</div>
+          <div class="spc-loc"><i class="fa-solid fa-location-dot"></i>&nbsp; Fischer Stra&szlig;e 16-18, Mannheim 68199</div>
+          <div class="offer-box"><div class="offer-tag"><i class="fa-solid fa-tag"></i>&nbsp; Player Deal</div><div class="offer-txt">Exclusive flight deals for tournament participants</div><div class="coupon" onclick="copyCoupon(this)">FLYDREAM26 <span class="cp"><i class="fa-regular fa-copy"></i></span></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- #5 EVENT COORDINATION — compact -->
+    <div class="sp-tier">
+      <div class="sp-tier-label rv">Event Coordination</div>
+      <div class="sp-event-grid">
+        <div class="spc-sm rv d1">
+          <div class="spc-header"><div><div class="spc-name">Salt &amp; Pepper</div><div class="spc-type">Catering &amp; Events</div></div><div class="sp-badge badge-partner" style="animation-delay:-1.5s"><i class="fa-solid fa-handshake"></i> Partner</div></div>
+          <div class="spc-desc">Official event coordination partner. Premium catering and event management for the Rhein Strikers Cricket Cup 2026.</div>
+          <div class="offer-box"><div class="offer-tag"><i class="fa-solid fa-tag"></i>&nbsp; Player Deal</div><div class="offer-txt">Free dessert with any main course on match days</div><div class="coupon" onclick="copyCoupon(this)">SNPCRICKET <span class="cp"><i class="fa-regular fa-copy"></i></span></div></div>
+        </div>
+        <div class="spc-sm open rv d2">
+          <div class="spc-header"><div><div class="spc-name">Your Brand Here</div><div class="spc-type">Become a Sponsor</div></div><div class="sp-badge badge-partner" style="background:rgba(255,255,255,.04);color:var(--dim);border-color:rgba(255,255,255,.08);animation:none"><i class="fa-solid fa-plus"></i> Open</div></div>
+          <div class="spc-desc">Reach 500+ cricket fans in the Rhine-Neckar region.</div>
+          <div class="offer-box"><div class="offer-tag">Sponsor Slot</div><div class="offer-txt">Contact us for partnership opportunities!</div></div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
