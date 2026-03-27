@@ -1,0 +1,1002 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rhein Strikers Cricket Cup 2026 — 2nd Edition</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ============ RESET & BASE ============ */
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;font-size:16px}
+body{
+  font-family:'Inter',system-ui,sans-serif;
+  background:#050a18;
+  color:#e2e8f0;
+  min-height:100vh;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+
+/* ============ GLOBAL ANIMATED BG ============ */
+.page-bg{
+  position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;
+}
+.page-bg .orb{
+  position:absolute;border-radius:50%;filter:blur(140px);
+  animation:orbFloat 20s ease-in-out infinite;
+}
+.page-bg .orb-1{width:800px;height:800px;background:rgba(99,102,241,.18);top:-300px;left:-200px;animation-delay:0s}
+.page-bg .orb-2{width:600px;height:600px;background:rgba(251,191,36,.12);top:30%;right:-200px;animation-delay:-7s}
+.page-bg .orb-3{width:700px;height:700px;background:rgba(236,72,153,.1);bottom:-200px;left:30%;animation-delay:-14s}
+.page-bg .orb-4{width:500px;height:500px;background:rgba(6,182,212,.1);top:60%;left:-150px;animation-delay:-3s}
+@keyframes orbFloat{
+  0%,100%{transform:translate(0,0) scale(1)}
+  25%{transform:translate(60px,-80px) scale(1.05)}
+  50%{transform:translate(-40px,60px) scale(.95)}
+  75%{transform:translate(80px,40px) scale(1.02)}
+}
+
+/* Noise overlay */
+.noise{
+  position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.03;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size:256px;
+}
+
+/* ============ GLASS UTIL ============ */
+.glass{
+  background:rgba(255,255,255,.04);
+  backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:24px;
+}
+.glass-sm{border-radius:16px}
+.glass-xs{border-radius:12px}
+.glass-pill{border-radius:100px}
+
+/* ============ LAYOUT ============ */
+.container{max-width:1200px;margin:0 auto;padding:0 24px;position:relative;z-index:2}
+section{padding:80px 0}
+
+/* ============ NAV ============ */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  padding:16px 0;
+  transition:all .3s ease;
+}
+.nav.scrolled{
+  background:rgba(5,10,24,.85);
+  backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+  border-bottom:1px solid rgba(255,255,255,.06);
+}
+.nav-inner{
+  max-width:1200px;margin:0 auto;padding:0 24px;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.nav-logo{
+  font-family:'Outfit',sans-serif;font-weight:800;font-size:22px;
+  background:linear-gradient(135deg,#fbbf24,#f59e0b);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  letter-spacing:1px;text-decoration:none;
+}
+.nav-links{display:flex;gap:8px;align-items:center}
+.nav-links a{
+  font-size:14px;font-weight:500;color:rgba(255,255,255,.6);
+  text-decoration:none;padding:8px 16px;border-radius:100px;
+  transition:all .2s ease;letter-spacing:.5px;
+}
+.nav-links a:hover{color:#fff;background:rgba(255,255,255,.06)}
+.nav-cta{
+  background:linear-gradient(135deg,#fbbf24,#f59e0b)!important;
+  color:#0f172a!important;font-weight:700!important;
+  letter-spacing:.5px;
+}
+.nav-cta:hover{transform:translateY(-1px);box-shadow:0 8px 30px rgba(251,191,36,.25)}
+.mobile-toggle{display:none;background:none;border:none;color:#fff;font-size:24px;cursor:pointer}
+
+/* ============ HERO ============ */
+.hero{
+  min-height:100vh;display:flex;align-items:center;justify-content:center;
+  text-align:center;padding:120px 24px 80px;position:relative;
+}
+.hero-content{max-width:900px}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:8px 24px;border-radius:100px;margin-bottom:32px;
+  background:rgba(251,191,36,.08);border:1px solid rgba(251,191,36,.15);
+  font-size:13px;font-weight:600;color:#fbbf24;letter-spacing:3px;text-transform:uppercase;
+}
+.hero-badge .dot{width:6px;height:6px;border-radius:50%;background:#fbbf24;animation:pulse 2s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.8)}}
+
+.hero h1{
+  font-family:'Outfit',sans-serif;font-weight:900;
+  font-size:clamp(48px,8vw,96px);line-height:1;letter-spacing:-2px;
+  margin-bottom:8px;
+}
+.hero h1 .gold{
+  background:linear-gradient(135deg,#fbbf24 0%,#f59e0b 50%,#fcd34d 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  filter:drop-shadow(0 0 40px rgba(251,191,36,.2));
+}
+.hero h1 .white{
+  background:linear-gradient(180deg,#fff,#94a3b8);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+}
+.hero-edition{
+  font-family:'Space Grotesk',sans-serif;font-size:clamp(18px,3vw,28px);
+  font-weight:600;color:rgba(255,255,255,.5);letter-spacing:6px;
+  text-transform:uppercase;margin-bottom:40px;
+}
+.hero-meta{
+  display:flex;align-items:center;justify-content:center;gap:32px;
+  flex-wrap:wrap;margin-bottom:48px;
+}
+.hero-meta-item{
+  display:flex;align-items:center;gap:10px;
+  font-size:15px;color:rgba(255,255,255,.6);font-weight:500;
+}
+.hero-meta-icon{
+  width:40px;height:40px;border-radius:12px;
+  display:flex;align-items:center;justify-content:center;
+  background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);
+  font-size:18px;
+}
+.hero-actions{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.btn{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:14px 32px;border-radius:100px;font-weight:700;
+  font-size:15px;letter-spacing:.5px;text-decoration:none;
+  transition:all .3s ease;cursor:pointer;border:none;
+}
+.btn-primary{
+  background:linear-gradient(135deg,#fbbf24,#f59e0b);
+  color:#0f172a;box-shadow:0 4px 20px rgba(251,191,36,.2);
+}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 40px rgba(251,191,36,.35)}
+.btn-glass{
+  background:rgba(255,255,255,.06);color:#fff;
+  border:1px solid rgba(255,255,255,.1);
+}
+.btn-glass:hover{background:rgba(255,255,255,.1);transform:translateY(-2px)}
+
+/* Scroll indicator */
+.scroll-hint{
+  position:absolute;bottom:40px;left:50%;transform:translateX(-50%);
+  display:flex;flex-direction:column;align-items:center;gap:8px;
+  color:rgba(255,255,255,.3);font-size:12px;letter-spacing:2px;
+  animation:bobDown 2s ease-in-out infinite;
+}
+@keyframes bobDown{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(8px)}}
+.scroll-hint .chevron{font-size:20px}
+
+/* ============ SECTION HEADERS ============ */
+.section-header{text-align:center;margin-bottom:56px}
+.section-label{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:12px;font-weight:700;color:#fbbf24;letter-spacing:4px;
+  text-transform:uppercase;margin-bottom:16px;
+}
+.section-label .bar{width:24px;height:2px;background:#fbbf24;border-radius:2px}
+.section-title{
+  font-family:'Outfit',sans-serif;font-weight:800;
+  font-size:clamp(32px,5vw,48px);letter-spacing:-1px;
+  line-height:1.1;
+}
+.section-subtitle{
+  font-size:16px;color:rgba(255,255,255,.4);margin-top:12px;
+  max-width:500px;margin-left:auto;margin-right:auto;line-height:1.6;
+}
+
+/* ============ FIXTURES / BRACKET ============ */
+#fixtures{padding-top:100px}
+
+.bracket-tabs{
+  display:flex;justify-content:center;gap:8px;margin-bottom:48px;flex-wrap:wrap;
+}
+.bracket-tab{
+  padding:10px 24px;border-radius:100px;font-size:14px;font-weight:600;
+  color:rgba(255,255,255,.5);background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.06);cursor:pointer;
+  transition:all .2s ease;letter-spacing:.5px;
+}
+.bracket-tab:hover{color:#fff;background:rgba(255,255,255,.08)}
+.bracket-tab.active{
+  background:rgba(251,191,36,.1);color:#fbbf24;
+  border-color:rgba(251,191,36,.2);
+}
+
+.bracket-stage{display:none}
+.bracket-stage.active{display:block}
+
+/* Teams grid */
+.teams-grid{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));
+  gap:16px;margin-bottom:40px;
+}
+.team-card{
+  padding:20px;display:flex;align-items:center;gap:16px;
+  transition:all .3s ease;cursor:default;
+}
+.team-card:hover{background:rgba(255,255,255,.06);transform:translateY(-2px)}
+.team-num{
+  width:36px;height:36px;border-radius:10px;
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Outfit',sans-serif;font-weight:800;font-size:14px;
+  background:rgba(251,191,36,.08);color:#fbbf24;
+  border:1px solid rgba(251,191,36,.12);
+}
+.team-info .team-name{font-weight:700;font-size:15px;letter-spacing:.5px}
+.team-info .team-players{font-size:12px;color:rgba(255,255,255,.35);margin-top:2px}
+
+/* Match cards */
+.matches-grid{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));
+  gap:20px;
+}
+.match-card{
+  padding:24px;position:relative;overflow:hidden;
+  transition:all .3s ease;
+}
+.match-card:hover{transform:translateY(-2px);background:rgba(255,255,255,.06)}
+.match-label{
+  font-size:11px;font-weight:700;letter-spacing:3px;
+  text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:16px;
+}
+.match-teams{display:flex;flex-direction:column;gap:12px}
+.match-team{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:12px 16px;border-radius:12px;
+  background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.05);
+  transition:all .2s ease;
+}
+.match-team:hover{background:rgba(255,255,255,.06)}
+.match-team-name{font-weight:600;font-size:14px;display:flex;align-items:center;gap:10px}
+.match-team-name .seed{
+  font-size:11px;color:rgba(255,255,255,.3);font-weight:500;
+  width:24px;height:24px;border-radius:6px;
+  display:flex;align-items:center;justify-content:center;
+  background:rgba(255,255,255,.04);
+}
+.match-score{
+  font-family:'Outfit',sans-serif;font-weight:700;font-size:16px;
+  color:rgba(255,255,255,.2);
+}
+.match-vs{
+  text-align:center;font-size:12px;font-weight:700;
+  color:rgba(251,191,36,.4);letter-spacing:3px;
+}
+.match-footer{
+  display:flex;justify-content:space-between;align-items:center;
+  margin-top:16px;padding-top:12px;
+  border-top:1px solid rgba(255,255,255,.05);
+}
+.match-time{font-size:12px;color:rgba(255,255,255,.3);font-weight:500}
+.match-status{
+  font-size:11px;font-weight:700;letter-spacing:2px;
+  padding:4px 12px;border-radius:100px;text-transform:uppercase;
+}
+.status-upcoming{background:rgba(99,102,241,.1);color:#818cf8;border:1px solid rgba(99,102,241,.15)}
+.status-live{background:rgba(239,68,68,.1);color:#f87171;border:1px solid rgba(239,68,68,.15)}
+
+/* ============ GALLERY / SLIDER ============ */
+#gallery{overflow:hidden}
+.gallery-slider{
+  position:relative;overflow:hidden;border-radius:24px;
+  margin:0 -24px;
+}
+.gallery-track{
+  display:flex;transition:transform .6s cubic-bezier(.25,.1,.25,1);
+  gap:20px;padding:0 24px;
+}
+.gallery-slide{
+  min-width:calc(33.333% - 14px);border-radius:20px;overflow:hidden;
+  position:relative;aspect-ratio:4/3;flex-shrink:0;
+}
+.gallery-slide img{
+  width:100%;height:100%;object-fit:cover;
+  transition:transform .5s ease;
+}
+.gallery-slide:hover img{transform:scale(1.05)}
+.gallery-slide .slide-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(180deg,transparent 50%,rgba(0,0,0,.7));
+  display:flex;align-items:flex-end;padding:24px;
+}
+.gallery-slide .slide-caption{
+  font-weight:600;font-size:14px;color:rgba(255,255,255,.9);
+  letter-spacing:.5px;
+}
+
+.gallery-controls{
+  display:flex;justify-content:center;gap:12px;margin-top:32px;
+}
+.gallery-btn{
+  width:48px;height:48px;border-radius:50%;
+  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);
+  color:#fff;font-size:18px;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  transition:all .2s ease;
+}
+.gallery-btn:hover{background:rgba(251,191,36,.15);border-color:rgba(251,191,36,.3);color:#fbbf24}
+.gallery-dots{
+  display:flex;align-items:center;gap:8px;
+}
+.gallery-dot{
+  width:8px;height:8px;border-radius:50%;
+  background:rgba(255,255,255,.15);cursor:pointer;
+  transition:all .3s ease;
+}
+.gallery-dot.active{background:#fbbf24;width:24px;border-radius:4px}
+
+/* Placeholder for gallery images */
+.placeholder-img{
+  width:100%;height:100%;
+  background:linear-gradient(135deg,rgba(251,191,36,.1),rgba(139,92,246,.1));
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:12px;color:rgba(255,255,255,.3);
+}
+.placeholder-img .ph-icon{font-size:48px;opacity:.5}
+.placeholder-img .ph-text{font-size:13px;font-weight:500;letter-spacing:1px}
+
+/* ============ SPONSORS ============ */
+#sponsors{background:rgba(251,191,36,.02)}
+
+.sponsors-tiers{display:flex;flex-direction:column;gap:48px}
+
+.sponsor-tier-label{
+  text-align:center;font-size:12px;font-weight:700;
+  letter-spacing:4px;text-transform:uppercase;
+  margin-bottom:24px;padding:8px 24px;
+  display:inline-flex;margin-left:auto;margin-right:auto;
+  border-radius:100px;
+}
+.tier-title{
+  background:rgba(251,191,36,.08);color:#fbbf24;
+  border:1px solid rgba(251,191,36,.12);
+  display:block;text-align:center;width:fit-content;
+  margin:0 auto 24px;padding:8px 24px;border-radius:100px;
+  font-size:12px;font-weight:700;letter-spacing:4px;text-transform:uppercase;
+}
+.tier-title.silver{
+  background:rgba(148,163,184,.08);color:#94a3b8;
+  border-color:rgba(148,163,184,.12);
+}
+.tier-title.bronze{
+  background:rgba(180,83,9,.08);color:#d97706;
+  border-color:rgba(180,83,9,.12);
+}
+
+.sponsors-grid{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
+  gap:20px;
+}
+
+.sponsor-card{
+  padding:28px;position:relative;overflow:hidden;
+  transition:all .3s ease;
+}
+.sponsor-card:hover{transform:translateY(-4px);background:rgba(255,255,255,.06)}
+.sponsor-logo-area{
+  width:64px;height:64px;border-radius:16px;
+  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);
+  display:flex;align-items:center;justify-content:center;
+  font-size:28px;margin-bottom:16px;
+}
+.sponsor-name{
+  font-family:'Space Grotesk',sans-serif;font-weight:700;
+  font-size:18px;letter-spacing:.5px;margin-bottom:4px;
+}
+.sponsor-type{
+  font-size:12px;color:rgba(255,255,255,.35);font-weight:500;
+  letter-spacing:1px;text-transform:uppercase;margin-bottom:16px;
+}
+.sponsor-offer{
+  padding:16px;border-radius:14px;
+  background:rgba(251,191,36,.04);border:1px solid rgba(251,191,36,.08);
+}
+.offer-label{
+  font-size:10px;font-weight:700;letter-spacing:3px;
+  color:#fbbf24;text-transform:uppercase;margin-bottom:8px;
+}
+.offer-text{font-size:14px;color:rgba(255,255,255,.7);line-height:1.5;margin-bottom:12px}
+.coupon-code{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:8px 16px;border-radius:8px;
+  background:rgba(251,191,36,.08);border:1px dashed rgba(251,191,36,.3);
+  font-family:'Space Grotesk',monospace;font-weight:700;
+  font-size:15px;color:#fbbf24;letter-spacing:2px;
+  cursor:pointer;transition:all .2s ease;user-select:all;
+}
+.coupon-code:hover{background:rgba(251,191,36,.12)}
+.coupon-code .copy-icon{font-size:14px;opacity:.5}
+.coupon-copy-toast{
+  position:fixed;bottom:40px;left:50%;transform:translateX(-50%) translateY(100px);
+  padding:12px 28px;border-radius:100px;font-size:14px;font-weight:600;
+  background:rgba(251,191,36,.15);color:#fbbf24;
+  border:1px solid rgba(251,191,36,.2);
+  backdrop-filter:blur(20px);z-index:999;
+  transition:transform .3s ease;
+}
+.coupon-copy-toast.show{transform:translateX(-50%) translateY(0)}
+
+/* ============ CONTACT / CTA ============ */
+#contact{padding-bottom:40px}
+.cta-box{
+  padding:60px 40px;text-align:center;
+  position:relative;overflow:hidden;
+  background:linear-gradient(135deg,rgba(251,191,36,.06),rgba(139,92,246,.04));
+  border:1px solid rgba(251,191,36,.1);
+}
+.cta-box h2{
+  font-family:'Outfit',sans-serif;font-weight:800;
+  font-size:clamp(28px,4vw,40px);letter-spacing:-1px;margin-bottom:12px;
+}
+.cta-box p{
+  font-size:16px;color:rgba(255,255,255,.5);margin-bottom:32px;
+  max-width:500px;margin-left:auto;margin-right:auto;line-height:1.6;
+}
+.cta-contacts{
+  display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin-bottom:32px;
+}
+.cta-contact{
+  display:flex;align-items:center;gap:10px;
+  padding:12px 24px;border-radius:100px;
+  background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);
+  font-size:14px;color:rgba(255,255,255,.7);font-weight:500;
+}
+.cta-contact .icon{font-size:18px}
+
+/* ============ FOOTER ============ */
+.footer{
+  padding:40px 0;border-top:1px solid rgba(255,255,255,.05);
+  text-align:center;position:relative;z-index:2;
+}
+.footer-inner{
+  display:flex;justify-content:space-between;align-items:center;
+  flex-wrap:wrap;gap:20px;
+}
+.footer-brand{
+  font-family:'Outfit',sans-serif;font-weight:800;font-size:18px;
+  background:linear-gradient(135deg,#fbbf24,#f59e0b);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+}
+.footer-links{display:flex;gap:24px}
+.footer-links a{
+  font-size:13px;color:rgba(255,255,255,.35);text-decoration:none;
+  transition:color .2s ease;font-weight:500;
+}
+.footer-links a:hover{color:#fbbf24}
+.footer-social{display:flex;gap:12px}
+.footer-social a{
+  width:36px;height:36px;border-radius:10px;
+  background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.06);
+  display:flex;align-items:center;justify-content:center;
+  color:rgba(255,255,255,.4);text-decoration:none;font-size:16px;
+  transition:all .2s ease;
+}
+.footer-social a:hover{background:rgba(251,191,36,.1);color:#fbbf24;border-color:rgba(251,191,36,.15)}
+.footer-copy{
+  margin-top:24px;font-size:12px;color:rgba(255,255,255,.2);
+  text-align:center;width:100%;
+}
+
+/* ============ ANIMATIONS ============ */
+.fade-in{opacity:0;transform:translateY(30px);transition:all .7s cubic-bezier(.25,.1,.25,1)}
+.fade-in.visible{opacity:1;transform:translateY(0)}
+.fade-in-delay-1{transition-delay:.1s}
+.fade-in-delay-2{transition-delay:.2s}
+.fade-in-delay-3{transition-delay:.3s}
+
+/* ============ RESPONSIVE ============ */
+@media(max-width:768px){
+  .nav-links{
+    position:fixed;top:0;right:-100%;width:280px;height:100vh;
+    flex-direction:column;padding:80px 24px 24px;gap:4px;
+    background:rgba(5,10,24,.97);backdrop-filter:blur(20px);
+    border-left:1px solid rgba(255,255,255,.06);
+    transition:right .3s ease;z-index:200;
+  }
+  .nav-links.open{right:0}
+  .nav-links a{font-size:16px;padding:14px 20px;width:100%;border-radius:12px}
+  .mobile-toggle{display:block;z-index:201}
+  .gallery-slide{min-width:calc(100% - 0px)}
+  .hero-meta{flex-direction:column;gap:16px}
+  .matches-grid{grid-template-columns:1fr}
+  .teams-grid{grid-template-columns:1fr 1fr}
+  .sponsors-grid{grid-template-columns:1fr}
+  .cta-contacts{flex-direction:column;align-items:center}
+  .footer-inner{flex-direction:column;text-align:center}
+}
+@media(max-width:1024px) and (min-width:769px){
+  .gallery-slide{min-width:calc(50% - 10px)}
+}
+</style>
+</head>
+<body>
+
+<!-- Animated background -->
+<div class="page-bg">
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+  <div class="orb orb-4"></div>
+</div>
+<div class="noise"></div>
+
+<!-- ========== NAVIGATION ========== -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">RHEIN STRIKERS</a>
+    <div class="nav-links" id="navLinks">
+      <a href="#fixtures">Fixtures</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#sponsors">Sponsors</a>
+      <a href="#contact" class="nav-cta glass-pill">Register Now</a>
+    </div>
+    <button class="mobile-toggle" id="mobileToggle" aria-label="Menu">&#9776;</button>
+  </div>
+</nav>
+
+<!-- ========== HERO ========== -->
+<section class="hero" id="hero">
+  <div class="hero-content">
+    <div class="hero-badge fade-in">
+      <span class="dot"></span>
+      <span>2nd Edition &bull; 2026</span>
+    </div>
+    <h1 class="fade-in fade-in-delay-1">
+      <span class="gold">RHEIN STRIKERS</span><br>
+      <span class="white">CRICKET CUP</span>
+    </h1>
+    <p class="hero-edition fade-in fade-in-delay-2">2nd Annual Tournament</p>
+    <div class="hero-meta fade-in fade-in-delay-2">
+      <div class="hero-meta-item">
+        <div class="hero-meta-icon">&#128197;</div>
+        <span>Summer 2026</span>
+      </div>
+      <div class="hero-meta-item">
+        <div class="hero-meta-icon">&#128205;</div>
+        <span>Ludwigshafen, Germany</span>
+      </div>
+      <div class="hero-meta-item">
+        <div class="hero-meta-icon">&#127942;</div>
+        <span>12 Teams</span>
+      </div>
+    </div>
+    <div class="hero-actions fade-in fade-in-delay-3">
+      <a href="#fixtures" class="btn btn-primary">View Fixtures &#8595;</a>
+      <a href="#contact" class="btn btn-glass">Register Your Team</a>
+    </div>
+  </div>
+  <div class="scroll-hint">
+    <span>SCROLL</span>
+    <span class="chevron">&#8964;</span>
+  </div>
+</section>
+
+<!-- ========== FIXTURES ========== -->
+<section id="fixtures">
+  <div class="container">
+    <div class="section-header fade-in">
+      <div class="section-label"><span class="bar"></span> TOURNAMENT <span class="bar"></span></div>
+      <h2 class="section-title">Fixtures &amp; Bracket</h2>
+      <p class="section-subtitle">12 teams battle through quarters, semis, and the grand final</p>
+    </div>
+
+    <!-- Tabs -->
+    <div class="bracket-tabs fade-in">
+      <button class="bracket-tab active" data-stage="teams">All Teams</button>
+      <button class="bracket-tab" data-stage="quarters">Quarter Finals</button>
+      <button class="bracket-tab" data-stage="semis">Semi Finals</button>
+      <button class="bracket-tab" data-stage="final">Final</button>
+    </div>
+
+    <!-- Teams -->
+    <div class="bracket-stage active" id="stage-teams">
+      <div class="teams-grid">
+        <div class="team-card glass glass-sm fade-in"><div class="team-num">1</div><div class="team-info"><div class="team-name">Team Alpha</div><div class="team-players">Placeholder</div></div></div>
+        <div class="team-card glass glass-sm fade-in"><div class="team-num">2</div><div class="team-info"><div class="team-name">Team Bravo</div><div class="team-players">Placeholder</div></div></div>
+        <div class="team-card glass glass-sm fade-in"><div class="team-num">3</div><div class="team-info"><div class="team-name">Team Charlie</div><div class="team-players">Placeholder</div></div></div>
+        <div class="team-card glass glass-sm fade-in"><div class="team-num">4</div><div class="team-info"><div class="team-name">Team Delta</div><div class="team-players">Placeholder</div></div></div>
+        <div class="team-card glass glass-sm fade-in"><div class="team-num">5</div><div class="team-info"><div class="team-name">Team Echo</div><div class="team-players">Placeholder</div></div></div>
+        <div class="team-card glass glass-sm fade-in"><div class="team-num">6</div><div class="team-info"><div class="team-name">Team Foxtrot</div><div class="team-players">Placeholder</div></div></div>
+        <div class="team-card glass glass-sm fade-in"><div class="team-num">7</div><div class="team-info"><div class="team-name">Team Golf</div><div class="team-players">Placeholder</div></div></div>
+        <div class="team-card glass glass-sm fade-in"><div class="team-num">8</div><div class="team-info"><div class="team-name">Team Hotel</div><div class="team-players">Placeholder</div></div></div>
+        <div class="team-card glass glass-sm fade-in"><div class="team-num">9</div><div class="team-info"><div class="team-name">Team India</div><div class="team-players">Placeholder</div></div></div>
+        <div class="team-card glass glass-sm fade-in"><div class="team-num">10</div><div class="team-info"><div class="team-name">Team Juliet</div><div class="team-players">Placeholder</div></div></div>
+        <div class="team-card glass glass-sm fade-in"><div class="team-num">11</div><div class="team-info"><div class="team-name">Team Kilo</div><div class="team-players">Placeholder</div></div></div>
+        <div class="team-card glass glass-sm fade-in"><div class="team-num">12</div><div class="team-info"><div class="team-name">Team Lima</div><div class="team-players">Placeholder</div></div></div>
+      </div>
+    </div>
+
+    <!-- Quarter Finals: 4 preliminary matches feed into QFs -->
+    <div class="bracket-stage" id="stage-quarters">
+      <div class="matches-grid">
+        <div class="match-card glass glass-sm fade-in">
+          <div class="match-label">Quarter Final 1</div>
+          <div class="match-teams">
+            <div class="match-team"><span class="match-team-name"><span class="seed">1</span>Team Alpha</span><span class="match-score">--</span></div>
+            <div class="match-vs">VS</div>
+            <div class="match-team"><span class="match-team-name"><span class="seed">8</span>Team Hotel</span><span class="match-score">--</span></div>
+          </div>
+          <div class="match-footer"><span class="match-time">TBD</span><span class="match-status status-upcoming">Upcoming</span></div>
+        </div>
+        <div class="match-card glass glass-sm fade-in">
+          <div class="match-label">Quarter Final 2</div>
+          <div class="match-teams">
+            <div class="match-team"><span class="match-team-name"><span class="seed">2</span>Team Bravo</span><span class="match-score">--</span></div>
+            <div class="match-vs">VS</div>
+            <div class="match-team"><span class="match-team-name"><span class="seed">7</span>Team Golf</span><span class="match-score">--</span></div>
+          </div>
+          <div class="match-footer"><span class="match-time">TBD</span><span class="match-status status-upcoming">Upcoming</span></div>
+        </div>
+        <div class="match-card glass glass-sm fade-in">
+          <div class="match-label">Quarter Final 3</div>
+          <div class="match-teams">
+            <div class="match-team"><span class="match-team-name"><span class="seed">3</span>Team Charlie</span><span class="match-score">--</span></div>
+            <div class="match-vs">VS</div>
+            <div class="match-team"><span class="match-team-name"><span class="seed">6</span>Team Foxtrot</span><span class="match-score">--</span></div>
+          </div>
+          <div class="match-footer"><span class="match-time">TBD</span><span class="match-status status-upcoming">Upcoming</span></div>
+        </div>
+        <div class="match-card glass glass-sm fade-in">
+          <div class="match-label">Quarter Final 4</div>
+          <div class="match-teams">
+            <div class="match-team"><span class="match-team-name"><span class="seed">4</span>Team Delta</span><span class="match-score">--</span></div>
+            <div class="match-vs">VS</div>
+            <div class="match-team"><span class="match-team-name"><span class="seed">5</span>Team Echo</span><span class="match-score">--</span></div>
+          </div>
+          <div class="match-footer"><span class="match-time">TBD</span><span class="match-status status-upcoming">Upcoming</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Semi Finals -->
+    <div class="bracket-stage" id="stage-semis">
+      <div class="matches-grid">
+        <div class="match-card glass glass-sm fade-in">
+          <div class="match-label">Semi Final 1</div>
+          <div class="match-teams">
+            <div class="match-team"><span class="match-team-name"><span class="seed">&#9733;</span>Winner QF1</span><span class="match-score">--</span></div>
+            <div class="match-vs">VS</div>
+            <div class="match-team"><span class="match-team-name"><span class="seed">&#9733;</span>Winner QF2</span><span class="match-score">--</span></div>
+          </div>
+          <div class="match-footer"><span class="match-time">TBD</span><span class="match-status status-upcoming">Upcoming</span></div>
+        </div>
+        <div class="match-card glass glass-sm fade-in">
+          <div class="match-label">Semi Final 2</div>
+          <div class="match-teams">
+            <div class="match-team"><span class="match-team-name"><span class="seed">&#9733;</span>Winner QF3</span><span class="match-score">--</span></div>
+            <div class="match-vs">VS</div>
+            <div class="match-team"><span class="match-team-name"><span class="seed">&#9733;</span>Winner QF4</span><span class="match-score">--</span></div>
+          </div>
+          <div class="match-footer"><span class="match-time">TBD</span><span class="match-status status-upcoming">Upcoming</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Final -->
+    <div class="bracket-stage" id="stage-final">
+      <div class="matches-grid" style="max-width:500px;margin:0 auto">
+        <div class="match-card glass fade-in" style="border:1px solid rgba(251,191,36,.15);background:rgba(251,191,36,.03)">
+          <div class="match-label" style="color:#fbbf24">&#127942; Grand Final</div>
+          <div class="match-teams">
+            <div class="match-team"><span class="match-team-name"><span class="seed" style="background:rgba(251,191,36,.1);color:#fbbf24">&#9733;</span>Winner SF1</span><span class="match-score">--</span></div>
+            <div class="match-vs" style="color:#fbbf24">VS</div>
+            <div class="match-team"><span class="match-team-name"><span class="seed" style="background:rgba(251,191,36,.1);color:#fbbf24">&#9733;</span>Winner SF2</span><span class="match-score">--</span></div>
+          </div>
+          <div class="match-footer">
+            <span class="match-time">TBD</span>
+            <span class="match-status" style="background:rgba(251,191,36,.1);color:#fbbf24;border:1px solid rgba(251,191,36,.2)">Grand Final</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ========== 2025 CUP GALLERY ========== -->
+<section id="gallery">
+  <div class="container">
+    <div class="section-header fade-in">
+      <div class="section-label"><span class="bar"></span> MEMORIES <span class="bar"></span></div>
+      <h2 class="section-title">2025 Cup Highlights</h2>
+      <p class="section-subtitle">Moments from the inaugural Rhein Strikers Cricket Cup</p>
+    </div>
+
+    <div class="gallery-slider fade-in">
+      <div class="gallery-track" id="galleryTrack">
+        <div class="gallery-slide">
+          <div class="placeholder-img"><span class="ph-icon">&#127951;</span><span class="ph-text">Match Day Action</span></div>
+          <div class="slide-overlay"><span class="slide-caption">Opening Ceremony 2025</span></div>
+        </div>
+        <div class="gallery-slide">
+          <div class="placeholder-img"><span class="ph-icon">&#127942;</span><span class="ph-text">Trophy Ceremony</span></div>
+          <div class="slide-overlay"><span class="slide-caption">Champions Celebration</span></div>
+        </div>
+        <div class="gallery-slide">
+          <div class="placeholder-img"><span class="ph-icon">&#127936;</span><span class="ph-text">Best Moments</span></div>
+          <div class="slide-overlay"><span class="slide-caption">Bowling Highlights</span></div>
+        </div>
+        <div class="gallery-slide">
+          <div class="placeholder-img"><span class="ph-icon">&#129351;</span><span class="ph-text">Award Night</span></div>
+          <div class="slide-overlay"><span class="slide-caption">MVP Award</span></div>
+        </div>
+        <div class="gallery-slide">
+          <div class="placeholder-img"><span class="ph-icon">&#128248;</span><span class="ph-text">Team Photos</span></div>
+          <div class="slide-overlay"><span class="slide-caption">All Teams 2025</span></div>
+        </div>
+        <div class="gallery-slide">
+          <div class="placeholder-img"><span class="ph-icon">&#127878;</span><span class="ph-text">Fan Zone</span></div>
+          <div class="slide-overlay"><span class="slide-caption">Crowd &amp; Fan Moments</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="gallery-controls">
+      <button class="gallery-btn" id="galleryPrev">&#8592;</button>
+      <div class="gallery-dots" id="galleryDots"></div>
+      <button class="gallery-btn" id="galleryNext">&#8594;</button>
+    </div>
+  </div>
+</section>
+
+<!-- ========== SPONSORS ========== -->
+<section id="sponsors">
+  <div class="container">
+    <div class="section-header fade-in">
+      <div class="section-label"><span class="bar"></span> PARTNERS <span class="bar"></span></div>
+      <h2 class="section-title">Our Sponsors</h2>
+      <p class="section-subtitle">Proudly supported by local businesses. Exclusive offers for tournament attendees!</p>
+    </div>
+
+    <div class="sponsors-tiers">
+
+      <!-- Title Sponsor -->
+      <div>
+        <div class="tier-title fade-in">&#9733; Title Sponsor</div>
+        <div class="sponsors-grid">
+          <div class="sponsor-card glass fade-in" style="grid-column:span 1">
+            <div class="sponsor-logo-area" style="background:rgba(251,191,36,.08);border-color:rgba(251,191,36,.12)">&#127798;</div>
+            <div class="sponsor-name">Indo Spice</div>
+            <div class="sponsor-type">Indian Grocery &amp; Spices</div>
+            <div class="sponsor-offer">
+              <div class="offer-label">Special Offer</div>
+              <div class="offer-text">10% off on all orders above &euro;30 for tournament attendees</div>
+              <div class="coupon-code" onclick="copyCoupon(this)" title="Click to copy">RHEIN2026 <span class="copy-icon">&#128203;</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Gold Sponsors -->
+      <div>
+        <div class="tier-title fade-in">Gold Sponsors</div>
+        <div class="sponsors-grid">
+          <div class="sponsor-card glass fade-in">
+            <div class="sponsor-logo-area">&#127858;</div>
+            <div class="sponsor-name">Salt &amp; Pepper</div>
+            <div class="sponsor-type">Restaurant &amp; Catering</div>
+            <div class="sponsor-offer">
+              <div class="offer-label">Special Offer</div>
+              <div class="offer-text">Free dessert with any main course on match days</div>
+              <div class="coupon-code" onclick="copyCoupon(this)" title="Click to copy">SNPCRICKET <span class="copy-icon">&#128203;</span></div>
+            </div>
+          </div>
+          <div class="sponsor-card glass fade-in">
+            <div class="sponsor-logo-area">&#127798;</div>
+            <div class="sponsor-name">Pepper Haus</div>
+            <div class="sponsor-type">Restaurant</div>
+            <div class="sponsor-offer">
+              <div class="offer-label">Special Offer</div>
+              <div class="offer-text">15% off dine-in for all registered players</div>
+              <div class="coupon-code" onclick="copyCoupon(this)" title="Click to copy">PHAUS15 <span class="copy-icon">&#128203;</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Silver Sponsors -->
+      <div>
+        <div class="tier-title silver fade-in">Silver Sponsors</div>
+        <div class="sponsors-grid">
+          <div class="sponsor-card glass fade-in">
+            <div class="sponsor-logo-area">&#128666;</div>
+            <div class="sponsor-name">Auls Umzug</div>
+            <div class="sponsor-type">Moving &amp; Logistics</div>
+            <div class="sponsor-offer">
+              <div class="offer-label">Special Offer</div>
+              <div class="offer-text">&euro;50 discount on local moves for Rhein Strikers members</div>
+              <div class="coupon-code" onclick="copyCoupon(this)" title="Click to copy">AULS50 <span class="copy-icon">&#128203;</span></div>
+            </div>
+          </div>
+          <div class="sponsor-card glass fade-in">
+            <div class="sponsor-logo-area">&#9992;&#65039;</div>
+            <div class="sponsor-name">Fly Dreams</div>
+            <div class="sponsor-type">Travel Agency</div>
+            <div class="sponsor-offer">
+              <div class="offer-label">Special Offer</div>
+              <div class="offer-text">Exclusive flight deals for tournament participants</div>
+              <div class="coupon-code" onclick="copyCoupon(this)" title="Click to copy">FLYDREAM26 <span class="copy-icon">&#128203;</span></div>
+            </div>
+          </div>
+          <div class="sponsor-card glass fade-in">
+            <div class="sponsor-logo-area">&#127919;</div>
+            <div class="sponsor-name">Your Brand Here</div>
+            <div class="sponsor-type">Become a Sponsor</div>
+            <div class="sponsor-offer">
+              <div class="offer-label">Sponsor Slot Available</div>
+              <div class="offer-text">Reach 500+ cricket fans in the Rhine-Neckar region. Contact us to partner!</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ========== CONTACT / CTA ========== -->
+<section id="contact">
+  <div class="container">
+    <div class="cta-box glass fade-in">
+      <h2>Ready to Play?</h2>
+      <p>Register your team for the Rhein Strikers Cricket Cup 2026. Limited to 12 teams &mdash; secure your spot now!</p>
+      <div class="cta-contacts">
+        <div class="cta-contact glass-pill"><span class="icon">&#128222;</span> +49 176 84463070</div>
+        <div class="cta-contact glass-pill"><span class="icon">&#128231;</span> rheinstrikers@gmail.com</div>
+        <div class="cta-contact glass-pill"><span class="icon">&#128247;</span> @RHEINSTRIKERS</div>
+      </div>
+      <a href="https://instagram.com/rheinstrikers" target="_blank" class="btn btn-primary">Register on Instagram</a>
+    </div>
+  </div>
+</section>
+
+<!-- ========== FOOTER ========== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">RHEIN STRIKERS</div>
+      <div class="footer-links">
+        <a href="#fixtures">Fixtures</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#sponsors">Sponsors</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="footer-social">
+        <a href="https://instagram.com/rheinstrikers" target="_blank" title="Instagram">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="footer-copy">&copy; 2026 Rhein Strikers Cricket Club &bull; Ludwigshafen, Germany</div>
+  </div>
+</footer>
+
+<!-- Copy toast -->
+<div class="coupon-copy-toast" id="copyToast">Coupon code copied!</div>
+
+<script>
+/* ===== NAV SCROLL ===== */
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 50);
+});
+
+/* ===== MOBILE MENU ===== */
+const mobileToggle = document.getElementById('mobileToggle');
+const navLinks = document.getElementById('navLinks');
+mobileToggle.addEventListener('click', () => {
+  navLinks.classList.toggle('open');
+  mobileToggle.innerHTML = navLinks.classList.contains('open') ? '&#10005;' : '&#9776;';
+});
+navLinks.querySelectorAll('a').forEach(a => {
+  a.addEventListener('click', () => {
+    navLinks.classList.remove('open');
+    mobileToggle.innerHTML = '&#9776;';
+  });
+});
+
+/* ===== BRACKET TABS ===== */
+document.querySelectorAll('.bracket-tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.bracket-tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.bracket-stage').forEach(s => s.classList.remove('active'));
+    tab.classList.add('active');
+    document.getElementById('stage-' + tab.dataset.stage).classList.add('active');
+    // Re-trigger fade-in for newly visible cards
+    document.getElementById('stage-' + tab.dataset.stage).querySelectorAll('.fade-in').forEach(el => {
+      el.classList.remove('visible');
+      requestAnimationFrame(() => requestAnimationFrame(() => el.classList.add('visible')));
+    });
+  });
+});
+
+/* ===== GALLERY SLIDER ===== */
+const track = document.getElementById('galleryTrack');
+const slides = track.querySelectorAll('.gallery-slide');
+const dotsContainer = document.getElementById('galleryDots');
+let currentSlide = 0;
+let slidesPerView = 3;
+
+function updateSlidesPerView() {
+  if (window.innerWidth <= 768) slidesPerView = 1;
+  else if (window.innerWidth <= 1024) slidesPerView = 2;
+  else slidesPerView = 3;
+}
+
+function totalPages() {
+  return Math.max(1, slides.length - slidesPerView + 1);
+}
+
+function buildDots() {
+  dotsContainer.innerHTML = '';
+  const pages = Math.ceil(slides.length / slidesPerView);
+  for (let i = 0; i < pages; i++) {
+    const dot = document.createElement('div');
+    dot.className = 'gallery-dot' + (i === 0 ? ' active' : '');
+    dot.addEventListener('click', () => goToSlide(i * slidesPerView));
+    dotsContainer.appendChild(dot);
+  }
+}
+
+function goToSlide(index) {
+  const maxIndex = slides.length - slidesPerView;
+  currentSlide = Math.max(0, Math.min(index, maxIndex));
+  const slideWidth = slides[0].offsetWidth + 20; // gap
+  track.style.transform = `translateX(-${currentSlide * slideWidth}px)`;
+  // Update dots
+  const pages = Math.ceil(slides.length / slidesPerView);
+  const activePage = Math.floor(currentSlide / slidesPerView);
+  dotsContainer.querySelectorAll('.gallery-dot').forEach((d, i) => {
+    d.classList.toggle('active', i === activePage);
+  });
+}
+
+document.getElementById('galleryPrev').addEventListener('click', () => goToSlide(currentSlide - 1));
+document.getElementById('galleryNext').addEventListener('click', () => goToSlide(currentSlide + 1));
+
+// Touch / swipe
+let touchStartX = 0;
+track.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive: true });
+track.addEventListener('touchend', e => {
+  const diff = touchStartX - e.changedTouches[0].clientX;
+  if (Math.abs(diff) > 50) {
+    diff > 0 ? goToSlide(currentSlide + 1) : goToSlide(currentSlide - 1);
+  }
+});
+
+window.addEventListener('resize', () => {
+  updateSlidesPerView();
+  buildDots();
+  goToSlide(currentSlide);
+});
+updateSlidesPerView();
+buildDots();
+
+/* ===== COUPON COPY ===== */
+const toast = document.getElementById('copyToast');
+function copyCoupon(el) {
+  const code = el.textContent.trim().replace(/\s*📋\s*$/, '').trim();
+  navigator.clipboard.writeText(code).then(() => {
+    toast.classList.add('show');
+    setTimeout(() => toast.classList.remove('show'), 2000);
+  });
+}
+
+/* ===== SCROLL REVEAL ===== */
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
