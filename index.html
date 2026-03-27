@@ -270,7 +270,7 @@ section{padding:100px 0}
 }
 .marquee-item .sep{color:rgba(251,191,36,.3);font-size:8px}
 
-/* ===== FIXTURES ===== */
+/* ===== FIXTURES (EPL STYLE) ===== */
 #fixtures{padding-top:100px}
 .bracket-tabs{display:flex;justify-content:center;gap:6px;margin-bottom:48px;flex-wrap:wrap}
 .bracket-tab{
@@ -283,25 +283,44 @@ section{padding:100px 0}
 .bracket-stage{display:none}
 .bracket-stage.active{display:block;animation:slideInUp .5s ease}
 
-.teams-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px}
-.team-card{
-  padding:18px 20px;border-radius:16px;display:flex;align-items:center;gap:14px;
-  transition:all .35s cubic-bezier(.22,1,.36,1);cursor:default;
+/* EPL-style team table */
+.epl-table{width:100%;border-collapse:separate;border-spacing:0 6px}
+.epl-table thead th{
+  text-align:left;padding:10px 16px;font-size:10px;font-weight:700;
+  letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.25);
+  border-bottom:1px solid rgba(255,255,255,.06);
 }
-.team-card:hover{background:rgba(255,255,255,.07);transform:translateY(-3px);box-shadow:0 12px 30px rgba(0,0,0,.2)}
-.team-num{
-  width:40px;height:40px;border-radius:10px;flex-shrink:0;
+.epl-table thead th:first-child{width:50px;text-align:center}
+.epl-row{
+  transition:all .3s cubic-bezier(.22,1,.36,1);cursor:default;
+}
+.epl-row:hover{transform:translateX(4px)}
+.epl-row td{
+  padding:14px 16px;background:rgba(255,255,255,.03);
+  border-top:1px solid rgba(255,255,255,.04);
+  border-bottom:1px solid rgba(255,255,255,.04);
+}
+.epl-row td:first-child{border-radius:12px 0 0 12px;border-left:1px solid rgba(255,255,255,.04);text-align:center}
+.epl-row td:last-child{border-radius:0 12px 12px 0;border-right:1px solid rgba(255,255,255,.04)}
+.epl-row:hover td{background:rgba(255,255,255,.06)}
+.epl-pos{
+  font-family:'Outfit',sans-serif;font-weight:800;font-size:14px;color:rgba(255,255,255,.3);
+}
+.epl-team{display:flex;align-items:center;gap:14px}
+.epl-logo{
+  width:40px;height:40px;border-radius:10px;flex-shrink:0;overflow:hidden;
+  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);
   display:flex;align-items:center;justify-content:center;
-  font-family:'Outfit',sans-serif;font-weight:800;font-size:14px;
-  background:linear-gradient(135deg,rgba(251,191,36,.1),rgba(251,191,36,.04));
-  color:#fbbf24;border:1px solid rgba(251,191,36,.1);
+  font-size:16px;color:rgba(255,255,255,.3);
 }
-.team-num.blue{background:linear-gradient(135deg,rgba(59,130,246,.12),rgba(59,130,246,.04));color:#60a5fa;border-color:rgba(59,130,246,.12)}
-.team-num.red{background:linear-gradient(135deg,rgba(239,68,68,.12),rgba(239,68,68,.04));color:#f87171;border-color:rgba(239,68,68,.12)}
-.team-num.tbd{background:rgba(255,255,255,.03);color:rgba(255,255,255,.2);border-color:rgba(255,255,255,.05)}
-.team-name{font-weight:700;font-size:14px;letter-spacing:.3px}
-.team-captain{font-size:11px;color:rgba(255,255,255,.3);margin-top:2px;font-weight:500}
+.epl-logo img{width:100%;height:100%;object-fit:contain;padding:4px}
+.epl-team-info .epl-name{font-weight:700;font-size:14px;letter-spacing:.3px}
+.epl-team-info .epl-captain{font-size:11px;color:rgba(255,255,255,.3);font-weight:500;margin-top:1px}
+.epl-row.tbd-row td{background:rgba(255,255,255,.015)}
+.epl-row.tbd-row .epl-name{color:rgba(255,255,255,.25)}
+.epl-row.tbd-row .epl-logo{background:rgba(255,255,255,.03);border-color:rgba(255,255,255,.04)}
 
+/* Match cards */
 .matches-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:20px}
 .match-card{
   padding:24px;border-radius:20px;position:relative;overflow:hidden;transition:all .35s cubic-bezier(.22,1,.36,1);
@@ -322,10 +341,11 @@ section{padding:100px 0}
 }
 .match-team:hover{background:rgba(255,255,255,.06)}
 .mt-name{font-weight:600;font-size:14px;display:flex;align-items:center;gap:10px}
-.mt-name .seed{
-  font-size:10px;color:rgba(255,255,255,.3);font-weight:600;
-  width:22px;height:22px;border-radius:6px;
-  display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.04);
+.mt-logo{
+  width:28px;height:28px;border-radius:7px;flex-shrink:0;
+  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.06);
+  display:flex;align-items:center;justify-content:center;
+  font-size:12px;color:rgba(255,255,255,.25);
 }
 .mt-score{font-family:'Outfit',sans-serif;font-weight:700;font-size:15px;color:rgba(255,255,255,.12)}
 .match-vs{text-align:center;font-size:11px;font-weight:700;color:rgba(251,191,36,.25);letter-spacing:4px}
@@ -341,6 +361,34 @@ section{padding:100px 0}
   display:inline-flex;align-items:center;gap:8px;
 }
 .fixtures-note-wrap{text-align:center}
+
+/* Deals banner for sponsors */
+.deals-banner{
+  margin-bottom:40px;padding:20px 28px;border-radius:16px;
+  background:linear-gradient(135deg,rgba(251,191,36,.06),rgba(236,72,153,.04));
+  border:1px solid rgba(251,191,36,.1);
+  display:flex;align-items:center;gap:16px;flex-wrap:wrap;justify-content:center;
+  text-align:center;
+}
+.deals-banner .deals-icon{font-size:28px}
+.deals-banner .deals-text{font-size:14px;color:rgba(255,255,255,.7);font-weight:600;line-height:1.5}
+.deals-banner .deals-text strong{color:#fbbf24}
+
+/* Title sponsor highlight */
+.sponsor-card.title-sponsor{
+  background:rgba(251,191,36,.04);border-color:rgba(251,191,36,.1);
+  position:relative;
+}
+.sponsor-card.title-sponsor::after{
+  content:'PRESENTING SPONSOR';
+  position:absolute;top:16px;right:16px;
+  font-size:9px;font-weight:700;letter-spacing:2px;
+  padding:4px 12px;border-radius:100px;
+  background:rgba(251,191,36,.12);color:#fbbf24;border:1px solid rgba(251,191,36,.15);
+}
+.sponsor-card.title-sponsor .sp-logo{
+  width:72px;height:72px;background:rgba(251,191,36,.06);border-color:rgba(251,191,36,.1);
+}
 
 /* ===== GALLERY ===== */
 #gallery{overflow:hidden}
@@ -503,14 +551,6 @@ section{padding:100px 0}
   .awards-grid{grid-template-columns:1fr}
 }
 
-/* Title sponsor special */
-.sponsor-card.title-sponsor{
-  background:rgba(251,191,36,.03);border-color:rgba(251,191,36,.08);
-}
-.sponsor-card.title-sponsor .sp-logo{
-  width:64px;height:64px;background:rgba(251,191,36,.06);border-color:rgba(251,191,36,.1);
-}
-
 /* Toast */
 .toast{
   position:fixed;bottom:40px;left:50%;transform:translateX(-50%) translateY(100px);
@@ -589,7 +629,9 @@ section{padding:100px 0}
   .hero-ring,.hero-ring-2{display:none}
   .gallery-slide{width:280px;height:210px}
   .matches-grid{grid-template-columns:1fr}
-  .teams-grid{grid-template-columns:1fr 1fr}
+  .epl-table{font-size:13px}
+  .epl-logo{width:32px;height:32px}
+  .epl-table thead th:last-child,.epl-row td:last-child{display:none}
   .sponsors-grid{grid-template-columns:1fr}
   .cta-box{padding:48px 20px}
   .cta-contacts{flex-direction:column;align-items:center}
@@ -697,22 +739,25 @@ section{padding:100px 0}
       <button class="bracket-tab" data-stage="final">Final</button>
     </div>
 
-    <!-- ALL TEAMS -->
+    <!-- ALL TEAMS (EPL STYLE) -->
     <div class="bracket-stage active" id="stage-teams">
-      <div class="teams-grid">
-        <div class="team-card glass reveal s1"><div class="team-num blue">1</div><div><div class="team-name">Rhein Strikers Blue</div><div class="team-captain">Captain: Jibin</div></div></div>
-        <div class="team-card glass reveal s2"><div class="team-num red">2</div><div><div class="team-name">Rhein Strikers Red</div><div class="team-captain">Captain: TBD</div></div></div>
-        <div class="team-card glass reveal s3"><div class="team-num">3</div><div><div class="team-name">Karlsruhe Knights</div><div class="team-captain">Captain: Atul Pradeep</div></div></div>
-        <div class="team-card glass reveal s4"><div class="team-num">4</div><div><div class="team-name">KK Challengers</div><div class="team-captain">Captain: Prins</div></div></div>
-        <div class="team-card glass reveal s5"><div class="team-num">5</div><div><div class="team-name">TBG Neulusheim</div><div class="team-captain">Captain: Supreeth</div></div></div>
-        <div class="team-card glass reveal s6"><div class="team-num">6</div><div><div class="team-name">Mainz Cricket Club</div><div class="team-captain">Captain: Peter</div></div></div>
-        <div class="team-card glass reveal s7"><div class="team-num">7</div><div><div class="team-name">PSG Galli Cricket</div><div class="team-captain">Captain: Chaitanya</div></div></div>
-        <div class="team-card glass reveal s8"><div class="team-num">8</div><div><div class="team-name">TSV Frankfurt Spartans</div><div class="team-captain">Captain: Boney</div></div></div>
-        <div class="team-card glass reveal s9"><div class="team-num">9</div><div><div class="team-name">TGS United Challengers</div><div class="team-captain">Captain: Gnana</div></div></div>
-        <div class="team-card glass reveal s1"><div class="team-num tbd">10</div><div><div class="team-name" style="color:rgba(255,255,255,.3)">TBD</div><div class="team-captain">Slot Available</div></div></div>
-        <div class="team-card glass reveal s2"><div class="team-num tbd">11</div><div><div class="team-name" style="color:rgba(255,255,255,.3)">TBD</div><div class="team-captain">Slot Available</div></div></div>
-        <div class="team-card glass reveal s3"><div class="team-num tbd">12</div><div><div class="team-name" style="color:rgba(255,255,255,.3)">TBD</div><div class="team-captain">Slot Available</div></div></div>
-      </div>
+      <table class="epl-table reveal">
+        <thead><tr><th>#</th><th>Team</th><th>Captain</th></tr></thead>
+        <tbody>
+          <tr class="epl-row"><td><span class="epl-pos">1</span></td><td><div class="epl-team"><div class="epl-logo">&#128309;</div><div class="epl-team-info"><div class="epl-name">Rhein Strikers Blue</div></div></div></td><td class="epl-captain" style="color:rgba(255,255,255,.5)">Jibin</td></tr>
+          <tr class="epl-row"><td><span class="epl-pos">2</span></td><td><div class="epl-team"><div class="epl-logo">&#128308;</div><div class="epl-team-info"><div class="epl-name">Rhein Strikers Red</div></div></div></td><td class="epl-captain" style="color:rgba(255,255,255,.5)">TBD</td></tr>
+          <tr class="epl-row"><td><span class="epl-pos">3</span></td><td><div class="epl-team"><div class="epl-logo">&#9876;&#65039;</div><div class="epl-team-info"><div class="epl-name">Karlsruhe Knights</div></div></div></td><td class="epl-captain" style="color:rgba(255,255,255,.5)">Atul Pradeep</td></tr>
+          <tr class="epl-row"><td><span class="epl-pos">4</span></td><td><div class="epl-team"><div class="epl-logo">&#9889;</div><div class="epl-team-info"><div class="epl-name">KK Challengers</div></div></div></td><td class="epl-captain" style="color:rgba(255,255,255,.5)">Prins</td></tr>
+          <tr class="epl-row"><td><span class="epl-pos">5</span></td><td><div class="epl-team"><div class="epl-logo">&#127944;</div><div class="epl-team-info"><div class="epl-name">TBG Neulusheim</div></div></div></td><td class="epl-captain" style="color:rgba(255,255,255,.5)">Supreeth</td></tr>
+          <tr class="epl-row"><td><span class="epl-pos">6</span></td><td><div class="epl-team"><div class="epl-logo">&#127951;</div><div class="epl-team-info"><div class="epl-name">Mainz Cricket Club</div></div></div></td><td class="epl-captain" style="color:rgba(255,255,255,.5)">Peter</td></tr>
+          <tr class="epl-row"><td><span class="epl-pos">7</span></td><td><div class="epl-team"><div class="epl-logo">&#127942;</div><div class="epl-team-info"><div class="epl-name">PSG Galli Cricket</div></div></div></td><td class="epl-captain" style="color:rgba(255,255,255,.5)">Chaitanya</td></tr>
+          <tr class="epl-row"><td><span class="epl-pos">8</span></td><td><div class="epl-team"><div class="epl-logo">&#128737;</div><div class="epl-team-info"><div class="epl-name">TSV Frankfurt Spartans</div></div></div></td><td class="epl-captain" style="color:rgba(255,255,255,.5)">Boney</td></tr>
+          <tr class="epl-row"><td><span class="epl-pos">9</span></td><td><div class="epl-team"><div class="epl-logo">&#128170;</div><div class="epl-team-info"><div class="epl-name">TGS United Challengers</div></div></div></td><td class="epl-captain" style="color:rgba(255,255,255,.5)">Gnana</td></tr>
+          <tr class="epl-row tbd-row"><td><span class="epl-pos">10</span></td><td><div class="epl-team"><div class="epl-logo">?</div><div class="epl-team-info"><div class="epl-name">TBD</div></div></div></td><td class="epl-captain" style="color:rgba(255,255,255,.2)">Slot Available</td></tr>
+          <tr class="epl-row tbd-row"><td><span class="epl-pos">11</span></td><td><div class="epl-team"><div class="epl-logo">?</div><div class="epl-team-info"><div class="epl-name">TBD</div></div></div></td><td class="epl-captain" style="color:rgba(255,255,255,.2)">Slot Available</td></tr>
+          <tr class="epl-row tbd-row"><td><span class="epl-pos">12</span></td><td><div class="epl-team"><div class="epl-logo">?</div><div class="epl-team-info"><div class="epl-name">TBD</div></div></div></td><td class="epl-captain" style="color:rgba(255,255,255,.2)">Slot Available</td></tr>
+        </tbody>
+      </table>
       <div class="fixtures-note-wrap reveal">
         <div class="fixtures-note">&#128197; Fixtures &amp; match schedule coming soon</div>
       </div>
@@ -724,36 +769,36 @@ section{padding:100px 0}
         <div class="match-card glass reveal s1">
           <div class="match-label">Quarter Final 1</div>
           <div class="match-teams">
-            <div class="match-team"><span class="mt-name"><span class="seed">Q1</span>TBD</span><span class="mt-score">--</span></div>
+            <div class="match-team"><span class="mt-name"><span class="mt-logo">?</span>TBD</span><span class="mt-score">--</span></div>
             <div class="match-vs">VS</div>
-            <div class="match-team"><span class="mt-name"><span class="seed">Q1</span>TBD</span><span class="mt-score">--</span></div>
+            <div class="match-team"><span class="mt-name"><span class="mt-logo">?</span>TBD</span><span class="mt-score">--</span></div>
           </div>
           <div class="match-footer"><span class="match-time">Coming Soon</span><span class="match-status st-upcoming">Upcoming</span></div>
         </div>
         <div class="match-card glass reveal s2">
           <div class="match-label">Quarter Final 2</div>
           <div class="match-teams">
-            <div class="match-team"><span class="mt-name"><span class="seed">Q2</span>TBD</span><span class="mt-score">--</span></div>
+            <div class="match-team"><span class="mt-name"><span class="mt-logo">?</span>TBD</span><span class="mt-score">--</span></div>
             <div class="match-vs">VS</div>
-            <div class="match-team"><span class="mt-name"><span class="seed">Q2</span>TBD</span><span class="mt-score">--</span></div>
+            <div class="match-team"><span class="mt-name"><span class="mt-logo">?</span>TBD</span><span class="mt-score">--</span></div>
           </div>
           <div class="match-footer"><span class="match-time">Coming Soon</span><span class="match-status st-upcoming">Upcoming</span></div>
         </div>
         <div class="match-card glass reveal s3">
           <div class="match-label">Quarter Final 3</div>
           <div class="match-teams">
-            <div class="match-team"><span class="mt-name"><span class="seed">Q3</span>TBD</span><span class="mt-score">--</span></div>
+            <div class="match-team"><span class="mt-name"><span class="mt-logo">?</span>TBD</span><span class="mt-score">--</span></div>
             <div class="match-vs">VS</div>
-            <div class="match-team"><span class="mt-name"><span class="seed">Q3</span>TBD</span><span class="mt-score">--</span></div>
+            <div class="match-team"><span class="mt-name"><span class="mt-logo">?</span>TBD</span><span class="mt-score">--</span></div>
           </div>
           <div class="match-footer"><span class="match-time">Coming Soon</span><span class="match-status st-upcoming">Upcoming</span></div>
         </div>
         <div class="match-card glass reveal s4">
           <div class="match-label">Quarter Final 4</div>
           <div class="match-teams">
-            <div class="match-team"><span class="mt-name"><span class="seed">Q4</span>TBD</span><span class="mt-score">--</span></div>
+            <div class="match-team"><span class="mt-name"><span class="mt-logo">?</span>TBD</span><span class="mt-score">--</span></div>
             <div class="match-vs">VS</div>
-            <div class="match-team"><span class="mt-name"><span class="seed">Q4</span>TBD</span><span class="mt-score">--</span></div>
+            <div class="match-team"><span class="mt-name"><span class="mt-logo">?</span>TBD</span><span class="mt-score">--</span></div>
           </div>
           <div class="match-footer"><span class="match-time">Coming Soon</span><span class="match-status st-upcoming">Upcoming</span></div>
         </div>
@@ -767,18 +812,18 @@ section{padding:100px 0}
         <div class="match-card glass reveal s1">
           <div class="match-label">Semi Final 1</div>
           <div class="match-teams">
-            <div class="match-team"><span class="mt-name"><span class="seed">&#9733;</span>Winner QF1</span><span class="mt-score">--</span></div>
+            <div class="match-team"><span class="mt-name"><span class="mt-logo">&#9733;</span>Winner QF1</span><span class="mt-score">--</span></div>
             <div class="match-vs">VS</div>
-            <div class="match-team"><span class="mt-name"><span class="seed">&#9733;</span>Winner QF2</span><span class="mt-score">--</span></div>
+            <div class="match-team"><span class="mt-name"><span class="mt-logo">&#9733;</span>Winner QF2</span><span class="mt-score">--</span></div>
           </div>
           <div class="match-footer"><span class="match-time">TBD</span><span class="match-status st-upcoming">Upcoming</span></div>
         </div>
         <div class="match-card glass reveal s2">
           <div class="match-label">Semi Final 2</div>
           <div class="match-teams">
-            <div class="match-team"><span class="mt-name"><span class="seed">&#9733;</span>Winner QF3</span><span class="mt-score">--</span></div>
+            <div class="match-team"><span class="mt-name"><span class="mt-logo">&#9733;</span>Winner QF3</span><span class="mt-score">--</span></div>
             <div class="match-vs">VS</div>
-            <div class="match-team"><span class="mt-name"><span class="seed">&#9733;</span>Winner QF4</span><span class="mt-score">--</span></div>
+            <div class="match-team"><span class="mt-name"><span class="mt-logo">&#9733;</span>Winner QF4</span><span class="mt-score">--</span></div>
           </div>
           <div class="match-footer"><span class="match-time">TBD</span><span class="match-status st-upcoming">Upcoming</span></div>
         </div>
@@ -791,9 +836,9 @@ section{padding:100px 0}
         <div class="match-card glass reveal" style="border-color:rgba(251,191,36,.12);background:rgba(251,191,36,.02);animation:glowPulse 4s ease-in-out infinite">
           <div class="match-label" style="color:#fbbf24">&#127942; Grand Final</div>
           <div class="match-teams">
-            <div class="match-team"><span class="mt-name"><span class="seed" style="background:rgba(251,191,36,.1);color:#fbbf24">&#9733;</span>Winner SF1</span><span class="mt-score">--</span></div>
+            <div class="match-team"><span class="mt-name"><span class="mt-logo" style="background:rgba(251,191,36,.08);border-color:rgba(251,191,36,.12);color:#fbbf24">&#9733;</span>Winner SF1</span><span class="mt-score">--</span></div>
             <div class="match-vs" style="color:#fbbf24">VS</div>
-            <div class="match-team"><span class="mt-name"><span class="seed" style="background:rgba(251,191,36,.1);color:#fbbf24">&#9733;</span>Winner SF2</span><span class="mt-score">--</span></div>
+            <div class="match-team"><span class="mt-name"><span class="mt-logo" style="background:rgba(251,191,36,.08);border-color:rgba(251,191,36,.12);color:#fbbf24">&#9733;</span>Winner SF2</span><span class="mt-score">--</span></div>
           </div>
           <div class="match-footer"><span class="match-time">TBD</span><span class="match-status st-final">Grand Final</span></div>
         </div>
@@ -848,6 +893,11 @@ section{padding:100px 0}
       <div class="sh-label"><span class="bar"></span> PARTNERS <span class="bar right"></span></div>
       <h2 class="sh-title">Our Sponsors</h2>
       <p class="sh-sub">Proudly supported by local businesses. Exclusive deals for tournament attendees!</p>
+    </div>
+
+    <div class="deals-banner reveal">
+      <span class="deals-icon">&#127381;</span>
+      <span class="deals-text">All sponsors are offering <strong>exclusive deals &amp; discounts</strong> for cricket players throughout the tournament. Show your player ID to redeem!</span>
     </div>
 
     <!-- TITLE SPONSOR -->
@@ -1024,10 +1074,10 @@ section{padding:100px 0}
       <h2>Ready to Play?</h2>
       <p>Register your team for the Rhein Strikers Cricket Cup 2026. Limited to 12 teams &mdash; 3 spots remaining!</p>
       <div class="cta-contacts">
-        <div class="cta-chip"><span class="icon">&#128222;</span> +49 176 84463070</div>
-        <div class="cta-chip"><span class="icon">&#128247;</span> @RHEINSTRIKERS</div>
+        <div class="cta-chip"><span class="icon">&#128222;</span> Pravin: +49 176 14694218</div>
+        <div class="cta-chip"><span class="icon">&#128247;</span> <a href="https://www.instagram.com/rheinstrikers" target="_blank" rel="noopener" style="color:inherit">@RHEINSTRIKERS</a></div>
       </div>
-      <a href="https://instagram.com/rheinstrikers" target="_blank" rel="noopener" class="btn btn-primary">Register on Instagram</a>
+      <a href="https://www.instagram.com/rheinstrikers" target="_blank" rel="noopener" class="btn btn-primary">Register on Instagram</a>
     </div>
   </div>
 </section>
@@ -1045,7 +1095,7 @@ section{padding:100px 0}
         <a href="#contact">Contact</a>
       </div>
       <div class="footer-social">
-        <a href="https://instagram.com/rheinstrikers" target="_blank" rel="noopener" title="Instagram">
+        <a href="https://www.instagram.com/rheinstrikers" target="_blank" rel="noopener" title="Instagram">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
         </a>
       </div>
